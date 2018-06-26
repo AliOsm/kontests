@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootswatch/cyborg/variables.scss";
+@import "bootstrap";
+@import "bootswatch/cyborg/bootswatch.scss";
