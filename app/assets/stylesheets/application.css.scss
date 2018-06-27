@@ -14,6 +14,10 @@
  *= require_self
  */
 
-@import "bootswatch/cyborg/variables.scss";
+@import "bootswatch/darkly/variables.scss";
 @import "bootstrap";
-@import "bootswatch/cyborg/bootswatch.scss";
+@import "bootswatch/darkly/bootswatch.scss";
+
+* {
+	outline: none;
+}

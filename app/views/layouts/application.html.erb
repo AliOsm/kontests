@@ -5,11 +5,70 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <title>Contestant</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Script-Type" content="text/javascript">
+    <meta http-equiv="Content-Style-Type" content="text/css">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Competitive programming contests schedule">
+    <meta name="keywords" content="Competitive programming,problem solving,codeforces,csacademy,atcoder,codechef,a2oj,hackerrank">
+    <meta name="Distribution" content="Global">
+    <meta name="author" content="Ali Fadel">
+    <meta name="copyright" content="Ali Fadel 2018">
+    <meta name="robots" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    <meta name="contact" content="aliosm1997@gmail.com">
+    <meta name="generator" content="Sublime Text">
+    <meta name="language" content="English">
+    <meta name="rating" content="general">
+    <meta name="web_author" content="Ali Fadel">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <%= link_to('Contestant', root_path, class: 'navbar-brand') %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Supported Sites
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to('CodeForces', 'https://www.codeforces.com', class: 'dropdown-item', target: :_blank) %>
+                  <%= link_to('CS Academy', 'https://csacademy.com', class: 'dropdown-item', target: :_blank) %>
+                  <%= link_to('AtCoder', 'https://atcoder.jp/', class: 'dropdown-item', target: :_blank) %>
+                  <%= link_to('CodeChef', 'https://www.codechef.com/', class: 'dropdown-item', target: :_blank) %>
+                  <%= link_to('A2OJ', 'https://www.a2oj.com/', class: 'dropdown-item', target: :_blank) %>
+                  <%= link_to('HackerRank', 'https://www.hackerrank.com/', class: 'dropdown-item', target: :_blank) %>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Suggest site?</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <%= link_to('Contact us', '', class: 'nav-link') %>
+              </li>
+              <li class="nav-item">
+                <%= link_to('About', '', class: 'nav-link') %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>
