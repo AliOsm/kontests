@@ -9,6 +9,8 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'bootswatch', '~> 4.0'
 # Use jQuery as default JS framework
 gem 'jquery-rails'
+# Use clockwork to create periodic tasks
+gem 'clockwork', '~> 1.2', require: false
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
