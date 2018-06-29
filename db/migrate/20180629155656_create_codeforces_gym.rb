@@ -1,6 +1,6 @@
-class CreateCodeforces < ActiveRecord::Migration[5.2]
+class CreateCodeforcesGym < ActiveRecord::Migration[5.2]
   def change
-    create_table :codeforces, id: false do |t|
+    create_table :codeforces_gym, id: false do |t|
       t.integer :id, null: false
       t.string :name
       t.string :duration
@@ -9,6 +9,6 @@ class CreateCodeforces < ActiveRecord::Migration[5.2]
       # t.timestamps
     end
 
-    add_index :codeforces, :id, unique: true
+    add_index :codeforces_gym, :id, unique: true
   end
 end

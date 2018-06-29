@@ -27,15 +27,17 @@
     <meta name="rating" content="general">
     <meta name="web_author" content="Ali Fadel">
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <%= link_to('Contestant', root_path, class: 'navbar-brand') %>
+        <div class="container-fluid">
+          <%= link_to(root_path, class: 'navbar-brand') do %>
+            <%= icon('fas', 'chess-knight', 'Contestant') %>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -44,31 +46,41 @@
             <ul class="navbar-nav mr-auto">
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Supported Sites
+                  <%= icon('fas', 'life-ring', 'Supported Sites') %>
                 </a>
+
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <%= link_to('CodeForces', 'https://www.codeforces.com', class: 'dropdown-item', target: :_blank) %>
-                  <%= link_to('CS Academy', 'https://csacademy.com', class: 'dropdown-item', target: :_blank) %>
-                  <%= link_to('AtCoder', 'https://atcoder.jp/', class: 'dropdown-item', target: :_blank) %>
-                  <%= link_to('CodeChef', 'https://www.codechef.com/', class: 'dropdown-item', target: :_blank) %>
-                  <%= link_to('A2OJ', 'https://www.a2oj.com/', class: 'dropdown-item', target: :_blank) %>
-                  <%= link_to('HackerRank', 'https://www.hackerrank.com/', class: 'dropdown-item', target: :_blank) %>
+                  <% SITES.each do |site| %>
+                    <%= link_to(site.first, site.third, class: 'dropdown-item', target: :_blank) %>
+                  <% end %>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="#">Suggest site?</a>
                 </div>
               </li>
+
               <li class="nav-item">
-                <%= link_to('Contact us', '', class: 'nav-link') %>
-              </li>
-              <li class="nav-item">
-                <%= link_to('About', '', class: 'nav-link') %>
+                <%= link_to('https://github.com/AliOsm/contestant', class: 'nav-link', target: :_blank) do %>
+                  <%= icon('fab', 'github', 'GitHub Repo') %>
+                <% end %>
               </li>
             </ul>
+
+            <span class="navbar-text">
+              developed with &nbsp;<%= icon('far', 'heart', class: 'red') %>
+            </span>
           </div>
         </div>
       </nav>
     </header>
 
-    <%= yield %>
+    <br>
+
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

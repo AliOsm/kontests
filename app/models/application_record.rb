@@ -8,7 +8,7 @@ class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
 	def self.seconds_to_time seconds
-		minutes, seconds = seconds.divmod(60)
+    minutes, seconds = seconds.divmod(60)
     hours, minutes = minutes.divmod(60)
     days, hours = hours.divmod(24)
 

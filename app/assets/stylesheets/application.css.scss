@@ -14,10 +14,26 @@
  *= require_self
  */
 
-@import "bootswatch/darkly/variables.scss";
+@import "bootswatch/darkly/variables";
 @import "bootstrap";
-@import "bootswatch/darkly/bootswatch.scss";
+@import "bootswatch/darkly/bootswatch";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 * {
 	outline: none;
+}
+
+.red {
+  color: red;
+}
+
+/* BOOTSTRAP */
+
+.navbar {
+  font-size: 1.2rem;
+
+  .navbar-brand {
+    font-size: 1.5rem;
+  }
 }

@@ -8,7 +8,9 @@ gem 'bootstrap', '~> 4.1.1'
 # Use Bootswatch themes on Bootstrap
 gem 'bootswatch', '~> 4.0'
 # Use jQuery as default JS framework
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+# Use FontAwesome as default font icon
+gem 'font-awesome-sass', '~> 5.0.13'
 # Use clockwork to create periodic tasks
 gem 'clockwork', '~> 1.2', require: false
 

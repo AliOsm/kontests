@@ -1,0 +1,33 @@
+<div class="tab-pane fade <%= 'show active' if site_class == SITES.first.second %>" id="v-pills-<%= site_class %>" role="tabpanel" aria-labelledby="v-pills-<%= site_class %>-tab">
+  <% if contests.empty? %>
+    <p class="no-contests mb-0">
+      There is no contests to show &nbsp;<%= icon('far', 'frown') %>
+    </p>
+  <% else %>
+    <div class="table-responsive">
+      <table class="table table-borderless mb-0">
+        <thead style="border-bottom: 1px solid #444;">
+          <tr>
+            <% contests.column_names.each do |column_name| %>
+              <th scope="col">
+                <%= column_name.tr('_', ' ').capitalize %>
+              </th>
+            <% end %>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% contests.each do |contest| %>
+            <tr>
+              <% contests.column_names.each do |column_name| %>
+                <td>
+                  <%= contest[column_name] %>
+                </td>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

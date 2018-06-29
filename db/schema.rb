@@ -10,17 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_28_115055) do
+ActiveRecord::Schema.define(version: 2018_06_29_155656) do
 
   create_table "codeforces", id: false, force: :cascade do |t|
     t.integer "id", null: false
     t.string "name"
     t.string "duration"
     t.string "start_time"
-    t.integer "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["id"], name: "index_codeforces_on_id", unique: true
+  end
+
+  create_table "codeforces_gym", id: false, force: :cascade do |t|
+    t.integer "id", null: false
+    t.string "name"
+    t.string "duration"
+    t.string "start_time"
+    t.index ["id"], name: "index_codeforces_gym_on_id", unique: true
   end
 
 end
