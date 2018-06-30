@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'json'
 require 'time'
 
 include ActionView::Helpers::TextHelper

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyString
+  name: MyString
+  duration: MyString
+  start_time: MyString
+  participate: MyString
+  rated: MyString
+
+two:
+  url: MyString
+  name: MyString
+  duration: MyString
+  start_time: MyString
+  participate: MyString
+  rated: MyString

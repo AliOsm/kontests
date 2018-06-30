@@ -1,3 +1,5 @@
+require 'json'
+
 class Codeforces < ApplicationRecord
 	self.primary_key = :id
 
@@ -6,11 +8,13 @@ class Codeforces < ApplicationRecord
 	end
 
 	def self.update_contests
-		# delete old contests from database
-		delete_all
-
-		# add contests
+    # request codeforces api
 		contests = JSON.load(open('http://codeforces.com/api/contest.list'))['result']
+
+    # delete old contests from database
+    delete_all
+
+    # add contests
 		contests.each do |contest|
       create(id: contest['id'].to_i,
              name: contest['name'],
