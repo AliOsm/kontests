@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_30_190744) do
+ActiveRecord::Schema.define(version: 2018_07_01_152618) do
+
+  create_table "a2oj", id: false, force: :cascade do |t|
+    t.integer "code", null: false
+    t.string "name"
+    t.string "owner"
+    t.string "start_time"
+    t.string "before_start"
+    t.string "duration"
+    t.string "registrants"
+    t.string "type_"
+    t.string "registration"
+    t.index ["code"], name: "index_a2oj_on_code", unique: true
+  end
 
   create_table "at_coder", id: false, force: :cascade do |t|
     t.string "code", null: false

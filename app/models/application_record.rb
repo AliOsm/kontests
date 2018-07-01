@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'time'
 
 include ActionView::Helpers::TextHelper
 
@@ -22,4 +21,8 @@ class ApplicationRecord < ActiveRecord::Base
 
     ret
 	end
+
+  def self.add_target_attr anchor
+    anchor.insert(3, 'target="_balnk"')
+  end
 end

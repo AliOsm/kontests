@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: 1
+  name: MyString
+  owner: MyString
+  start_time: MyString
+  before_start: MyString
+  duration: MyString
+  registrants: MyString
+  type: 
+  registration: MyString
+
+two:
+  code: 1
+  name: MyString
+  owner: MyString
+  start_time: MyString
+  before_start: MyString
+  duration: MyString
+  registrants: MyString
+  type: 
+  registration: MyString

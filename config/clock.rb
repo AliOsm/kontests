@@ -12,6 +12,8 @@ module Clockwork
       AtCoder.update_contests
     elsif job.eql?('frequent.update_codechef')
       CodeChef.update_contests
+    elsif job.eql?('frequent.update_a2oj')
+      A2oj.update_contests
 		end
   end
 
@@ -19,4 +21,5 @@ module Clockwork
   every(30.minute, 'frequent.update_codeforces_gym')
   every(30.minute, 'frequent.update_at_coder')
   every(30.minute, 'frequent.update_codechef')
+  every(30.minute, 'frequent.update_a2oj')
 end

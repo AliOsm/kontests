@@ -22,7 +22,7 @@ class CodeChef < ApplicationRecord
       tds = contest.css('> td')
   
       create(code: tds[0].text,
-             name: '<a href="%s" target="_blank">%s</a>' % [BASE_URL + tds[1].css('a').first['href'], tds[1].text],
+             name: add_target_attr(tds[1].css('a').to_s.insert(9, BASE_URL)),
              start_time: tds[2].text,
              end_time: tds[3].text)
     end
