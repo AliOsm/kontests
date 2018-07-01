@@ -3,10 +3,10 @@ require 'time'
 
 class CodeforcesGym < ApplicationRecord
   self.pluralize_table_names = false
-  self.primary_key = :id
+  self.primary_key = :code
 
   def to_param
-    id.parametarize   
+    code.parametarize   
   end
 
   def self.update_contests
@@ -18,7 +18,7 @@ class CodeforcesGym < ApplicationRecord
 
     # add contests
     contests.each do |contest|
-      create(id: contest['id'].to_i,
+      create(code: contest['id'].to_i,
              name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
              start_time: Time.strptime(contest['startTimeSeconds'].to_s, '%s').strftime('%b/%d/%Y %H:%M'),
              duration: seconds_to_time(contest['durationSeconds'].to_i),

@@ -44,20 +44,20 @@ ActiveRecord::Schema.define(version: 2018_07_01_152618) do
   end
 
   create_table "codeforces", id: false, force: :cascade do |t|
-    t.integer "id", null: false
+    t.integer "code", null: false
     t.string "name"
     t.string "start_time"
     t.string "duration"
-    t.index ["id"], name: "index_codeforces_on_id", unique: true
+    t.index ["code"], name: "index_codeforces_on_code", unique: true
   end
 
   create_table "codeforces_gym", id: false, force: :cascade do |t|
-    t.integer "id", null: false
+    t.integer "code", null: false
     t.string "name"
     t.string "start_time"
     t.string "duration"
     t.integer "difficulty"
-    t.index ["id"], name: "index_codeforces_gym_on_id", unique: true
+    t.index ["code"], name: "index_codeforces_gym_on_code", unique: true
   end
 
 end

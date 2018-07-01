@@ -13,7 +13,7 @@
 
   <div class="col-10">
     <div class="card">
-      <div class="card-body">
+      <div class="card-body pt-0 pr-0 pb-0 pl-0">
         <div class="tab-content" id="v-pills-tabContent">
           <% @sites.each do |site| %>
             <%= render partial: 'show_contests', locals: { site_class: site.second, contests: site.third } if site.third.count > 0 %>

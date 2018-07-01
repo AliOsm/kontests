@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Contestant</title>
+    <title>Kontests</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <title>Contestant</title>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="Expires" content="0">
@@ -33,10 +31,10 @@
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <%= link_to(root_path, class: 'navbar-brand') do %>
-            <%= icon('fas', 'chess-knight', 'Contestant') %>
+            <%= icon('fas', 'chess-knight', 'KONTESTS') %>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -66,7 +64,7 @@
             </ul>
 
             <span class="navbar-text">
-              developed with &nbsp;<%= icon('far', 'heart', class: 'red') %>
+              developed with &nbsp;<%= icon('far', 'heart') %>
             </span>
           </div>
         </div>

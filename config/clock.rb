@@ -17,9 +17,9 @@ module Clockwork
 		end
   end
 
-  every(30.minute, 'frequent.update_codeforces')
-  every(30.minute, 'frequent.update_codeforces_gym')
-  every(30.minute, 'frequent.update_at_coder')
-  every(30.minute, 'frequent.update_codechef')
-  every(30.minute, 'frequent.update_a2oj')
+  every(11.minute, 'frequent.update_codeforces')
+  every(13.minute, 'frequent.update_codeforces_gym')
+  every(17.minute, 'frequent.update_at_coder')
+  every(19.minute, 'frequent.update_codechef')
+  every(23.minute, 'frequent.update_a2oj')
 end
