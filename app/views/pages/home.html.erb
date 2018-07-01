@@ -1,20 +1,22 @@
-<div class="row">
-  <div class="col-2">
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+<div class="row justify-content-center">
+  <div class="col-10">
+    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" aria-orientation="vertical">
       <% @sites.each do |site| %>
         <% if site.third.count > 0 %>
-          <a class="nav-link <%= 'active' if site.first == SITES.first.first %>" id="v-pills-<%= site.second %>-tab" data-toggle="pill" href="#v-pills-<%= site.second %>" role="tab" aria-controls="v-pills-<%= site.second %>" aria-selected="true">
-            <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.count %></span>
-          </a>
+          <li class="nav-item">
+            <a class="nav-link <%= 'active' if site.first == SITES.first.first %>" id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab" aria-controls="pills-<%= site.second %>" aria-selected="true">
+              <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.count %></span>
+            </a>
+          </li>
         <% end %>
       <% end %>
-    </div>
+    </ul>
   </div>
 
   <div class="col-10">
     <div class="card">
       <div class="card-body pt-0 pr-0 pb-0 pl-0">
-        <div class="tab-content" id="v-pills-tabContent">
+        <div class="tab-content" id="pills-tabContent">
           <% @sites.each do |site| %>
             <%= render partial: 'show_contests', locals: { site_class: site.second, contests: site.third } if site.third.count > 0 %>
           <% end %>
