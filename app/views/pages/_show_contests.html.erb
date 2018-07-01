@@ -21,7 +21,7 @@
             <tr>
               <% contests.column_names.each do |column_name| %>
                 <td>
-                  <%= contest[column_name] %>
+                  <%= raw contest[column_name] %>
                 </td>
               <% end %>
             </tr>

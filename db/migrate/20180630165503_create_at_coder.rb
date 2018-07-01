@@ -2,10 +2,9 @@ class CreateAtCoder < ActiveRecord::Migration[5.2]
   def change
     create_table :at_coder, id: false do |t|
       t.string :code, null: false
-      # t.string :url
       t.string :name
-      t.string :duration
       t.string :start_time
+      t.string :duration
       t.string :participate
       t.string :rated
 

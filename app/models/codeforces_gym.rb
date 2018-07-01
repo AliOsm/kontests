@@ -10,7 +10,7 @@ class CodeforcesGym < ApplicationRecord
 
   def self.update_contests
     # request codeforces api
-    contests = JSON.load(open('http://codeforces.com/api/contest.list?gym=true'))['result']
+    contests = JSON.load(open('https://codeforces.com/api/contest.list?gym=true', 'User-Agent' => USER_AGENT))['result']
 
     # delete old contests from database
     delete_all
@@ -18,9 +18,10 @@ class CodeforcesGym < ApplicationRecord
     # add contests
     contests.each do |contest|
       create(id: contest['id'].to_i,
-             name: contest['name'],
+             name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
+             start_time: Time.strptime(contest['startTimeSeconds'].to_s, '%s').strftime('%b/%d/%Y %H:%M'),
              duration: seconds_to_time(contest['durationSeconds'].to_i),
-             start_time: Time.strptime(contest['startTimeSeconds'].to_s, '%s').strftime('%b/%d/%Y %H:%M')) if contest['phase'] == 'BEFORE'
+             difficulty: contest['difficulty'].to_i) if contest['phase'] == 'BEFORE'
     end
   end
 end

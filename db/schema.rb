@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(version: 2018_06_30_190744) do
   create_table "at_coder", id: false, force: :cascade do |t|
     t.string "code", null: false
     t.string "name"
-    t.string "duration"
     t.string "start_time"
+    t.string "duration"
     t.string "participate"
     t.string "rated"
     t.index ["code"], name: "index_at_coder_on_code", unique: true
@@ -33,16 +33,17 @@ ActiveRecord::Schema.define(version: 2018_06_30_190744) do
   create_table "codeforces", id: false, force: :cascade do |t|
     t.integer "id", null: false
     t.string "name"
-    t.string "duration"
     t.string "start_time"
+    t.string "duration"
     t.index ["id"], name: "index_codeforces_on_id", unique: true
   end
 
   create_table "codeforces_gym", id: false, force: :cascade do |t|
     t.integer "id", null: false
     t.string "name"
-    t.string "duration"
     t.string "start_time"
+    t.string "duration"
+    t.integer "difficulty"
     t.index ["id"], name: "index_codeforces_gym_on_id", unique: true
   end
 

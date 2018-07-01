@@ -3,8 +3,9 @@ class CreateCodeforcesGym < ActiveRecord::Migration[5.2]
     create_table :codeforces_gym, id: false do |t|
       t.integer :id, null: false
       t.string :name
-      t.string :duration
       t.string :start_time
+      t.string :duration
+      t.integer :difficulty
 
       # t.timestamps
     end

@@ -6,6 +6,8 @@ include ActionView::Helpers::TextHelper
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
+  USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'
+
 	def self.seconds_to_time seconds
     minutes, seconds = seconds.divmod(60)
     hours, minutes = minutes.divmod(60)

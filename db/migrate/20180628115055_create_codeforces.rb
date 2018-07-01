@@ -3,8 +3,8 @@ class CreateCodeforces < ActiveRecord::Migration[5.2]
     create_table :codeforces, id: false do |t|
       t.integer :id, null: false
       t.string :name
-      t.string :duration
       t.string :start_time
+      t.string :duration
 
       # t.timestamps
     end
