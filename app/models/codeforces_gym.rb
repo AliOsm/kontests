@@ -17,7 +17,7 @@ class CodeforcesGym < ApplicationRecord
     delete_all
 
     # add contests
-    contests.each do |contest|
+    contests.reverse.each do |contest|
       create(code: contest['id'].to_i,
              name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
              start_time: Time.strptime(contest['startTimeSeconds'].to_s, '%s').strftime('%b/%d/%Y %H:%M'),
