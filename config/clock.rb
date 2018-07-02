@@ -14,6 +14,8 @@ module Clockwork
       CodeChef.update_contests
     elsif job.eql?('frequent.update_a2oj')
       A2oj.update_contests
+    elsif job.eql?('frequent.update_cs_academy')
+      CsAcademy.update_contests
 		end
   end
 
@@ -22,4 +24,5 @@ module Clockwork
   every(17.minute, 'frequent.update_at_coder')
   every(19.minute, 'frequent.update_codechef')
   every(23.minute, 'frequent.update_a2oj')
+  every(29.minute, 'frequent.update_cs_academy')
 end

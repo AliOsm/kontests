@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_01_152618) do
+ActiveRecord::Schema.define(version: 2018_07_02_163501) do
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -58,6 +58,12 @@ ActiveRecord::Schema.define(version: 2018_07_01_152618) do
     t.string "duration"
     t.integer "difficulty"
     t.index ["code"], name: "index_codeforces_gym_on_code", unique: true
+  end
+
+  create_table "cs_academy", id: false, force: :cascade do |t|
+    t.string "name"
+    t.string "start_time"
+    t.string "duration"
   end
 
 end

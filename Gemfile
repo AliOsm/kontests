@@ -11,6 +11,8 @@ gem 'bootswatch', '~> 4.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Use FontAwesome as default font icon
 gem 'font-awesome-sass', '~> 5.0.13'
+# Use Watir to navigate dynamic sites
+gem 'watir', '~> 6.0'
 # Use clockwork to create periodic tasks
 gem 'clockwork', '~> 1.2', require: false
 
