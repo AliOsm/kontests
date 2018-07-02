@@ -7,7 +7,15 @@ class CsAcademy < ApplicationRecord
   BASE_URL = 'https://csacademy.com'
 
   def self.update_contests
-    browser = Watir::Browser.new :chrome, headless: true, binary: ENV['GOOGLE_CHROME_BIN']
+    opts = {
+      headless: true
+    }
+
+    if chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+      opts.merge!(options: {binary: chrome_bin})
+    end
+
+    browser = Watir::Browser.new :chrome, opts
 
     # request csacademy contests page
     browser.goto 'https://csacademy.com/contests'
