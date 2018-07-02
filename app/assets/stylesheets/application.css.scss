@@ -14,9 +14,9 @@
  *= require_self
  */
 
-@import "bootswatch/solar/variables";
+@import "bootswatch/superhero/variables";
 @import "bootstrap";
-@import "bootswatch/solar/bootswatch";
+@import "bootswatch/superhero/bootswatch";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -24,8 +24,25 @@
 	outline: none;
 }
 
-.red {
-  color: red;
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding-top: 86px;
+}
+
+#content {
+  flex: 1 0 auto;
+}
+
+#footer {
+  flex: 0 0 auto;
+  background-color: #4E5D6C;
+  margin-top: 15px;
+  padding: 10px 0px 10px 0px;
 }
 
 /* BOOTSTRAP */

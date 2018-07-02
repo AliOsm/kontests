@@ -19,6 +19,7 @@ class CsAcademy < ApplicationRecord
 
     # request csacademy contests page
     browser.goto 'https://csacademy.com/contests'
+    browser.wait_until { browser.element(css: 'table').exists? }
     contests = Nokogiri::HTML(browser.element(css: 'table').html).css('tbody tr')
 
     # delete old contests from database
@@ -32,7 +33,7 @@ class CsAcademy < ApplicationRecord
       start_time += ' '
       start_time += tds[1].text.split('(').last.tr(')', '')
       
-      create(name: tds[0].css('a').to_s.insert(9, BASE_URL),
+      create(name: add_target_attr(tds[0].css('a').to_s.insert(9, BASE_URL)),
              start_time: start_time,
              duration: tds[2].text)
     end

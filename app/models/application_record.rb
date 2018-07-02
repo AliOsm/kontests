@@ -14,9 +14,9 @@ class ApplicationRecord < ActiveRecord::Base
 
     if days > 0
     	ret = pluralize(days, 'day')
-    	ret += ' and %02d:%02d:%02d' % [hours, minutes, seconds] if seconds + minutes + hours > 0
+    	ret += ' and %02d:%02d' % [hours, minutes] if minutes + hours > 0
     else
-    	ret = '%02d:%02d:%02d' % [hours, minutes, seconds]
+    	ret = '%02d:%02d' % [hours, minutes]
     end
 
     ret
