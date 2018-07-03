@@ -27,7 +27,7 @@ class A2oj < ApplicationRecord
 
       owner = add_target_attr(tds[2].css('a').first.to_s.insert(9, BASE_URL))
 
-      start_time = tds[3].css('a').first.text
+      start_time = Time.parse(tds[3].css('a').first.text)
       before_start = tds[3].css('b').first.text
 
       duration = tds[4].text
@@ -45,7 +45,7 @@ class A2oj < ApplicationRecord
       create(code: code.to_i,
              name: name,
              owner: owner,
-             start_time: start_time,
+             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
              before_start: before_start,
              duration: duration,
              registrants: registrants,

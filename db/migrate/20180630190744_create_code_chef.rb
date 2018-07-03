@@ -5,6 +5,7 @@ class CreateCodeChef < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :start_time
       t.string :end_time
+      t.string :duration
 
       # t.timestamps
     end

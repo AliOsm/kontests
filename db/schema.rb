@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "name"
     t.string "start_time"
     t.string "end_time"
+    t.string "duration"
     t.index ["code"], name: "index_code_chef_on_code", unique: true
   end
 

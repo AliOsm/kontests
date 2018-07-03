@@ -31,10 +31,11 @@ class CsAcademy < ApplicationRecord
 
       start_time = tds[1].text.split(',').first
       start_time += ' '
-      start_time += tds[1].text.split('(').last.tr(')', '')
+      start_time += tds[1].text.split('(').last.tr(' UTC)', '')
+      start_time = Time.parse(start_time)
       
       create(name: add_target_attr(tds[0].css('a').to_s.insert(9, BASE_URL)),
-             start_time: start_time,
+             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
              duration: tds[2].text)
     end
 

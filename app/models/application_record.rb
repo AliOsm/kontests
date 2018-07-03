@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'time'
 
 include ActionView::Helpers::TextHelper
 
@@ -6,6 +7,10 @@ class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
   USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'
+
+  def self.generate_tad_url start_time, text
+    add_target_attr('<a href="https://www.timeanddate.com/worldclock/fixedtime.html?year=%s&month=%s&day=%s&hour=%s&min=%s&sec=%s&p1=1440">%s</a>' % [start_time.year, start_time.month, start_time.day, start_time.hour, start_time.min, start_time.sec, text])
+  end
 
 	def self.seconds_to_time seconds
     minutes, seconds = seconds.divmod(60)

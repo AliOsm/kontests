@@ -20,11 +20,15 @@ class CodeChef < ApplicationRecord
     # add contests
     contests.each do |contest|
       tds = contest.css('> td')
-  
+
+      start_time = Time.parse(tds[2]['data-starttime']).in_time_zone('UTC')
+      end_time = Time.parse(tds[3]['data-endtime']).in_time_zone('UTC')
+
       create(code: tds[0].text,
              name: add_target_attr(tds[1].css('a').to_s.insert(9, BASE_URL)),
-             start_time: tds[2].text,
-             end_time: tds[3].text)
+             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
+             end_time: generate_tad_url(end_time, end_time.strftime('%d/%m/%Y %H:%M:%S')),
+             duration: seconds_to_time(end_time - start_time))
     end
   end
 end

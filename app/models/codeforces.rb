@@ -1,5 +1,4 @@
 require 'json'
-require 'time'
 
 class Codeforces < ApplicationRecord
 	self.primary_key = :code
