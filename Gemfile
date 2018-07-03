@@ -13,6 +13,12 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'font-awesome-sass', '~> 5.0.13'
 # Use Watir to navigate dynamic sites
 gem 'watir', '~> 6.0'
+# Use simple_form to generate simple forms!
+gem 'simple_form', '~> 4.0.0'
+# Use validates_email_format_of to validate emails!
+gem 'validates_email_format_of', '~> 1.6', '>= 1.6.3'
+# Use validate_url to validate urls!
+gem 'validate_url', '~> 1.0', '>= 1.0.2'
 # Use clockwork to create periodic tasks
 gem 'clockwork', '~> 1.2', require: false
 

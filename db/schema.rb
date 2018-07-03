@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_02_163501) do
+ActiveRecord::Schema.define(version: 2018_07_03_055732) do
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -64,6 +64,14 @@ ActiveRecord::Schema.define(version: 2018_07_02_163501) do
     t.string "name"
     t.string "start_time"
     t.string "duration"
+  end
+
+  create_table "suggests", force: :cascade do |t|
+    t.string "site", null: false
+    t.string "email", default: ""
+    t.text "message", default: ""
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
