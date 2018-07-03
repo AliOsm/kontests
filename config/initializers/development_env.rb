@@ -1,4 +1,4 @@
 if Rails.env.development?
-  ENV['username'] = 'aliosm'
-  ENV['password'] = '123456'
+  ENV['USERNAME'] = 'aliosm'
+  ENV['PASSWORD'] = '123456'
 end

@@ -1,5 +1,5 @@
 class SuggestsController < ApplicationController
-  http_basic_authenticate_with name: ENV['username'], password: ENV['password'], only: [:index]
+  http_basic_authenticate_with name: ENV['USERNAME'], password: ENV['PASSWORD'], only: [:index]
   
   def index
     @suggests = Suggest.all.order(id: :desc)
