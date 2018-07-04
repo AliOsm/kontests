@@ -19,7 +19,7 @@ class CodeforcesGym < ApplicationRecord
     contests.reverse.each do |contest|
       create(code: contest['id'].to_i,
              name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
-             start_time: Time.strptime(contest['startTimeSeconds'].to_s, '%s').strftime('%b/%d/%Y %H:%M'),
+             start_time: generate_tad_url(Time.strptime(contest['startTimeSeconds'].to_s, '%s')),
              duration: seconds_to_time(contest['durationSeconds'].to_i),
              difficulty: contest['difficulty'].to_i) if contest['phase'] == 'BEFORE'
     end

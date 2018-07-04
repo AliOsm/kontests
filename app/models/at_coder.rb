@@ -28,7 +28,7 @@ class AtCoder < ApplicationRecord
 
       create(code: url.split('.').first.split('/').last,
              name: add_target_attr(a.to_s),
-             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
+             start_time: generate_tad_url(start_time),
              duration: duration,
              participate: tds[1].text,
              rated: tds[3].text)

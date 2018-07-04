@@ -26,8 +26,8 @@ class CodeChef < ApplicationRecord
 
       create(code: tds[0].text,
              name: add_target_attr(tds[1].css('a').to_s.insert(9, BASE_URL)),
-             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
-             end_time: generate_tad_url(end_time, end_time.strftime('%d/%m/%Y %H:%M:%S')),
+             start_time: generate_tad_url(start_time),
+             end_time: generate_tad_url(end_time),
              duration: seconds_to_time(end_time - start_time))
     end
   end

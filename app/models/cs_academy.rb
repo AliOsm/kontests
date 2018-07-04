@@ -35,7 +35,7 @@ class CsAcademy < ApplicationRecord
       start_time = Time.parse(start_time)
       
       create(name: add_target_attr(tds[0].css('a').to_s.insert(9, BASE_URL)),
-             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
+             start_time: generate_tad_url(start_time),
              duration: tds[2].text)
     end
 

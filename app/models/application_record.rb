@@ -8,8 +8,8 @@ class ApplicationRecord < ActiveRecord::Base
 
   USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'
 
-  def self.generate_tad_url start_time, text
-    add_target_attr('<a href="https://www.timeanddate.com/worldclock/fixedtime.html?year=%s&month=%s&day=%s&hour=%s&min=%s&sec=%s&p1=1440">%s</a>' % [start_time.year, start_time.month, start_time.day, start_time.hour, start_time.min, start_time.sec, text])
+  def self.generate_tad_url start_time
+    add_target_attr('<a href="https://www.timeanddate.com/worldclock/fixedtime.html?year=%s&month=%s&day=%s&hour=%s&min=%s&sec=%s&p1=1440">%s</a>' % [start_time.year, start_time.month, start_time.day, start_time.hour, start_time.min, start_time.sec, start_time.strftime('%d/%m/%Y %H:%M:%S')])
   end
 
 	def self.seconds_to_time seconds
@@ -19,9 +19,9 @@ class ApplicationRecord < ActiveRecord::Base
 
     if days > 0
     	ret = pluralize(days, 'day')
-    	ret += ' and %02d:%02d' % [hours, minutes] if minutes + hours > 0
+    	ret += ' and %02d:%02d:%02d' % [hours, minutes, seconds] if minutes + hours > 0
     else
-    	ret = '%02d:%02d' % [hours, minutes]
+    	ret = '%02d:%02d:%02d' % [hours, minutes, seconds]
     end
 
     ret

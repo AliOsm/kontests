@@ -45,7 +45,7 @@ class A2oj < ApplicationRecord
       create(code: code.to_i,
              name: name,
              owner: owner,
-             start_time: generate_tad_url(start_time, start_time.strftime('%d/%m/%Y %H:%M:%S')),
+             start_time: generate_tad_url(start_time),
              before_start: before_start,
              duration: duration,
              registrants: registrants,
