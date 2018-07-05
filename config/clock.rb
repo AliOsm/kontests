@@ -16,13 +16,16 @@ module Clockwork
       A2oj.update_contests
     elsif job.eql?('frequent.update_cs_academy')
       CsAcademy.update_contests
+    elsif job.eql?('frequent.ping_me')
+      ApplicationRecord.ping_me
 		end
   end
 
-  every(9.minute, 'frequent.update_codeforces')
-  every(9.minute, 'frequent.update_codeforces_gym')
-  every(13.minute, 'frequent.update_at_coder')
-  every(17.minute, 'frequent.update_codechef')
-  every(19.minute, 'frequent.update_a2oj')
-  every(23.minute, 'frequent.update_cs_academy')
+  every(3.minute, 'frequent.update_codeforces')
+  every(3.minute, 'frequent.update_codeforces_gym')
+  every(5.minute, 'frequent.update_at_coder')
+  every(7.minute, 'frequent.update_codechef')
+  every(9.minute, 'frequent.update_a2oj')
+  every(11.minute, 'frequent.update_cs_academy')
+  every(29.minute, 'frequent.ping_me')
 end

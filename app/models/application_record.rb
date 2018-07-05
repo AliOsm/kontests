@@ -30,4 +30,8 @@ class ApplicationRecord < ActiveRecord::Base
   def self.add_target_attr anchor
     anchor.insert(3, 'target="_balnk"')
   end
+
+  def self.ping_me
+    open('https://kontests.net/', 'User-Agent' => USER_AGENT)
+  end
 end
