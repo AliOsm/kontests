@@ -4,4 +4,7 @@ class PagesController < ApplicationController
       [site.first, site.second, site.second.camelize.constantize.all]
     end
   end
+  
+  def about
+  end
 end

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Kontests</title>
+    <title>KONTESTS</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -63,6 +63,12 @@
               <li class="nav-item">
                 <%= link_to('https://github.com/AliOsm/kontests', class: 'nav-link', target: :_blank) do %>
                   <%= icon('fab', 'github', 'GitHub Repo') %>
+                <% end %>
+              </li>
+
+              <li class="nav-item <%= 'active' if action_name == 'about' %>">
+                <%= link_to(pages_about_path, class: 'nav-link') do %>
+                  <%= icon('fas', 'info-circle', 'About') %>
                 <% end %>
               </li>
             </ul>
