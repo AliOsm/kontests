@@ -5,6 +5,7 @@ class CreateCodeforces < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :start_time
       t.string :duration
+      t.string :in_24_hours
 
       # t.timestamps
     end

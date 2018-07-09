@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "registrants"
     t.string "type_"
     t.string "registration"
+    t.string "in_24_hours"
     t.index ["code"], name: "index_a2oj_on_code", unique: true
   end
 
@@ -32,6 +33,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "duration"
     t.string "participate"
     t.string "rated"
+    t.string "in_24_hours"
     t.index ["code"], name: "index_at_coder_on_code", unique: true
   end
 
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
+    t.string "in_24_hours"
     t.index ["code"], name: "index_code_chef_on_code", unique: true
   end
 
@@ -49,6 +52,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "name"
     t.string "start_time"
     t.string "duration"
+    t.string "in_24_hours"
     t.index ["code"], name: "index_codeforces_on_code", unique: true
   end
 
@@ -58,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "start_time"
     t.string "duration"
     t.integer "difficulty"
+    t.string "in_24_hours"
     t.index ["code"], name: "index_codeforces_gym_on_code", unique: true
   end
 
@@ -65,6 +70,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "name"
     t.string "start_time"
     t.string "duration"
+    t.string "in_24_hours"
   end
 
   create_table "suggests", force: :cascade do |t|

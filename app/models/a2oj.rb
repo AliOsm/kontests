@@ -50,7 +50,8 @@ class A2oj < ApplicationRecord
              duration: duration,
              registrants: registrants,
              type_: type,
-             registration: registration)
+             registration: registration,
+             in_24_hours: in_24_hours?(start_time))
     end
   end
 end

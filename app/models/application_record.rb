@@ -30,6 +30,10 @@ class ApplicationRecord < ActiveRecord::Base
   def self.add_target_attr anchor
     anchor.insert(3, 'target="_balnk"')
   end
+  
+  def self.in_24_hours? start_time
+    (start_time - Time.now) / 60 / 60 <= 24 ? 'Yes' : 'No'
+  end
 
   def self.ping_me
     open('https://kontests.net/', 'User-Agent' => USER_AGENT)

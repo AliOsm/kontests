@@ -28,7 +28,8 @@ class CodeChef < ApplicationRecord
              name: add_target_attr(tds[1].css('a').to_s.insert(9, BASE_URL)),
              start_time: generate_tad_url(start_time),
              end_time: generate_tad_url(end_time),
-             duration: seconds_to_time(end_time - start_time))
+             duration: seconds_to_time(end_time - start_time),
+             in_24_hours: in_24_hours?(start_time))
     end
   end
 end

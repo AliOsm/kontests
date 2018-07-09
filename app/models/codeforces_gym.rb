@@ -17,11 +17,14 @@ class CodeforcesGym < ApplicationRecord
 
     # add contests
     contests.reverse.each do |contest|
+      start_time = contest['startTimeSeconds'].to_s.blank? ? '-' : Time.strptime(contest['startTimeSeconds'].to_s, '%s')
+      
       create(code: contest['id'].to_i,
              name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
-             start_time: generate_tad_url(Time.strptime(contest['startTimeSeconds'].to_s, '%s')),
+             start_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time),
              duration: seconds_to_time(contest['durationSeconds'].to_i),
-             difficulty: contest['difficulty'].to_i) if contest['phase'] == 'BEFORE'
+             difficulty: contest['difficulty'].to_i,
+             in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time)) if contest['phase'] == 'BEFORE'
     end
   end
 end

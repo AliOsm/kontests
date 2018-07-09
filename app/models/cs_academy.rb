@@ -36,7 +36,8 @@ class CsAcademy < ApplicationRecord
       
       create(name: add_target_attr(tds[0].css('a').to_s.insert(9, BASE_URL)),
              start_time: generate_tad_url(start_time),
-             duration: tds[2].text)
+             duration: tds[2].text,
+             in_24_hours: in_24_hours?(start_time))
     end
 
     browser.close

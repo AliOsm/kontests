@@ -10,6 +10,7 @@ class CreateA2oj < ActiveRecord::Migration[5.2]
       t.string :registrants
       t.string :type_
       t.string :registration
+      t.string :in_24_hours
 
       # t.timestamps
     end

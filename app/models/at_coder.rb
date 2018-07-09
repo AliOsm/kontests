@@ -31,7 +31,8 @@ class AtCoder < ApplicationRecord
              start_time: generate_tad_url(start_time),
              duration: duration,
              participate: tds[1].text,
-             rated: tds[3].text)
+             rated: tds[3].text,
+             in_24_hours: in_24_hours?(start_time))
     end
   end
 end

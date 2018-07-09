@@ -18,7 +18,7 @@
 
         <tbody>
           <% contests.each do |contest| %>
-            <tr>
+            <tr class="<%= 'in-24-hours' if contest[:in_24_hours] == 'Yes' %>">
               <% contests.column_names.each do |column_name| %>
                 <td>
                   <%= raw contest[column_name] %>
