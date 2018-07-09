@@ -19,6 +19,8 @@ gem 'simple_form', '~> 4.0.0'
 gem 'validates_email_format_of', '~> 1.6', '>= 1.6.3'
 # Use validate_url to validate urls!
 gem 'validate_url', '~> 1.0', '>= 1.0.2'
+# Use Twemoji as default emoji set
+gem 'twemoji', '~> 3.1', '>= 3.1.4'
 # Use clockwork to create periodic tasks
 gem 'clockwork', '~> 1.2', require: false
 
