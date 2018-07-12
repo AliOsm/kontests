@@ -1,4 +1,4 @@
-# Kontests
+# KONTESTS
 Competitive programming contests schedule, visit it [here](https://kontests.net)
 
 ## TODO
