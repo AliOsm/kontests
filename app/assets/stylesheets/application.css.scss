@@ -21,7 +21,7 @@
 @import "font-awesome";
 
 * {
-	outline: none;
+	outline: none !important;
 }
 
 html, body {
@@ -41,8 +41,11 @@ body {
 #footer {
   flex: 0 0 auto;
   background-color: #4E5D6C;
-  margin-top: 15px;
   padding: 10px 0px 10px 0px;
+}
+
+.grey {
+  color: #EBEBEB !important;
 }
 
 /* BOOTSTRAP */
