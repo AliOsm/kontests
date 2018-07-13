@@ -31,7 +31,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  padding-top: 70px;
+  padding-top: 78px;
 }
 
 #content {
@@ -60,4 +60,9 @@ body {
 
 .table {
   white-space: nowrap;
+}
+
+.center-pills {
+  display: flex;
+  justify-content: center;
 }
