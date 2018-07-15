@@ -22,7 +22,8 @@ class Codeforces < ApplicationRecord
              name: '<a href="https://codeforces.com/contestRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
              start_time: generate_tad_url(start_time),
              duration: seconds_to_time(contest['durationSeconds'].to_i),
-             in_24_hours: in_24_hours?(start_time)) if contest['phase'] == 'BEFORE'
+             in_24_hours: in_24_hours?(start_time),
+             status: contest['phase']) if contest['phase'] == 'BEFORE' || contest['phase'] == 'CODING'
     end
 	end
 end

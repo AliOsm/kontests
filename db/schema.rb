@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "end_time"
     t.string "duration"
     t.string "in_24_hours"
+    t.string "status"
     t.index ["code"], name: "index_code_chef_on_code", unique: true
   end
 
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "start_time"
     t.string "duration"
     t.string "in_24_hours"
+    t.string "status"
     t.index ["code"], name: "index_codeforces_on_code", unique: true
   end
 
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "duration"
     t.integer "difficulty"
     t.string "in_24_hours"
+    t.string "status"
     t.index ["code"], name: "index_codeforces_gym_on_code", unique: true
   end
 

@@ -7,6 +7,7 @@ class CreateCodeChef < ActiveRecord::Migration[5.2]
       t.string :end_time
       t.string :duration
       t.string :in_24_hours
+      t.string :status
 
       # t.timestamps
     end

@@ -5,7 +5,7 @@
         <% if site.third.size > 0 %>
           <li class="nav-item">
             <a class="nav-link <%= 'active' if site.first == SITES.first.first %>" id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab" aria-controls="pills-<%= site.second %>" aria-selected="true">
-              <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.size %></span>
+              <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.size + site.fourth.size %></span>
             </a>
           </li>
         <% end %>
@@ -16,11 +16,11 @@
 
 <div class="row justify-content-center">
   <div class="col-12 col-lg-10">
-    <div class="card">
+    <div class="card border-0 bg-transparent">
       <div class="card-body pt-0 pr-0 pb-0 pl-0">
         <div class="tab-content" id="pills-tabContent">
           <% @sites.each do |site| %>
-            <%= render partial: 'show_contests', locals: { site_class: site.second, contests: site.third } if site.third.size > 0 %>
+            <%= render partial: 'show_sites', locals: { site_class: site.second, future_contests: site.third, running_contests: site.fourth } if site.third.size > 0 %>
           <% end %>
         </div>
       </div>

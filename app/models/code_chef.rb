@@ -11,25 +11,30 @@ class CodeChef < ApplicationRecord
   end
 
   def self.update_contests
-    # request codechef contests page
-    contests = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read).css('.dataTable')[1].css('tbody > tr')
-
     # delete old contests from database
     delete_all
+    
+    # request codechef contests page
+    html = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read)
+    
+    (html.css('.dataTable').size - 1).times do |i|
+      contests = html.css('.dataTable')[i].css('tbody > tr')
 
-    # add contests
-    contests.each do |contest|
-      tds = contest.css('> td')
+      # add contests
+      contests.each do |contest|
+        tds = contest.css('> td')
 
-      start_time = Time.parse(tds[2]['data-starttime']).in_time_zone('UTC')
-      end_time = Time.parse(tds[3]['data-endtime']).in_time_zone('UTC')
+        start_time = Time.parse(tds[2]['data-starttime']).in_time_zone('UTC')
+        end_time = Time.parse(tds[3]['data-endtime']).in_time_zone('UTC')
 
-      create(code: tds[0].text,
-             name: add_target_attr(tds[1].css('a').to_s.insert(9, BASE_URL)),
-             start_time: generate_tad_url(start_time),
-             end_time: generate_tad_url(end_time),
-             duration: seconds_to_time(end_time - start_time),
-             in_24_hours: in_24_hours?(start_time))
+        create(code: tds[0].text,
+               name: add_target_attr(tds[1].css('a').to_s.insert(9, BASE_URL)),
+               start_time: generate_tad_url(start_time),
+               end_time: generate_tad_url(end_time),
+               duration: seconds_to_time(end_time - start_time),
+               in_24_hours: in_24_hours?(start_time),
+               status: i == 0 ? 'CODING' : 'BEFORE')
+      end
     end
   end
 end

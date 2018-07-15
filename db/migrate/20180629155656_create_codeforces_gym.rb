@@ -7,6 +7,7 @@ class CreateCodeforcesGym < ActiveRecord::Migration[5.2]
       t.string :duration
       t.integer :difficulty
       t.string :in_24_hours
+      t.string :status
 
       # t.timestamps
     end

@@ -24,7 +24,8 @@ class CodeforcesGym < ApplicationRecord
              start_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time),
              duration: seconds_to_time(contest['durationSeconds'].to_i),
              difficulty: contest['difficulty'].to_i,
-             in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time)) if contest['phase'] == 'BEFORE'
+             in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time),
+             status: contest['phase']) if contest['phase'] == 'BEFORE' || contest['phase'] == 'CODING'
     end
   end
 end
