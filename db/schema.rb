@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "participate"
     t.string "rated"
     t.string "in_24_hours"
+    t.string "status"
     t.index ["code"], name: "index_at_coder_on_code", unique: true
   end
 

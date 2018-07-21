@@ -8,6 +8,7 @@ class CreateAtCoder < ActiveRecord::Migration[5.2]
       t.string :participate
       t.string :rated
       t.string :in_24_hours
+      t.string :status
 
       # t.timestamps
     end
