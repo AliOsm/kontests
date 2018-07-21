@@ -18,7 +18,7 @@ module Clockwork
       CsAcademy.update_contests
     elsif job.eql?('frequent.ping_me')
       ApplicationRecord.ping_me
-		end
+    end
   end
 
   every(3.minute, 'frequent.update_codeforces')

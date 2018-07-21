@@ -2,7 +2,7 @@
   <% if contests.blank? %>
     <p class="lead text-center pt-3 pb-3 mb-0">There is no <%= type %> contests <%= emojify(emoji) %></p>
   <% else %>
-    <p class="lead text-center pt-3 pb-3 mb-0"><%= type.capitalize %> Contests <small class="text-muted"><%= contests.size %></small></p>
+    <p class="lead text-center pt-3 pb-3 mb-0"><%= [contests.size, type.capitalize, 'Contest'.pluralize(contests.size)].join(' ') %></p>
     
     <div class="table-responsive">
       <table class="table table-borderless table-hover mb-0">

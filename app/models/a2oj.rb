@@ -69,5 +69,7 @@ class A2oj < ApplicationRecord
                status: i == 0 ? 'CODING' : 'BEFORE')
       end
     end
+    
+    update_last_update 'a2oj'
   end
 end

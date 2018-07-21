@@ -40,5 +40,7 @@ class AtCoder < ApplicationRecord
                status: i == 0 ? 'CODING' : 'BEFORE')
       end
     end
+    
+    update_last_update 'at_coder'
   end
 end

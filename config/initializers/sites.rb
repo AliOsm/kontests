@@ -7,3 +7,6 @@ SITES = [
   ['CodeChef', 'code_chef', 'https://www.codechef.com'],
   ['A2OJ', 'a2oj', 'https://www.a2oj.com']
 ]
+
+# thinking...
+# SITES.sort!

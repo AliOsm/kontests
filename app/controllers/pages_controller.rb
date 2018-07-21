@@ -5,7 +5,8 @@ class PagesController < ApplicationController
         site.first,
         site.second,
         site.second.camelize.constantize.where(status: 'BEFORE'),
-        site.second.camelize.constantize.where(status: 'CODING')
+        site.second.camelize.constantize.where(status: 'CODING'),
+        LastUpdate.where(site: site.second).first.date
       ]
     end
   end

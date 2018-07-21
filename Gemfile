@@ -23,6 +23,8 @@ gem 'validate_url', '~> 1.0', '>= 1.0.2'
 gem 'twemoji', '~> 3.1', '>= 3.1.4'
 # Use clockwork to create periodic tasks
 gem 'clockwork', '~> 1.2', require: false
+# Use Timeago as default relative time converter
+gem 'rails-timeago', '~> 2.16'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'

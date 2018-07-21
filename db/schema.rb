@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_03_055732) do
+ActiveRecord::Schema.define(version: 2018_07_21_085536) do
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -77,6 +77,11 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "start_time"
     t.string "duration"
     t.string "in_24_hours"
+  end
+
+  create_table "last_updates", force: :cascade do |t|
+    t.string "site"
+    t.datetime "date"
   end
 
   create_table "suggests", force: :cascade do |t|

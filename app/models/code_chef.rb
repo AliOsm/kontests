@@ -37,5 +37,7 @@ class CodeChef < ApplicationRecord
                status: i == 0 ? 'CODING' : 'BEFORE')
       end
     end
+    
+    update_last_update 'code_chef'
   end
 end

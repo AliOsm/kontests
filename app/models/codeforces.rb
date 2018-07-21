@@ -25,5 +25,7 @@ class Codeforces < ApplicationRecord
              in_24_hours: in_24_hours?(start_time),
              status: contest['phase']) if contest['phase'].eql?('BEFORE') || contest['phase'].eql?('CODING')
     end
+    
+    update_last_update 'codeforces'
 	end
 end

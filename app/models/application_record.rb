@@ -9,7 +9,7 @@ class ApplicationRecord < ActiveRecord::Base
   USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'
 
   def self.generate_tad_url start_time
-    add_target_attr('<a href="https://www.timeanddate.com/worldclock/fixedtime.html?year=%s&month=%s&day=%s&hour=%s&min=%s&sec=%s&p1=1440">%s</a>' % [start_time.year, start_time.month, start_time.day, start_time.hour, start_time.min, start_time.sec, start_time.strftime('%d/%m/%Y %H:%M:%S')])
+    add_target_attr('<a href="https://www.timeanddate.com/worldclock/fixedtime.html?year=%s&month=%s&day=%s&hour=%s&min=%s&sec=%s&p1=1440">%s</a>' % [start_time.year, start_time.month, start_time.day, start_time.hour, start_time.min, start_time.sec, format_time(start_time)])
   end
 
 	def self.seconds_to_time seconds
@@ -37,5 +37,13 @@ class ApplicationRecord < ActiveRecord::Base
 
   def self.ping_me
     open('https://kontests.net/', 'User-Agent' => USER_AGENT)
+  end
+  
+  def self.format_time time
+    time.strftime('%d/%m/%Y %H:%M:%S')
+  end
+  
+  def self.update_last_update site_name
+    LastUpdate.where(site: site_name).first_or_create(site: site_name, date: Time.new)
   end
 end
