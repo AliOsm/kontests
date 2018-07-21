@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2018_07_21_085536) do
     t.string "start_time"
     t.string "duration"
     t.string "in_24_hours"
+    t.string "status"
   end
 
   create_table "last_updates", force: :cascade do |t|

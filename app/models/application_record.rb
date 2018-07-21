@@ -44,6 +44,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
   
   def self.update_last_update site_name
-    LastUpdate.where(site: site_name).first_or_create(site: site_name, date: Time.new)
+    LastUpdate.where(site: site_name).first_or_initialize(site: site_name).update(date: Time.new)
   end
 end
