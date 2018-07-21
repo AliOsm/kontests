@@ -9,9 +9,11 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 - [x] In 24 hours hint
 - [x] Use UTC time
 - [x] About page
+- [x] Last update time
+- [x] Suggestions form
+- [ ] Join team form
+- [ ] Donation link
 - [ ] Random problem picker
 - [ ] Random contest picker
 - [ ] Automatic register
-- [ ] Join team form
-- [x] Suggestions form
-- [ ] Donation link
+- [x] Ping Heroku to prevent sleeping
