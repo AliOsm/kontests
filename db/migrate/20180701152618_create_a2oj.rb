@@ -6,11 +6,13 @@ class CreateA2oj < ActiveRecord::Migration[5.2]
       t.string :owner
       t.string :start_time
       t.string :before_start
+      t.string :before_end
       t.string :duration
       t.string :registrants
       t.string :type_
       t.string :registration
       t.string :in_24_hours
+      t.string :status
 
       # t.timestamps
     end

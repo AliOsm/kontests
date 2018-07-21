@@ -1,5 +1,5 @@
 <div class="tab-pane fade <%= 'show active' if site_class == SITES.first.second %>" id="pills-<%= site_class %>" role="tabpanel" aria-labelledby="pills-<%= site_class %>-tab">
-  <%= render partial: 'show_contests', locals: { contests: future_contests, type: 'future', emoji: ':worried:' } %>
+  <%= render partial: 'show_contests', locals: { contests: future_contests, type: 'future', emoji: ':worried:', site_class: site_class } %>
   <br>
-  <%= render partial: 'show_contests', locals: { contests: running_contests, type: 'running', emoji: ':grinning:' } %>
+  <%= render partial: 'show_contests', locals: { contests: running_contests, type: 'running', emoji: ':grinning:', site_class: site_class } %>
 </div>

@@ -25,7 +25,7 @@ class CodeforcesGym < ApplicationRecord
              duration: seconds_to_time(contest['durationSeconds'].to_i),
              difficulty: contest['difficulty'].to_i,
              in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time),
-             status: contest['phase']) if contest['phase'] == 'BEFORE' || contest['phase'] == 'CODING'
+             status: contest['phase']) if contest['phase'].eql?('BEFORE') || contest['phase'].eql?('CODING')
     end
   end
 end

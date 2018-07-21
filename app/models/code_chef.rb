@@ -15,10 +15,11 @@ class CodeChef < ApplicationRecord
     delete_all
     
     # request codechef contests page
-    html = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read)
+    tables = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read).css('.dataTable')
+    tables.pop
     
-    (html.css('.dataTable').size - 1).times do |i|
-      contests = html.css('.dataTable')[i].css('tbody > tr')
+    tables.each_with_index do |table, i|
+      contests = table.css('tbody > tr')
 
       # add contests
       contests.each do |contest|

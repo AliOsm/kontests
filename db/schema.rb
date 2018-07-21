@@ -18,11 +18,13 @@ ActiveRecord::Schema.define(version: 2018_07_03_055732) do
     t.string "owner"
     t.string "start_time"
     t.string "before_start"
+    t.string "before_end"
     t.string "duration"
     t.string "registrants"
     t.string "type_"
     t.string "registration"
     t.string "in_24_hours"
+    t.string "status"
     t.index ["code"], name: "index_a2oj_on_code", unique: true
   end
 

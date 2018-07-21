@@ -23,7 +23,7 @@ class Codeforces < ApplicationRecord
              start_time: generate_tad_url(start_time),
              duration: seconds_to_time(contest['durationSeconds'].to_i),
              in_24_hours: in_24_hours?(start_time),
-             status: contest['phase']) if contest['phase'] == 'BEFORE' || contest['phase'] == 'CODING'
+             status: contest['phase']) if contest['phase'].eql?('BEFORE') || contest['phase'].eql?('CODING')
     end
 	end
 end
