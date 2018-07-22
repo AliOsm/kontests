@@ -12,7 +12,7 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 - [x] Last update time
 - [x] Suggestions form
 - [ ] Join team form
-- [ ] Donation link
+- [x] Donation link
 - [ ] Create API
 - [ ] Random problem picker
 - [ ] Random contest picker
