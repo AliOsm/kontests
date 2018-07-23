@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   
   resources :suggests, only: [:index, :create]
+  resources :joins, only: [:index, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

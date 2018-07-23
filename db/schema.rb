@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_085536) do
+ActiveRecord::Schema.define(version: 2018_07_23_231102) do
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -78,6 +78,14 @@ ActiveRecord::Schema.define(version: 2018_07_21_085536) do
     t.string "duration"
     t.string "in_24_hours"
     t.string "status"
+  end
+
+  create_table "joins", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email", null: false
+    t.text "how", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "last_updates", force: :cascade do |t|

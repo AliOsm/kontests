@@ -10,7 +10,7 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 - [x] Donation
 - [x] Future contests
 - [x] In 24 hours hint
-- [ ] Join team form
+- [x] Join team form
 - [x] Last update time
 - [x] Logo
 - [x] Ping Heroku to prevent sleeping

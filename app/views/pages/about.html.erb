@@ -1,3 +1,5 @@
+<%= render 'join_team_modal' %>
+
 <div class="row justify-content-center">
   <div class="col-12 col-lg-10">
     <div class="card-deck">
@@ -107,7 +109,7 @@
 
       <div class="card-body">
         <div class="container">
-          <div class="row justify-content-center">
+          <div class="row justify-content-center mb-3">
             <div class="com-12 col-md-4">
               <div class="our-team">
                 <div class="pic">
@@ -123,6 +125,14 @@
                   <li><%= mail_to('aliosm1997@gmail.com', icon('fas', 'envelope-square fa-2x')) %></li>
                 </ul>
               </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="com-12 col-md-4">
+              <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#joinTeam">
+                Join KONTESTS team now!
+              </button>
             </div>
           </div>
         </div>

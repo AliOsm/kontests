@@ -12,5 +12,6 @@ class PagesController < ApplicationController
   end
   
   def about
+    @join = Join.new
   end
 end
