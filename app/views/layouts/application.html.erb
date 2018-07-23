@@ -27,6 +27,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= favicon_link_tag 'logo.png' %>
   </head>
 
   <body>
@@ -36,7 +37,7 @@
       <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
         <div class="container-fluid">
           <%= link_to(root_path, class: 'navbar-brand') do %>
-            <%= icon('fas', 'chess-knight', 'KONTESTS') %>
+            <%= image_tag('logo.svg', class: 'img-fluid', width: '36', onerror: "this.onerror=null; this.src='logo.png'") %> <span class="align-middle">KONTESTS</span>
           <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
