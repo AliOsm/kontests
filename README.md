@@ -5,10 +5,13 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 
 - [x] About page
 - [ ] Automatic register
+- [ ] All site in one page
 - [ ] API
 - [x] Date and Time links
 - [x] Donation
+- [ ] Filters
 - [x] Future contests
+- [x] Google Analysis
 - [x] In 24 hours hint
 - [x] Join team form
 - [x] Last update time
@@ -17,13 +20,18 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 - [ ] Random contest picker
 - [ ] Random problem picker
 - [x] Running contests
-- [x] Support sites:
+- [ ] Support sites:
   - [x] A2OJ
   - [x] AtCoder
   - [x] CodeChef
   - [x] Codeforces
   - [x] Codeforces::Gym
   - [x] CS Academy
+  - [ ] HackerEarth
+  - [ ] HackerRank
+  - [ ] LeetCode
+  - [ ] TopCoder [Marathon]
+  - [ ] TopCoder [SRM]
 - [x] Suggestions form
 - [x] Use UTC time
 
