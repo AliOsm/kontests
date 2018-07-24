@@ -23,6 +23,11 @@ class CsAcademy < ApplicationRecord
     tables = Nokogiri::HTML(browser.html).css('table')
     tables.pop
 
+    status = ['BEFORE']
+    if browser.text.include?('Running contests')
+      status = ['CODING', 'BEFORE']
+    end
+
     # delete old contests from database
     delete_all
 
@@ -42,7 +47,7 @@ class CsAcademy < ApplicationRecord
                start_time: generate_tad_url(start_time),
                duration: tds[2].text,
                in_24_hours: in_24_hours?(start_time),
-               status: i == 0 ? 'CODING' : 'BEFORE')
+               status: status[i])
       end
     end
 
