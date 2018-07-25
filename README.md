@@ -5,13 +5,14 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 
 - [x] About page
 - [ ] Automatic register
-- [ ] All site in one page
+- [ ] All sites in one page
 - [ ] API
 - [x] Date and Time links
 - [x] Donation
 - [ ] Filters
 - [x] Future contests
 - [x] Google Analysis
+- [ ] Google Calendar
 - [x] In 24 hours hint
 - [x] Join team form
 - [x] Last update time
@@ -27,6 +28,8 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
   - [x] Codeforces
   - [x] Codeforces::Gym
   - [x] CS Academy
+  - [ ] Dev Skill
+  - [ ] Google Kickstart
   - [ ] HackerEarth
   - [ ] HackerRank
   - [ ] LeetCode
