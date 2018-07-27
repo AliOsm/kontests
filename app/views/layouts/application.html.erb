@@ -52,7 +52,8 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <% SITES.each do |site| %>
+                  <% SITES.each_with_index do |site, i| %>
+                    <% next if i.zero? %>
                     <%= link_to(site.first, site.third, class: 'dropdown-item', target: :_blank) %>
                   <% end %>
                   <div class="dropdown-divider"></div>

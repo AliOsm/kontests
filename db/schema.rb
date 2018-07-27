@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_23_231102) do
+ActiveRecord::Schema.define(version: 2018_07_27_080324) do
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2018_07_23_231102) do
     t.string "in_24_hours"
     t.string "status"
     t.index ["code"], name: "index_a2oj_on_code", unique: true
+  end
+
+  create_table "all", force: :cascade do |t|
+    t.string "name"
+    t.string "start_time"
+    t.string "duration"
+    t.string "in_24_hours"
+    t.string "status"
+    t.string "site"
   end
 
   create_table "at_coder", id: false, force: :cascade do |t|

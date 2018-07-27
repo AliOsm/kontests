@@ -5,7 +5,7 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 
 - [x] About page
 - [ ] Automatic register
-- [ ] All sites in one page
+- [x] All sites in one page
 - [ ] API
 - [x] Date and Time links
 - [x] Donation

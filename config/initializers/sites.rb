@@ -1,4 +1,5 @@
 SITES = [
+  ['All', 'all', 'https://www.kontests.net'],
   ['CodeForces', 'codeforces', 'https://www.codeforces.com'],
   ['CodeForces::Gym', 'codeforces_gym', 'https://www.codeforces.com/gyms'],
   ['CS Academy', 'cs_academy', 'https://csacademy.com'],
