@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_080324) do
     t.index ["code"], name: "index_a2oj_on_code", unique: true
   end
 
-  create_table "all", force: :cascade do |t|
+  create_table "all", id: false, force: :cascade do |t|
     t.string "name"
     t.string "start_time"
     t.string "duration"
