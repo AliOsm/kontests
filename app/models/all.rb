@@ -21,8 +21,10 @@ class All < ApplicationRecord
     all_contests = all_contests.flatten(1)
 
     all_contests.sort! do |a, b|
-      if a.second.eql?('-') || b.second.eql?('-')
+      if a.second.eql?('-')
         1
+      elsif b.second.eql?('-')
+        -1
       else
         Time.parse(a.second[(a.second.index('>') + 1)...a.second.index('<', 2)]) <=> Time.parse(b.second[(b.second.index('>') + 1)...b.second.index('<', 2)])
       end
