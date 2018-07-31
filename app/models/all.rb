@@ -6,19 +6,26 @@ class All < ApplicationRecord
   def self.update_contests
     # prepare contests
     all_contests = SITES[1..-1].map do |site|
+      next unless site.last
       site.second.camelize.constantize.pluck(:name, :start_time, :duration, :in_24_hours, :status)
     end
 
     SITES[1..-1].each_with_index do |site, i|
+      next unless site.last
       all_contests[i].each do |contest|
         contest << site.first
       end
     end
 
+    all_contests.compact!
     all_contests = all_contests.flatten(1)
 
     all_contests.sort! do |a, b|
-      Time.parse(a.second[(a.second.index('>') + 1)...a.second.index('<', 2)]) <=> Time.parse(b.second[(b.second.index('>') + 1)...b.second.index('<', 2)])
+      if a.second.eql?('-') || b.second.eql?('-')
+        1
+      else
+        Time.parse(a.second[(a.second.index('>') + 1)...a.second.index('<', 2)]) <=> Time.parse(b.second[(b.second.index('>') + 1)...b.second.index('<', 2)])
+      end
     end
 
     # delete old contests from database

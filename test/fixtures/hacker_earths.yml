@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company: MyString
+  challenge_name: MyString
+  challeng_type: MyString
+  start_time: MyString
+  end_time: MyString
+
+two:
+  company: MyString
+  challenge_name: MyString
+  challeng_type: MyString
+  start_time: MyString
+  end_time: MyString

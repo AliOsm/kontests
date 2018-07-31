@@ -10,7 +10,9 @@
           <tr>
             <% contests.column_names.each do |column_name| %>
               <% next if ['in_24_hours', 'status'].include? column_name %>
-              <% next if site_class.eql?('a2oj') && type.eql?('future') && column_name.eql?('before_end') %>
+              <% next if ['hacker_earth', 'a2oj'].include?(site_class) && type.eql?('future') && column_name.eql?('before_end') %>
+              <% next if site_class.eql?('hacker_earth') && type.eql?('running') && column_name.eql?('start_time') %>
+              <% next if site_class.eql?('hacker_earth') && column_name.eql?('duration') %>
               <% next if site_class.eql?('a2oj') && type.eql?('running') && column_name.eql?('before_start') %>
               
               <th scope="col">
@@ -25,7 +27,9 @@
             <tr class="<%= 'in-24-hours' if type == 'future' && contest[:in_24_hours] == 'Yes' %>">
               <% contests.column_names.each do |column_name| %>
                 <% next if ['in_24_hours', 'status'].include? column_name %>
-                <% next if site_class.eql?('a2oj') && type.eql?('future') && column_name.eql?('before_end') %>
+                <% next if ['hacker_earth', 'a2oj'].include?(site_class) && type.eql?('future') && column_name.eql?('before_end') %>
+                <% next if site_class.eql?('hacker_earth') && type.eql?('running') && column_name.eql?('start_time') %>
+                <% next if site_class.eql?('hacker_earth') && column_name.eql?('duration') %>
                 <% next if site_class.eql?('a2oj') && type.eql?('running') && column_name.eql?('before_start') %>
                 
                 <td>

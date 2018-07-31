@@ -30,7 +30,7 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
   - [x] CS Academy
   - [ ] Dev Skill
   - [ ] Google Kickstart
-  - [ ] HackerEarth
+  - [x] HackerEarth
   - [ ] HackerRank
   - [ ] LeetCode
   - [ ] TopCoder [Marathon]
