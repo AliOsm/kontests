@@ -7,17 +7,15 @@ class CodeChef < ApplicationRecord
   BASE_URL = 'https://www.codechef.com'
 
   def to_param
-    code.parametarize   
+    code.parametarize
   end
 
   def self.update_contests
     # delete old contests from database
     delete_all
-    
     # request codechef contests page
     tables = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read).css('.dataTable')
     tables.pop
-    
     tables.each_with_index do |table, i|
       contests = table.css('tbody > tr')
 
@@ -37,7 +35,6 @@ class CodeChef < ApplicationRecord
                status: i == 0 ? 'CODING' : 'BEFORE')
       end
     end
-    
     update_last_update 'code_chef'
   end
 end

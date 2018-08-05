@@ -30,7 +30,7 @@ class ApplicationRecord < ActiveRecord::Base
   def self.add_target_attr anchor
     anchor.insert(3, 'target="_balnk"')
   end
-  
+
   def self.in_24_hours? start_time
     (start_time - Time.now) / 60 / 60 <= 24 ? 'Yes' : 'No'
   end
@@ -38,11 +38,11 @@ class ApplicationRecord < ActiveRecord::Base
   def self.ping_me
     open('https://kontests.net/', 'User-Agent' => USER_AGENT)
   end
-  
+
   def self.format_time time
     time.strftime('%d/%m/%Y %H:%M:%S')
   end
-  
+
   def self.update_last_update site_name
     LastUpdate.where(site: site_name).first_or_initialize(site: site_name).update(date: Time.new)
   end

@@ -1,4 +1,4 @@
-class PagesController < ApplicationController  
+class PagesController < ApplicationController
   def home
     @sites = SITES.map do |site|
       [
@@ -10,7 +10,7 @@ class PagesController < ApplicationController
       ]
     end
   end
-  
+
   def about
     @join = Join.new
   end

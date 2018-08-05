@@ -7,7 +7,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+
       <div class="modal-body">
         <%= simple_form_for(@join) do |f| %>
           <%= f.input :name, required: true, autofocus: true, placeholder: 'Your name', input_html: { maxlength: 255 } %>
@@ -15,7 +15,7 @@
           <%= f.input :how, label: 'How you can help?', placeholder: 'Tell us how you can help', input_html: { maxlength: 5000 } %>
         <% end %>
       </div>
-      
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button id="submit_suggest" type="button" class="btn btn-primary" onClick="$('#new_join').submit(); return true;">Submit</button>

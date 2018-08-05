@@ -3,7 +3,7 @@
     <p class="lead text-center pt-3 pb-3 mb-0">There is no <%= type %> contests <%= emojify(emoji) %></p>
   <% else %>
     <p class="lead text-center pt-3 pb-3 mb-0"><%= [contests.size, type.capitalize, 'Contest'.pluralize(contests.size)].join(' ') %></p>
-    
+
     <div class="table-responsive">
       <table class="table table-borderless table-hover mb-0">
         <thead class="border-top border-bottom">
@@ -14,7 +14,7 @@
               <% next if site_class.eql?('hacker_earth') && type.eql?('running') && column_name.eql?('start_time') %>
               <% next if site_class.eql?('hacker_earth') && column_name.eql?('duration') %>
               <% next if site_class.eql?('a2oj') && type.eql?('running') && column_name.eql?('before_start') %>
-              
+
               <th scope="col">
                 <%= column_name.tr('_', ' ').capitalize %>
               </th>
@@ -31,7 +31,7 @@
                 <% next if site_class.eql?('hacker_earth') && type.eql?('running') && column_name.eql?('start_time') %>
                 <% next if site_class.eql?('hacker_earth') && column_name.eql?('duration') %>
                 <% next if site_class.eql?('a2oj') && type.eql?('running') && column_name.eql?('before_start') %>
-                
+
                 <td>
                   <%= raw contest[column_name] %>
                 </td>
