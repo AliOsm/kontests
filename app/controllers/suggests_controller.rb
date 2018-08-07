@@ -18,10 +18,10 @@ class SuggestsController < ApplicationController
 
   def save_process_response
     if @suggest.save
-      flash[:notice] =  t(:suggestion_saved)
+      flash[:notice] = t(:suggestion_saved)
     else
       flash[:alert] = t(:something_went_wrong)
     end
-    redirect_to rooth_path
+    redirect_to root_path
   end
 end
