@@ -20,7 +20,8 @@ class JoinsController < ApplicationController
     if @join.save
       flash[:notice] = t(:success_join_request)
     else
-      flash[:alert]  = t(:something_went_wrong)
+      flash[:alert] = t(:something_went_wrong)
     end
+    redirect_to root_path
   end
 end
