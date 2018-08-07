@@ -5,7 +5,7 @@ class CodeforcesGym < ApplicationRecord
   self.primary_key = :code
 
   def to_param
-    code.parametarize   
+    code.parametarize 
   end
 
   def self.update_contests
@@ -18,7 +18,6 @@ class CodeforcesGym < ApplicationRecord
     # add contests
     contests.reverse.each do |contest|
       start_time = contest['startTimeSeconds'].to_s.blank? ? '-' : Time.strptime(contest['startTimeSeconds'].to_s, '%s')
-      
       create(code: contest['id'].to_i,
              name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
              start_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time),
@@ -27,7 +26,6 @@ class CodeforcesGym < ApplicationRecord
              in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time),
              status: contest['phase']) if contest['phase'].eql?('BEFORE') || contest['phase'].eql?('CODING')
     end
-    
     update_last_update 'codeforces_gym'
   end
 end

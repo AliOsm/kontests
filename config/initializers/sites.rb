@@ -8,7 +8,7 @@ SITES = [
   ['CodeChef', 'code_chef', 'https://www.codechef.com', true],
   ['HackerEarth', 'hacker_earth', 'https://www.hackerearth.com', true],
   ['A2OJ', 'a2oj', 'https://www.a2oj.com', true]
-]
+].freeze
 
 # thinking...
 # SITES.sort!

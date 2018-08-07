@@ -1,4 +1,6 @@
 class Suggest < ApplicationRecord
+  include Orderability
+
   validates_presence_of :site
   validates :site, url: true
   validates_length_of :site, maximum: 255

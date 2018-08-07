@@ -6,13 +6,12 @@
           <table class="table table-borderless table-hover mb-0">
             <thead style="border-bottom: 1px solid #839496;">
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">How</th>
+                <th scope="col"><%= t(:id) %></th>
+                <th scope="col"><%= t(:name) %></th>
+                <th scope="col"><%= t(:email) %></th>
+                <th scope="col"><%= t(:how) %></th>
               </tr>
             </thead>
-            
             <tbody>
               <%= render @joins %>
             </tbody>
