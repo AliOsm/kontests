@@ -39,9 +39,7 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 - [x] Use UTC time
 
 ## Contributing
-
-Please see the [CONTRIBUTING.md](/CONTRIBUTING.md) file.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AliOsm/kontests.
 
 ## License
-
-Please see the [LICENSE](/LICENSE) file.
+The project is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
