@@ -44,4 +44,4 @@ Please see the [CONTRIBUTING.md](/CONTRIBUTING.md) file.
 
 ## License
 
-Please see the [LICENSE.md](/LICENSE.md) file.
+Please see the [LICENSE](/LICENSE) file.
