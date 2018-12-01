@@ -30,4 +30,8 @@ class Api::V1Controller < ApplicationController
   def a2oj
     render json: A2oj.all
   end
+
+  def sites
+    render json: SITES[1..-1]
+  end
 end

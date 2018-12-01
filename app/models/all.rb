@@ -6,12 +6,10 @@ class All < ApplicationRecord
   def self.update_contests
     # prepare contests
     all_contests = SITES[1..-1].map do |site|
-      next unless site.last
       site.second.camelize.constantize.pluck(:name, :start_time, :duration, :in_24_hours, :status)
     end
 
     SITES[1..-1].each_with_index do |site, i|
-      next unless site.last
       all_contests[i].each do |contest|
         contest << site.first
       end
