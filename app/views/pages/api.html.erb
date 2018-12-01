@@ -1,0 +1,473 @@
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>All</h2>
+        <h4><%= link_to '/api/v1/all', api_v1_all_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>site</td>
+                <td>The website hosting the contest, which is one of the following: <code>codeforces</code>, <code>codeforces_gym</code>, <code>cs_academy</code>, <code>at_coder</code>, <code>code_chef</code>, <code>hacker_earth</code>, <code>a2oj</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>Codeforces</h2>
+        <h4><%= link_to '/api/v1/codeforces', api_v1_codeforces_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'Codeforces', 'https://codeforces.com', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>code</td>
+                <td>Contest id in <%= link_to 'Codeforces', 'https://codeforces.com/gyms', target: :_blank %>.</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>Codeforces::Gym</h2>
+        <h4><%= link_to '/api/v1/codeforces_gym', api_v1_codeforces_gym_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'Codeforces::Gym', 'https://codeforces.com/gym', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>code</td>
+                <td>Contest id in <%= link_to 'Codeforces::Gym', 'https://codeforces.com/gyms', target: :_blank %>.</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>difficulty</td>
+                <td>Contest difficulty (number of stars).</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>CS Academy</h2>
+        <h4><%= link_to '/api/v1/cs_academy', api_v1_cs_academy_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'CS Academy', 'https://csacademy.com', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>At Coder</h2>
+        <h4><%= link_to '/api/v1/at_coder', api_v1_at_coder_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'At Coder', 'https://atcoder.jp', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>code</td>
+                <td>Contest id in <%= link_to 'At Coder', 'https://atcoder.jp', target: :_blank %>.</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>participate</td>
+                <td>The rating limit for participating in the contest.</td>
+              </tr>
+              <tr>
+                <td>rated</td>
+                <td>The rating limit for rated participation in the contest.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>CodeChef</h2>
+        <h4><%= link_to '/api/v1/code_chef', api_v1_code_chef_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'CodeChef', 'https://codechef.com', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>code</td>
+                <td>Contest id in <%= link_to 'CodeChef', 'https://codechef.com', target: :_blank %>.</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>end_time</td>
+                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>HackerEarth</h2>
+        <h4><%= link_to '/api/v1/hacker_earth', api_v1_hacker_earth_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'HackerEarth', 'https://hackerearth.com', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>company</td>
+                <td>The sponsoring company if exists, otherwise <code>-</code>.</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Anchor tag containing the contest name and its link.</td>
+              </tr>
+              <tr>
+                <td>type_</td>
+                <td>Contest type.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
+              </tr>
+              <tr>
+                <td>end_time</td>
+                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration if exists, otherwise <code>-</code>.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-6">
+    <div class="card">
+      <div class="card-header">
+        <h2>A2OJ</h2>
+        <h4><%= link_to '/api/v1/a2oj', api_v1_a2oj_path %></h4>
+      </div>
+
+      <div class="card-body">
+        <p class="lead">Return value: A list of all <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %> contests in the site.</p>
+        <div class="table-responsive">
+          <p>Contest feilds and description:</p>
+          <table class="table table-borderless table-hover mb-0">
+            <thead class="border-top border-bottom">
+              <tr>
+                <th>Feild</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>code</td>
+                <td>Contest id in <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %>.</td>
+              </tr>
+              <tr>
+                <td>name</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>owner</td>
+                <td>Anchor tag containing the contest owner name and its <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %> profile link.</td>
+              </tr>
+              <tr>
+                <td>start_time</td>
+                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>before_start</td>
+                <td>Anchor tag containing the remaining time before the contest starts and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
+              </tr>
+              <tr>
+                <td>before_end</td>
+                <td>Anchor tag containing the remaining time before the contest ends and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
+                <td>duration</td>
+                <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>registrants</td>
+                <td>Anchor tag containing the number of registrants and the link to the webpage containing the list of them.</td>
+              </tr>
+              <tr>
+                <td>type_</td>
+                <td>Contest type, which is one of the following: <code>Public</code>, <code>Semi-Private</code>, <code>Private</code>.</td>
+              </tr>
+              <tr>
+                <td>registration</td>
+                <td>Contest registration webpage link if the contest is not <code>Private</code>, <code>By invitation only</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>in_24_hours</td>
+                <td><code>Yes</code> if the contest starts within the next 24 hours, <code>No</code> otherwise.</td>
+              </tr>
+              <tr>
+                <td>status</td>
+                <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

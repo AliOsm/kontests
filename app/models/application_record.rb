@@ -28,7 +28,7 @@ class ApplicationRecord < ActiveRecord::Base
 	end
 
   def self.add_target_attr anchor
-    anchor.insert(3, 'target="_balnk"')
+    anchor.insert(3, 'target="_blank" ')
   end
 
   def self.in_24_hours? start_time

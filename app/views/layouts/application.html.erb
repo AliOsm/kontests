@@ -63,6 +63,12 @@
                 </div>
               </li>
 
+              <li class="nav-item <%= 'active' if action_name == 'api' %>">
+                <%= link_to(api_path, class: 'nav-link') do %>
+                  <%= icon('fas', 'database', 'API') %>
+                <% end %>
+              </li>
+
               <li class="nav-item">
                 <%= link_to('https://github.com/AliOsm/kontests', class: 'nav-link', target: :_blank) do %>
                   <%= icon('fab', 'github', 'GitHub Repo') %>

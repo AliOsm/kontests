@@ -44,6 +44,7 @@ class HackerEarth < ApplicationRecord
                start_time: '-',
                end_time: generate_tad_url(end_time),
                duration: '-',
+               in_24_hours: 'Yes',
                status: 'CODING')
       end
     end
