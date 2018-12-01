@@ -1,4 +1,6 @@
 class Api::V1Controller < ApplicationController
+  after_filter :set_access_control_headers
+
   def all
     render json: ::All.all
   end
@@ -29,5 +31,11 @@ class Api::V1Controller < ApplicationController
 
   def a2oj
     render json: A2oj.all
+  end
+
+  private
+
+  def set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
   end
 end
