@@ -27,6 +27,8 @@ gem 'clockwork', '~> 1.2', require: false
 gem 'rails-timeago', '~> 2.16'
 # Use google-analytics-rails as default Google Analytics gem
 gem 'google-analytics-rails', '1.1.1'
+# Use rack-cors
+gem 'rack-cors', :require => 'rack/cors'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
