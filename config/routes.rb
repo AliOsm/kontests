@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 	root 'pages#home'
 	
   get '/home', to: 'pages#home'
+  get '/browser_extensions', to: 'pages#browser_extensions'
   get '/api', to: 'pages#api'
   get '/about', to: 'pages#about'
   

@@ -11,6 +11,9 @@ class PagesController < ApplicationController
     end
   end
 
+  def browser_extensions
+  end
+
   def api
   end
 

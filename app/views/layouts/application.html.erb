@@ -1,109 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>KONTESTS</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="Expires" content="0">
-    <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <meta http-equiv="Content-Style-Type" content="text/css">
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Competitive programming contests schedule">
-    <meta name="keywords" content="Competitive programming,problem solving,codeforces,csacademy,atcoder,codechef,a2oj,hackerrank">
-    <meta name="Distribution" content="Global">
-    <meta name="author" content="Ali Fadel">
-    <meta name="copyright" content="Ali Fadel 2018">
-    <meta name="robots" content="index,follow">
-    <meta name="revisit-after" content="1 days">
-    <meta name="contact" content="aliosm1997@gmail.com">
-    <meta name="generator" content="Sublime Text">
-    <meta name="language" content="English">
-    <meta name="rating" content="general">
-    <meta name="web_author" content="Ali Fadel">
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= favicon_link_tag 'logo.png' %>
-    <%= analytics_init if GoogleAnalytics.valid_tracker? %>
+    <%= render 'layouts/head' %>
   </head>
 
   <body>
     <%= render 'layouts/suggest_site_modal' %>
-    
-    <header>
-      <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-        <div class="container-fluid">
-          <%= link_to(root_path, class: 'navbar-brand') do %>
-            <%= image_tag('logo.svg', class: 'img-fluid', width: '36', onerror: "this.onerror=null; this.src='logo.png'") %> <span class="align-middle">KONTESTS</span>
-          <% end %>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= icon('fas', 'life-ring', 'Supported Sites') %>
-                </a>
-
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <% SITES.each_with_index do |site, i| %>
-                    <% next if i.zero? %>
-                    <%= link_to(site.first, site.third, class: 'dropdown-item', target: :_blank) %>
-                  <% end %>
-                  <div class="dropdown-divider"></div>
-                  <button type="button" class="dropdown-item btn btn-primary" data-toggle="modal" data-target="#suggestSite">
-                    Suggest site?
-                  </button>
-                </div>
-              </li>
-
-              <li class="nav-item <%= 'active' if action_name == 'api' %>">
-                <%= link_to(api_path, class: 'nav-link') do %>
-                  <%= icon('fas', 'database', 'API') %>
-                <% end %>
-              </li>
-
-              <li class="nav-item">
-                <%= link_to('https://github.com/AliOsm/kontests', class: 'nav-link', target: :_blank) do %>
-                  <%= icon('fab', 'github', 'GitHub Repo') %>
-                <% end %>
-              </li>
-
-              <li class="nav-item <%= 'active' if action_name == 'about' %>">
-                <%= link_to(about_path, class: 'nav-link') do %>
-                  <%= icon('fas', 'info-circle', 'About') %>
-                <% end %>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <%= render 'layouts/navbar' %>
 
     <div id="content">
       <div class="container-fluid">
         <%= render 'layouts/messages' %>
-        
         <%= yield %>
       </div>
     </div>
 
-    <footer id="footer" class="mt-4">
-      <div class="container-fluid">
-        <div class="row justify-content-center">
-          <div class="col-12 col-lg-10">
-            <span>KONTESTS &copy; Copyright 2018-<%= Time.now.year %> <%= link_to('AliOsm', 'https://fb.com/AliOsm97', target: :_blank) %> All Rights Reserved</span>
-            <br>
-            <span class="text-muted">Designed and built with all the &nbsp;<span class="heart"><%= emojify(':heart:') %></span>&nbsp; in the world</span>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

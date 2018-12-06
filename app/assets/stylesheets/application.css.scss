@@ -48,6 +48,16 @@ body {
   color: #EBEBEB !important;
 }
 
+.browser-extension {
+  color: #EBEBEB;
+
+  &:hover {
+    color: #DF691A;
+    transition: 0.25s;
+    -webkit-transition: 0.25s;
+  }
+}
+
 /* BOOTSTRAP */
 
 .navbar {
