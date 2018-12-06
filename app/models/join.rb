@@ -7,6 +7,7 @@ class Join < ApplicationRecord
 
   validates_length_of :name, maximum: 255
   validates_length_of :email, maximum: 255
-  validates_email_format_of :email
   validates_length_of :how, maximum: 5000
+  
+  validates_email_format_of :email
 end

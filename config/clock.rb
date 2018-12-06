@@ -4,34 +4,20 @@ require './config/environment'
 
 module Clockwork
   handler do |job|
-    if job.eql?('frequent.update_all')
-      All.update_contests
-    elsif job.eql?('frequent.update_codeforces')
-			Codeforces.update_contests
-    elsif job.eql?('frequent.update_codeforces_gym')
-      CodeforcesGym.update_contests
-    elsif job.eql?('frequent.update_at_coder')
-      AtCoder.update_contests
-    elsif job.eql?('frequent.update_codechef')
-      CodeChef.update_contests
-    elsif job.eql?('frequent.update_a2oj')
-      A2oj.update_contests
-    elsif job.eql?('frequent.update_cs_academy')
-      CsAcademy.update_contests
-    elsif job.eql?('frequent.update_hacker_earth')
-      HackerEarth.update_contests
-    elsif job.eql?('frequent.ping_me')
-      ApplicationRecord.ping_me
+    if job.eql?('frequent.ping')
+      PingService.ping
+    else
+      UpdateSitesService.send(job.split('.')[-1])
     end
   end
 
-  every(2.minute, 'frequent.update_all')
-  every(3.minute, 'frequent.update_codeforces')
-  every(3.minute, 'frequent.update_codeforces_gym')
-  every(3.minute, 'frequent.update_at_coder')
-  every(5.minute, 'frequent.update_codechef')
-  every(5.minute, 'frequent.update_a2oj')
-  every(7.minute, 'frequent.update_cs_academy')
-  every(11.minute, 'frequent.update_hacker_earth')
-  every(29.minute, 'frequent.ping_me')
+  every(2.minute, 'frequent.all')
+  every(3.minute, 'frequent.codeforces')
+  every(3.minute, 'frequent.codeforces_gym')
+  every(3.minute, 'frequent.at_coder')
+  every(5.minute, 'frequent.code_chef')
+  every(5.minute, 'frequent.a2oj')
+  every(7.minute, 'frequent.cs_academy')
+  every(11.minute, 'frequent.hacker_earth')
+  every(29.minute, 'frequent.ping')
 end
