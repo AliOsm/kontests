@@ -1,8 +1,7 @@
 # KONTESTS
-Competitive programming contests schedule, visit it [here](https://kontests.net)
+Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
 
 ## TODO
-
 - [x] About page
 - [x] All sites in one page
 - [x] API
@@ -34,6 +33,9 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
   - [ ] TopCoder [SRM]
 - [x] Suggestions form
 - [x] Use UTC time
+
+## Built with KONTESTS
+KONTESTS Browser Extension: https://github.com/AliOsm/kontests-browser-extension
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/AliOsm/kontests.
