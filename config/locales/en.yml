@@ -1,46 +1,12 @@
 en:
-  # A
-  # B
-  # C
-  # D
-
-  # E
   email: 'Email'
-
-  # F
-  # G
-  # H
   how: 'How'
-
-  # I
   id: 'ID'
-
-  # J
-  # K
-  # L
   last_update: 'Last Update:'
-
-  # M
   message: 'Message'
-
-  # N
   name: 'Name'
-
-  # O
-  # P
-  # Q
-  # R
-
-  # S
   site: 'Site'
+
   something_went_wrong: 'Ops!, Something went wrong. Please do check all your inputs.'
   success_join_request: 'Great, Thanks for your request to join. we will review your request and contact you soon.'
   suggestion_saved: 'Awesome!, Your feedback is valuable for us.'
-
-  # T
-  # U
-  # V
-  # W
-  # X
-  # Y
-  # Z

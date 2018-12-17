@@ -1,6 +1,27 @@
-<tr>
-  <td><%= suggest.id %></td>
-  <td><%= suggest.site %></td>
-  <td><%= suggest.email %></td>
-  <td><%= suggest.message %></td>
-</tr>
+<div class="table-responsive bg-secondary mb-4">
+  <table class="table table-borderless table-hover mb-0">
+    <thead class="border-bottom">
+      <tr>
+        <th scope="col"><%= t(:id) %></th>
+        <th scope="col"><%= t(:site) %></th>
+        <th scope="col"><%= t(:email) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= suggest.id %></td>
+        <td><%= suggest.site %></td>
+        <td><%= suggest.email %></td>
+      </tr>  
+    </tbody>
+
+    <thead class="border-bottom">
+      <th scope="col"><%= t(:message) %></th>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="3" class="text-pre-wrap"><%= suggest.message %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

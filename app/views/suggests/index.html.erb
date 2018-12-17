@@ -1,23 +1,5 @@
 <div class="row justify-content-center">
   <div class="col-12 col-lg-6">
-    <div class="card">
-      <div class="card-body pt-0 pr-0 pb-0 pl-0">
-        <div class="table-responsive">
-          <table class="table table-borderless table-hover mb-0">
-            <thead style="border-bottom: 1px solid #839496;">
-              <tr>
-                <th scope="col"><%= t(:id) %></th>
-                <th scope="col"><%= t(:site) %></th>
-                <th scope="col"><%= t(:email) %></th>
-                <th scope="col"><%= t(:message) %></th>
-              </tr>
-            </thead>
-            <tbody>
-              <%= render @suggests %>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+    <%= render @suggests %>
   </div>
 </div>

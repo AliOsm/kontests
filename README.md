@@ -4,7 +4,6 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 ## TODO
 
 - [x] About page
-- [ ] Automatic register
 - [x] All sites in one page
 - [x] API
 - [x] Date and Time links
@@ -18,8 +17,6 @@ Competitive programming contests schedule, visit it [here](https://kontests.net)
 - [x] Last update time
 - [x] Logo
 - [x] Ping Heroku to prevent sleeping
-- [ ] Random contest picker
-- [ ] Random problem picker
 - [x] Running contests
 - [ ] Support sites:
   - [x] A2OJ
