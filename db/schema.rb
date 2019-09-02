@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_155429) do
+ActiveRecord::Schema.define(version: 2019_09_02_134934) do
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2018_07_30_155429) do
     t.string "name"
     t.string "start_time"
     t.string "duration"
-    t.string "participate"
     t.string "rated"
     t.string "in_24_hours"
     t.string "status"
