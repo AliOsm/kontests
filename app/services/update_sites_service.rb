@@ -40,12 +40,14 @@ module UpdateSitesService
 
       # add contests
       all_contests.each do |contest|
-        All.create(name: contest.first,
-                   start_time: contest.second,
-                   duration: contest.third,
-                   in_24_hours: contest.fourth,
-                   status: contest.fifth,
-                   site: contest.last)
+        All.create(
+          name: contest.first,
+          start_time: contest.second,
+          duration: contest.third,
+          in_24_hours: contest.fourth,
+          status: contest.fifth,
+          site: contest.last
+        )
       end
 
       update_last_update 'all'
@@ -61,12 +63,14 @@ module UpdateSitesService
       # add contests
       contests.reverse.each do |contest|
         start_time = Time.strptime(contest['startTimeSeconds'].to_s, '%s')
-        Codeforces.create(code: contest['id'].to_i,
-                          name: '<a href="https://codeforces.com/contestRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
-                          start_time: generate_tad_url(start_time),
-                          duration: seconds_to_time(contest['durationSeconds'].to_i),
-                          in_24_hours: in_24_hours?(start_time),
-                          status: contest['phase']) if contest['phase'].eql?('BEFORE') || contest['phase'].eql?('CODING')
+        Codeforces.create(
+          code: contest['id'].to_i,
+          name: '<a href="https://codeforces.com/contestRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
+          start_time: generate_tad_url(start_time),
+          duration: seconds_to_time(contest['durationSeconds'].to_i),
+          in_24_hours: in_24_hours?(start_time),
+          status: contest['phase']
+        ) if ['BEFORE', 'CODING'].include?(contest['phase'])
       end
 
       update_last_update 'codeforces'
@@ -82,13 +86,15 @@ module UpdateSitesService
       # add contests
       contests.reverse.each do |contest|
         start_time = contest['startTimeSeconds'].to_s.blank? ? '-' : Time.strptime(contest['startTimeSeconds'].to_s, '%s')
-        CodeforcesGym.create(code: contest['id'].to_i,
-                             name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
-                             start_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time),
-                             duration: seconds_to_time(contest['durationSeconds'].to_i),
-                             difficulty: contest['difficulty'].to_i,
-                             in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time),
-                             status: contest['phase']) if contest['phase'].eql?('BEFORE') || contest['phase'].eql?('CODING')
+        CodeforcesGym.create(
+          code: contest['id'].to_i,
+          name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
+          start_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time),
+          duration: seconds_to_time(contest['durationSeconds'].to_i),
+          difficulty: contest['difficulty'].to_i,
+          in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time),
+          status: contest['phase']
+        ) if ['BEFORE', 'CODING'].include?(contest['phase'])
       end
 
       update_last_update 'codeforces_gym'
@@ -111,20 +117,16 @@ module UpdateSitesService
           tds = contest.css('> td')
           start_time = Time.zone.parse("#{tds[0].css('a').first.css('time').text} JST").in_time_zone('UTC')
           a = tds[1].css('a').first
-          url = a['href']
-          duration = tds[2].text
-          rated = tds[3].text
-          status = 'BEFORE'
-          if start_time < Time.now
-            status = 'CODING'
-          end
-          AtCoder.create(code: url.split('.').first.split('/').last,
-                         name: add_target_attr(a.to_s),
-                         start_time: generate_tad_url(start_time),
-                         duration: duration,
-                         rated: rated,
-                         in_24_hours: in_24_hours?(start_time),
-                         status: status)
+
+          AtCoder.create(
+            code: a['href'].split('.').first.split('/').last,
+            name: add_target_attr(a.to_s),
+            start_time: generate_tad_url(start_time),
+            duration: tds[2].text,
+            rated: tds[3].text,
+            in_24_hours: in_24_hours?(start_time),
+            status: start_time < Time.now ? 'CODING' : 'BEFORE'
+          )
         end
       end
 
@@ -138,6 +140,7 @@ module UpdateSitesService
       # request codechef contests page
       tables = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read).css('.dataTable')
       tables.pop
+
       tables.each_with_index do |table, i|
         contests = table.css('tbody > tr')
 
@@ -148,13 +151,15 @@ module UpdateSitesService
           start_time = Time.parse(tds[2]['data-starttime']).in_time_zone('UTC')
           end_time = Time.parse(tds[3]['data-endtime']).in_time_zone('UTC')
 
-          CodeChef.create(code: tds[0].text,
-                          name: add_target_attr(tds[1].css('a').to_s.insert(9, 'https://www.codechef.com')),
-                          start_time: generate_tad_url(start_time),
-                          end_time: generate_tad_url(end_time),
-                          duration: seconds_to_time(end_time - start_time),
-                          in_24_hours: in_24_hours?(start_time),
-                          status: i == 0 ? 'CODING' : 'BEFORE')
+          CodeChef.create(
+            code: tds[0].text,
+            name: add_target_attr(tds[1].css('a').to_s.insert(9, 'https://www.codechef.com')),
+            start_time: generate_tad_url(start_time),
+            end_time: generate_tad_url(end_time),
+            duration: seconds_to_time(end_time - start_time),
+            in_24_hours: in_24_hours?(start_time),
+            status: start_time < Time.now ? 'CODING' : 'BEFORE'
+          )
         end
       end
 
@@ -179,15 +184,16 @@ module UpdateSitesService
           name = code_name.last.strip
           owner = add_target_attr(tds[2].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
           start_time = Time.parse(tds[3].css('a').first.text)
+          status = start_time < Time.now ? 'CODING' : 'BEFORE'
           before_start = '-'
           # special case for future contests
-          before_start = tds[3].css('b').first.text if i == 1
+          before_start = tds[3].css('b').first.text if status == 'BEFORE'
           before_end = '-'
           # special case for running contests
-          before_end = tds[4].css('b').text if i == 0
+          before_end = tds[4].css('b').text if status == 'CODING'
           duration = tds[4].text
           # special case for running contests
-          duration.remove!(tds[4].css('b').text) if i == 0
+          duration.remove!(tds[4].css('b').text) if status == 'CODING'
           registrants = add_target_attr(tds[5].css('a').first.to_s.insert(9, 'https://a2oj.com'))
           type = tds[6].text
           if type.eql?('Public')
@@ -195,18 +201,21 @@ module UpdateSitesService
           else
             registration = 'By invitation only'
           end
-          A2oj.create(code: code.to_i,
-                      name: name,
-                      owner: owner,
-                      start_time: generate_tad_url(start_time),
-                      before_start: before_start,
-                      before_end: before_end,
-                      duration: duration,
-                      registrants: registrants,
-                      type_: type,
-                      registration: registration,
-                      in_24_hours: in_24_hours?(start_time),
-                      status: i == 0 ? 'CODING' : 'BEFORE')
+
+          A2oj.create(
+            code: code.to_i,
+            name: name,
+            owner: owner,
+            start_time: generate_tad_url(start_time),
+            before_start: before_start,
+            before_end: before_end,
+            duration: duration,
+            registrants: registrants,
+            type_: type,
+            registration: registration,
+            in_24_hours: in_24_hours?(start_time),
+            status: status
+          )
         end
       end
 
@@ -230,11 +239,6 @@ module UpdateSitesService
       tables = Nokogiri::HTML(browser.html).css('table')
       tables.pop
 
-      status = ['BEFORE']
-      if browser.text.include?('Running contests')
-        status = ['CODING', 'BEFORE']
-      end
-
       # delete old contests from database
       CsAcademy.delete_all
 
@@ -249,11 +253,14 @@ module UpdateSitesService
           start_time += ' '
           start_time += tds[1].text.split('(').last.tr(' UTC)', '')
           start_time = Time.parse(start_time)
-          CsAcademy.create(name: add_target_attr(tds[0].css('a').to_s.insert(9, 'https://csacademy.com')),
-                           start_time: generate_tad_url(start_time),
-                           duration: tds[2].text,
-                           in_24_hours: in_24_hours?(start_time),
-                           status: status[i])
+
+          CsAcademy.create(
+            name: add_target_attr(tds[0].css('a').to_s.insert(9, 'https://csacademy.com')),
+            start_time: generate_tad_url(start_time),
+            duration: tds[2].text,
+            in_24_hours: in_24_hours?(start_time),
+            status: start_time < Time.now ? 'CODING' : 'BEFORE'
+          )
         end
       end
 
@@ -296,14 +303,16 @@ module UpdateSitesService
         unless end_time.nil?
           company = card.css('.company-details').text.strip
 
-          HackerEarth.create(company: company.blank? ? '-' : company,
-                             name: '<a href="https://www.hackerearth.com%s" target="_blank">%s</a>' % [card.css('.challenge-card-wrapper').first['href'], card.css('.challenge-name').text.strip],
-                             type_: card.css('.challenge-type').text.strip,
-                             start_time: '-',
-                             end_time: generate_tad_url(end_time),
-                             duration: '-',
-                             in_24_hours: 'Yes',
-                             status: 'CODING')
+          HackerEarth.create(
+            company: company.blank? ? '-' : company,
+            name: '<a href="https://www.hackerearth.com%s" target="_blank">%s</a>' % [card.css('.challenge-card-wrapper').first['href'], card.css('.challenge-name').text.strip],
+            type_: card.css('.challenge-type').text.strip,
+            start_time: '-',
+            end_time: generate_tad_url(end_time),
+            duration: '-',
+            in_24_hours: 'Yes',
+            status: 'CODING'
+          )
         end
       end
 
@@ -313,14 +322,16 @@ module UpdateSitesService
         company = card.css('.company-details').text.strip
         start_time = Time.parse(card.css('.challenge-desc .date').text).utc
 
-        HackerEarth.create(company: company.blank? ? '-' : company,
-                           name: '<a href="https://www.hackerearth.com%s" target="_blank">%s</a>' % [card.css('.challenge-card-wrapper').first['href'], card.css('.challenge-name').text.strip],
-                           type_: card.css('.challenge-type').text.strip,
-                           start_time: generate_tad_url(start_time),
-                           end_time: '-',
-                           duration: '-',
-                           in_24_hours: in_24_hours?(start_time),
-                           status: 'BEFORE')
+        HackerEarth.create(
+          company: company.blank? ? '-' : company,
+          name: '<a href="https://www.hackerearth.com%s" target="_blank">%s</a>' % [card.css('.challenge-card-wrapper').first['href'], card.css('.challenge-name').text.strip],
+          type_: card.css('.challenge-type').text.strip,
+          start_time: generate_tad_url(start_time),
+          end_time: '-',
+          duration: '-',
+          in_24_hours: in_24_hours?(start_time),
+          status: 'BEFORE'
+        )
       end
 
       browser.close

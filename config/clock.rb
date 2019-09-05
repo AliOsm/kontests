@@ -17,7 +17,7 @@ module Clockwork
   every(3.minute, 'frequent.at_coder')
   every(5.minute, 'frequent.code_chef')
   every(5.minute, 'frequent.a2oj')
-  every(7.minute, 'frequent.cs_academy')
-  every(11.minute, 'frequent.hacker_earth')
+  # every(7.minute, 'frequent.cs_academy')
+  # every(11.minute, 'frequent.hacker_earth')
   every(29.minute, 'frequent.ping')
 end
