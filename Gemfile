@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
 ruby '2.5.0'
 
 # Use Bootstrap as default CSS framework
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '>= 4.3.1'
 # Use Bootswatch themes on Bootstrap
-gem 'bootswatch', '~> 4.0'
+gem 'bootswatch', '~> 4.3.1'
 # Use jQuery as default JS framework
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Use FontAwesome as default font icon
@@ -29,6 +29,8 @@ gem 'rails-timeago', '~> 2.16'
 gem 'google-analytics-rails', '1.1.1'
 # Use rack-cors
 gem 'rack-cors', :require => 'rack/cors'
+# Use Nokogiri for crawling
+gem 'nokogiri', '>= 1.10.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
