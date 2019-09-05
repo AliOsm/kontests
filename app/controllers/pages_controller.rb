@@ -1,5 +1,7 @@
 class PagesController < ApplicationController
   def home
+    @site_class = params[:site_class] == nil ? 'all' : params[:site_class]
+
     @sites = SITES.map do |site|
       [
         site.first,

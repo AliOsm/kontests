@@ -18,3 +18,10 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+function changeUrl(obj) {
+	if (history.pushState) {
+	    var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?site_class=' + obj.firstElementChild.dataset.site;
+	    window.history.pushState({path:newUrl}, '', newUrl);
+	}
+}

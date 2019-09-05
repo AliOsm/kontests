@@ -3,8 +3,8 @@
     <ul class="nav nav-pills center-pills mb-3" id="pills-tab" role="tablist" aria-orientation="vertical">
       <% @sites.each do |site| %>
         <% if site.third.size + site.fourth.size > 0 %>
-          <li class="nav-item">
-            <a class="nav-link <%= 'active' if site.first == SITES.first.first %>" id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab" aria-controls="pills-<%= site.second %>" aria-selected="true">
+          <li class="nav-item" onclick="changeUrl(this)">
+            <a class="nav-link <%= 'active' if site.second == @site_class %>" id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab" aria-controls="pills-<%= site.second %>" aria-selected="true" data-site="<%= site.second %>">
               <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.size + site.fourth.size %></span>
             </a>
           </li>
