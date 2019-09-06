@@ -1,4 +1,4 @@
-class CreateLeetCodes < ActiveRecord::Migration[5.2]
+class CreateLeetCode < ActiveRecord::Migration[5.2]
   def change
     create_table :leet_code, id: false do |t|
     	t.string :name

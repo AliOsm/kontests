@@ -28,7 +28,7 @@ Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
   - [ ] Google Kickstart
   - [x] HackerEarth
   - [ ] HackerRank
-  - [ ] LeetCode
+  - [x] LeetCode
   - [ ] TopCoder [Marathon]
   - [ ] TopCoder [SRM]
 - [x] Suggestions form
