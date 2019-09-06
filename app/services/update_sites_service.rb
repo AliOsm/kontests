@@ -193,15 +193,29 @@ module UpdateSitesService
           owner = add_target_attr(tds[2].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
           start_time = Time.parse(tds[3].css('a').first.text)
           status = start_time < Time.now ? 'CODING' : 'BEFORE'
-          before_start = '-'
-          # special case for future contests
-          before_start = tds[3].css('b').first.text if status == 'BEFORE'
-          before_end = '-'
-          # special case for running contests
-          before_end = tds[4].css('b').text if status == 'CODING'
+          
           duration = tds[4].text
           # special case for running contests
           duration.remove!(tds[4].css('b').text) if status == 'CODING'
+
+          days = nil
+          hours = nil
+          minutes = nil
+
+          if duration.include? 'days'
+            days, hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          elsif duration.include? 'hours'
+            hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          elsif duration.include? 'minutes'
+            minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          end
+
+          days = 0 if days.nil?
+          hours = 0 if hours.nil?
+          minutes = 0 if minutes.nil?
+
+          seconds = days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60
+
           registrants = add_target_attr(tds[5].css('a').first.to_s.insert(9, 'https://a2oj.com'))
           type = tds[6].text
           if type.eql?('Public')
@@ -213,11 +227,10 @@ module UpdateSitesService
           A2oj.create(
             code: code.to_i,
             name: name,
-            owner: owner,
             start_time: generate_tad_url(start_time),
-            before_start: before_start,
-            before_end: before_end,
-            duration: duration,
+            end_time: generate_tad_url(start_time + seconds),
+            duration: seconds_to_time(seconds),
+            owner: owner,
             registrants: registrants,
             type_: type,
             registration: registration,
