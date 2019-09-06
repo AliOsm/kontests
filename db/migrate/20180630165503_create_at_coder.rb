@@ -4,9 +4,9 @@ class CreateAtCoder < ActiveRecord::Migration[5.2]
       t.string :code, null: false
       t.string :name
       t.string :start_time
+      t.string :end_time
       t.string :duration
-      t.string :participate
-      t.string :rated
+      t.string :rated_range
       t.string :in_24_hours
       t.string :status
 

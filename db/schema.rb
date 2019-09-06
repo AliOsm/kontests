@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_190636) do
+ActiveRecord::Schema.define(version: 2018_07_30_155429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2019_09_06_190636) do
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
+    t.string "site"
     t.string "in_24_hours"
     t.string "status"
-    t.string "site"
   end
 
   create_table "at_coder", id: false, force: :cascade do |t|
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_190636) do
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
-    t.string "difficulty"
+    t.integer "difficulty"
     t.string "in_24_hours"
     t.string "status"
     t.index ["code"], name: "index_codeforces_gym_on_code", unique: true
