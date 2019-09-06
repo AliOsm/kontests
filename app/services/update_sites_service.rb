@@ -316,13 +316,16 @@ module UpdateSitesService
         unless end_time.nil?
           company = card.css('.company-details').text.strip
 
+          url = card.css('.challenge-card-wrapper').first['href']
+          url = 'https://www.hackerearth.com' + url unless url.include? 'https://www.hackerearth.com'
+
           HackerEarth.create(
             company: company.blank? ? '-' : company,
-            name: '<a href="https://www.hackerearth.com%s" target="_blank">%s</a>' % [card.css('.challenge-card-wrapper').first['href'], card.css('.challenge-name').text.strip],
-            type_: card.css('.challenge-type').text.strip,
+            name: '<a href="%s" target="_blank">%s</a>' % [url, card.css('.challenge-name').text.strip],
             start_time: '-',
             end_time: generate_tad_url(end_time),
             duration: '-',
+            type_: card.css('.challenge-type').text.strip,
             in_24_hours: 'Yes',
             status: 'CODING'
           )
@@ -335,9 +338,12 @@ module UpdateSitesService
         company = card.css('.company-details').text.strip
         start_time = Time.parse(card.css('.challenge-desc .date').text).utc
 
+        url = card.css('.challenge-card-wrapper').first['href']
+        url = 'https://www.hackerearth.com' + url unless url.include? 'https://www.hackerearth.com'
+
         HackerEarth.create(
           company: company.blank? ? '-' : company,
-          name: '<a href="https://www.hackerearth.com%s" target="_blank">%s</a>' % [card.css('.challenge-card-wrapper').first['href'], card.css('.challenge-name').text.strip],
+          name: '<a href="%s" target="_blank">%s</a>' % [url, card.css('.challenge-name').text.strip],
           type_: card.css('.challenge-type').text.strip,
           start_time: generate_tad_url(start_time),
           end_time: '-',
