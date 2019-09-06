@@ -13,7 +13,7 @@ module UpdateSitesService
     def all
       # prepare contests
       all_contests = SITES[1..-1].map do |site|
-        site.second.camelize.constantize.pluck(:name, :start_time, :duration, :in_24_hours, :status)
+        site.second.camelize.constantize.pluck(:name, :start_time, :end_time, :duration, :in_24_hours, :status)
       end
 
       SITES[1..-1].each_with_index do |site, i|
@@ -43,10 +43,11 @@ module UpdateSitesService
         All.create(
           name: contest[0],
           start_time: contest[1],
-          duration: contest[2],
-          in_24_hours: contest[3],
-          status: contest[4],
-          site: contest[5]
+          end_time: contest[2],
+          duration: contest[3],
+          in_24_hours: contest[4],
+          status: contest[5],
+          site: contest[6]
         )
       end
 
@@ -204,9 +205,9 @@ module UpdateSitesService
 
           if duration.include? 'days'
             days, hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
-          elsif duration.include? 'hours'
+          elsif duration.include? 'hrs'
             hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
-          elsif duration.include? 'minutes'
+          elsif duration.include? 'mins'
             minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
           end
 

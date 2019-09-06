@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_185239) do
+ActiveRecord::Schema.define(version: 2019_09_06_190636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2019_09_06_185239) do
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
     t.string "name"
-    t.string "owner"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
+    t.string "owner"
     t.string "registrants"
     t.string "type_"
     t.string "registration"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_185239) do
   create_table "all", id: false, force: :cascade do |t|
     t.string "name"
     t.string "start_time"
+    t.string "end_time"
     t.string "duration"
     t.string "in_24_hours"
     t.string "status"
