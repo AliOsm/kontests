@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_134934) do
+ActiveRecord::Schema.define(version: 2019_09_06_125813) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
@@ -41,8 +44,9 @@ ActiveRecord::Schema.define(version: 2019_09_02_134934) do
     t.string "code", null: false
     t.string "name"
     t.string "start_time"
+    t.string "end_time"
     t.string "duration"
-    t.string "rated"
+    t.string "rated_range"
     t.string "in_24_hours"
     t.string "status"
     t.index ["code"], name: "index_at_coder_on_code", unique: true
@@ -63,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_09_02_134934) do
     t.integer "code", null: false
     t.string "name"
     t.string "start_time"
+    t.string "end_time"
     t.string "duration"
     t.string "in_24_hours"
     t.string "status"
@@ -73,8 +78,9 @@ ActiveRecord::Schema.define(version: 2019_09_02_134934) do
     t.integer "code", null: false
     t.string "name"
     t.string "start_time"
+    t.string "end_time"
     t.string "duration"
-    t.integer "difficulty"
+    t.string "difficulty"
     t.string "in_24_hours"
     t.string "status"
     t.index ["code"], name: "index_codeforces_gym_on_code", unique: true

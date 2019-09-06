@@ -1,7 +1,7 @@
 SITES = [
   ['All', 'all', 'https://www.kontests.net'],
-  ['CodeForces', 'codeforces', 'https://www.codeforces.com'],
-  ['CodeForces::Gym', 'codeforces_gym', 'https://www.codeforces.com/gyms'],
+  ['CodeForces', 'codeforces', 'https://codeforces.com'],
+  ['CodeForces::Gym', 'codeforces_gym', 'https://codeforces.com/gyms'],
   ['CS Academy', 'cs_academy', 'https://csacademy.com'],
   ['AtCoder', 'at_coder', 'https://atcoder.jp'],
   # ['HackerRank', 'hacker_rank', 'https://www.hackerrank.com'],

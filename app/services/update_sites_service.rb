@@ -63,10 +63,12 @@ module UpdateSitesService
       # add contests
       contests.reverse.each do |contest|
         start_time = Time.strptime(contest['startTimeSeconds'].to_s, '%s')
+
         Codeforces.create(
           code: contest['id'].to_i,
           name: '<a href="https://codeforces.com/contestRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
           start_time: generate_tad_url(start_time),
+          end_time: generate_tad_url(start_time + contest['durationSeconds'].to_i),
           duration: seconds_to_time(contest['durationSeconds'].to_i),
           in_24_hours: in_24_hours?(start_time),
           status: contest['phase']
@@ -86,10 +88,12 @@ module UpdateSitesService
       # add contests
       contests.reverse.each do |contest|
         start_time = contest['startTimeSeconds'].to_s.blank? ? '-' : Time.strptime(contest['startTimeSeconds'].to_s, '%s')
+
         CodeforcesGym.create(
           code: contest['id'].to_i,
           name: '<a href="https://codeforces.com/gymRegistration/%s" target="_blank">%s</a>' % [contest['id'], contest['name']],
           start_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time),
+          end_time: start_time.eql?('-') ? start_time : generate_tad_url(start_time + contest['durationSeconds'].to_i),
           duration: seconds_to_time(contest['durationSeconds'].to_i),
           difficulty: contest['difficulty'].to_i,
           in_24_hours: start_time.eql?('-') ? start_time : in_24_hours?(start_time),
@@ -116,14 +120,18 @@ module UpdateSitesService
         contests.each do |contest|
           tds = contest.css('> td')
           start_time = Time.zone.parse("#{tds[0].css('a').first.css('time').text} JST").in_time_zone('UTC')
+          duration = tds[2].text
+          hours, minutes = duration.split(':')
+          seconds = hours.to_i * 60 * 60 + minutes.to_i * 60
           a = tds[1].css('a').first
 
           AtCoder.create(
             code: a['href'].split('.').first.split('/').last,
-            name: add_target_attr(a.to_s),
+            name: add_target_attr(a.to_s.insert(9, 'https://atcoder.jp')),
             start_time: generate_tad_url(start_time),
-            duration: tds[2].text,
-            rated: tds[3].text,
+            end_time: generate_tad_url(start_time + seconds),
+            duration: duration,
+            rated_range: tds[3].text,
             in_24_hours: in_24_hours?(start_time),
             status: start_time < Time.now ? 'CODING' : 'BEFORE'
           )
@@ -254,10 +262,15 @@ module UpdateSitesService
           start_time += tds[1].text.split('(').last.tr(' UTC)', '')
           start_time = Time.parse(start_time)
 
+          hours, minutes = tds[2].text.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          minutes = 0 if minutes.nil?
+          seconds = hours * 60 * 60 + minutes * 60
+
           CsAcademy.create(
             name: add_target_attr(tds[0].css('a').to_s.insert(9, 'https://csacademy.com')),
             start_time: generate_tad_url(start_time),
-            duration: tds[2].text,
+            end_time: generate_tad_url(start_time + seconds),
+            duration: seconds_to_time(seconds),
             in_24_hours: in_24_hours?(start_time),
             status: start_time < Time.now ? 'CODING' : 'BEFORE'
           )
@@ -352,9 +365,9 @@ module UpdateSitesService
 
       if days > 0
         ret = pluralize(days, 'day')
-        ret += ' and %02d:%02d:%02d' % [hours, minutes, seconds] if minutes + hours > 0
+        ret += ' and %02d:%02d' % [hours, minutes] if minutes + hours > 0
       else
-        ret = '%02d:%02d:%02d' % [hours, minutes, seconds]
+        ret = '%02d:%02d' % [hours, minutes]
       end
 
       ret
