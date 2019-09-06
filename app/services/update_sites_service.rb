@@ -326,7 +326,7 @@ module UpdateSitesService
 
       contests.each do |contest|
         a = contest.css('div a').first
-        url = 'https://leetcode.com/contest%s' % [a['href']]
+        url = 'https://leetcode.com%s' % [a['href']]
         name = a.css('.card-title').first.text
 
         next if name.eql?('Come Back Later')
@@ -395,10 +395,10 @@ module UpdateSitesService
 
           seconds = days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60
 
-          registrants = add_target_attr(tds[5].css('a').first.to_s.insert(9, 'https://a2oj.com'))
+          registrants = add_target_attr(tds[5].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
           type = tds[6].text
           if type.eql?('Public')
-            registration = add_target_attr(tds[7].css('a').first.to_s.insert(9, 'https://a2oj.com'))
+            registration = add_target_attr(tds[7].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
           else
             registration = 'By invitation only'
           end
