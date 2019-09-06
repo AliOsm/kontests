@@ -41,12 +41,12 @@ module UpdateSitesService
       # add contests
       all_contests.each do |contest|
         All.create(
-          name: contest.first,
-          start_time: contest.second,
-          duration: contest.third,
-          in_24_hours: contest.fourth,
-          status: contest.fifth,
-          site: contest.last
+          name: contest[0],
+          start_time: contest[1],
+          duration: contest[2],
+          in_24_hours: contest[3],
+          status: contest[4],
+          site: contest[5]
         )
       end
 

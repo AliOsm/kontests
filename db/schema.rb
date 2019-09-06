@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_125813) do
+ActiveRecord::Schema.define(version: 2019_09_06_141202) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_125813) do
   create_table "cs_academy", id: false, force: :cascade do |t|
     t.string "name"
     t.string "start_time"
+    t.string "end_time"
     t.string "duration"
     t.string "in_24_hours"
     t.string "status"
@@ -97,10 +98,10 @@ ActiveRecord::Schema.define(version: 2019_09_06_125813) do
   create_table "hacker_earth", id: false, force: :cascade do |t|
     t.string "company"
     t.string "name"
-    t.string "type_"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
+    t.string "type_"
     t.string "in_24_hours"
     t.string "status"
   end
