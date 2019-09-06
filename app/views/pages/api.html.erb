@@ -27,8 +27,16 @@
                 <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
               </tr>
               <tr>
+                <td>end_time</td>
+                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
                 <td>duration</td>
                 <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>site</td>
+                <td>The website hosting the contest, which is one of the following: <code>CodeForces</code>, <code>CodeForces::Gym</code>, <code>CS Academy</code>, <code>AtCoder</code>, <code>CodeChef</code>, <code>HackerEarth</code>, <code>A2OJ</code></td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -37,10 +45,6 @@
               <tr>
                 <td>status</td>
                 <td><code>CODING</code> if the contest is running, <code>BEFORE</code> otherwise.</td>
-              </tr>
-              <tr>
-                <td>site</td>
-                <td>The website hosting the contest, which is one of the following: <code>codeforces</code>, <code>codeforces_gym</code>, <code>cs_academy</code>, <code>at_coder</code>, <code>code_chef</code>, <code>hacker_earth</code>, <code>a2oj</code></td>
               </tr>
             </tbody>
           </table>
@@ -201,6 +205,10 @@
                 <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
               </tr>
               <tr>
+                <td>end_time</td>
+                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+              </tr>
+              <tr>
                 <td>duration</td>
                 <td>Contest duration.</td>
               </tr>
@@ -263,7 +271,7 @@
                 <td>Contest duration.</td>
               </tr>
               <tr>
-                <td>rated</td>
+                <td>rated_range</td>
                 <td>The rating limit for rated participation in the contest.</td>
               </tr>
               <tr>
@@ -371,10 +379,6 @@
                 <td>Anchor tag containing the contest name and its link.</td>
               </tr>
               <tr>
-                <td>type_</td>
-                <td>Contest type.</td>
-              </tr>
-              <tr>
                 <td>start_time</td>
                 <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
               </tr>
@@ -385,6 +389,10 @@
               <tr>
                 <td>duration</td>
                 <td>Contest duration if exists, otherwise <code>-</code>.</td>
+              </tr>
+              <tr>
+                <td>type_</td>
+                <td>Contest type.</td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -433,24 +441,20 @@
                 <td>Contest name.</td>
               </tr>
               <tr>
-                <td>owner</td>
-                <td>Anchor tag containing the contest owner name and its <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %> profile link.</td>
-              </tr>
-              <tr>
                 <td>start_time</td>
                 <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
               </tr>
               <tr>
-                <td>before_start</td>
-                <td>Anchor tag containing the remaining time before the contest starts and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
-              </tr>
-              <tr>
-                <td>before_end</td>
-                <td>Anchor tag containing the remaining time before the contest ends and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>end_time</td>
+                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
               </tr>
               <tr>
                 <td>duration</td>
                 <td>Contest duration.</td>
+              </tr>
+              <tr>
+                <td>owner</td>
+                <td>Anchor tag containing the contest owner name and its <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %> profile link.</td>
               </tr>
               <tr>
                 <td>registrants</td>
