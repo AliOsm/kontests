@@ -1,13 +1,14 @@
 SITES = [
-  ['All', 'all', 'https://www.kontests.net'],
+  ['All', 'all', 'https://kontests.net'],
   ['CodeForces', 'codeforces', 'https://codeforces.com'],
   ['CodeForces::Gym', 'codeforces_gym', 'https://codeforces.com/gyms'],
-  ['CS Academy', 'cs_academy', 'https://csacademy.com'],
   ['AtCoder', 'at_coder', 'https://atcoder.jp'],
+  ['CodeChef', 'code_chef', 'https://codechef.com'],
+  ['CS Academy', 'cs_academy', 'https://csacademy.com'],
+  ['HackerEarth', 'hacker_earth', 'https://hackerearth.com'],
+  ['LeetCode', 'leet_code', 'https://leetcode.com'],
+  ['A2OJ', 'a2oj', 'https://a2oj.com'],
   # ['HackerRank', 'hacker_rank', 'https://www.hackerrank.com'],
-  ['CodeChef', 'code_chef', 'https://www.codechef.com'],
-  ['HackerEarth', 'hacker_earth', 'https://www.hackerearth.com'],
-  ['A2OJ', 'a2oj', 'https://www.a2oj.com']
 ].freeze
 
 # thinking...

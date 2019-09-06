@@ -11,10 +11,6 @@ class Api::V1Controller < ApplicationController
     render json: CodeforcesGym.all
   end
 
-  def cs_academy
-    render json: CsAcademy.all
-  end
-
   def at_coder
     render json: AtCoder.all
   end
@@ -23,8 +19,16 @@ class Api::V1Controller < ApplicationController
     render json: CodeChef.all
   end
 
+  def cs_academy
+    render json: CsAcademy.all
+  end
+
   def hacker_earth
     render json: HackerEarth.all
+  end
+
+  def leet_code
+    render json: LeetCode.all
   end
 
   def a2oj

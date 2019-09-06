@@ -143,12 +143,12 @@ module UpdateSitesService
     end
 
     def code_chef
-      # delete old contests from database
-      CodeChef.delete_all
-
       # request codechef contests page
       tables = Nokogiri::HTML(open('https://www.codechef.com/contests', 'User-Agent' => USER_AGENT).read).css('.dataTable')
       tables.pop
+
+      # delete old contests from database
+      CodeChef.delete_all
 
       tables.each_with_index do |table, i|
         contests = table.css('tbody > tr')
@@ -173,75 +173,6 @@ module UpdateSitesService
       end
 
       update_last_update 'code_chef'
-    end
-
-    def a2oj
-      # request a2oj contests page
-      tables = Nokogiri::HTML(open('https://a2oj.com/', 'User-Agent' => USER_AGENT).read).css('.tablesorter')
-      tables.pop
-
-      # delete old contests from database
-      A2oj.delete_all
-
-      tables.each_with_index do |table, i|
-        contests = table.css('tbody tr')
-        # add contests
-        contests.each do |contest|
-          tds = contest.css('td')
-          code_name = tds[1].text.partition('-')
-          code = code_name.first.strip
-          name = code_name.last.strip
-          owner = add_target_attr(tds[2].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
-          start_time = Time.parse(tds[3].css('a').first.text)
-          status = start_time < Time.now ? 'CODING' : 'BEFORE'
-          
-          duration = tds[4].text
-          # special case for running contests
-          duration.remove!(tds[4].css('b').text) if status == 'CODING'
-
-          days = nil
-          hours = nil
-          minutes = nil
-
-          if duration.include? 'days'
-            days, hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
-          elsif duration.include? 'hrs'
-            hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
-          elsif duration.include? 'mins'
-            minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
-          end
-
-          days = 0 if days.nil?
-          hours = 0 if hours.nil?
-          minutes = 0 if minutes.nil?
-
-          seconds = days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60
-
-          registrants = add_target_attr(tds[5].css('a').first.to_s.insert(9, 'https://a2oj.com'))
-          type = tds[6].text
-          if type.eql?('Public')
-            registration = add_target_attr(tds[7].css('a').first.to_s.insert(9, 'https://a2oj.com'))
-          else
-            registration = 'By invitation only'
-          end
-
-          A2oj.create(
-            code: code.to_i,
-            name: name,
-            start_time: generate_tad_url(start_time),
-            end_time: generate_tad_url(start_time + seconds),
-            duration: seconds_to_time(seconds),
-            owner: owner,
-            registrants: registrants,
-            type_: type,
-            registration: registration,
-            in_24_hours: in_24_hours?(start_time),
-            status: status
-          )
-        end
-      end
-
-      update_last_update 'a2oj'
     end
 
     def cs_academy
@@ -370,6 +301,125 @@ module UpdateSitesService
       browser.close
 
       update_last_update 'hacker_earth'
+    end
+
+    def leet_code
+      # request leetcode contests page
+      opts = {
+        headless: true
+      }
+
+      if chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+        opts.merge!(options: {binary: chrome_bin})
+      end
+
+      browser = Watir::Browser.new :chrome, opts
+
+      # request csacademy contests page
+      browser.goto 'https://leetcode.com/contest'
+      browser.wait_until { browser.element(css: '.contest-card-base').exists? }
+      sleep 5.seconds
+      contests = Nokogiri::HTML(browser.html).css('.contest-card-base')
+
+      # delete old contests from database
+      LeetCode.delete_all
+
+      contests.each do |contest|
+        a = contest.css('div a').first
+        url = 'https://leetcode.com/contest%s' % [a['href']]
+        name = a.css('.card-title').first.text
+
+        next if name.eql?('Come Back Later')
+
+        date, time = a.css('.time').text.split('@')
+        time = time.split('-')
+
+        start_time = date.strip + ' ' + time[0].strip()
+        start_time = Time.strptime(start_time, '%b %d, %Y %l:%M %P').in_time_zone('UTC')
+
+        end_time = date.strip + ' ' + time[1].strip()
+        end_time = Time.strptime(end_time, '%b %d, %Y %l:%M %P').in_time_zone('UTC')
+
+        LeetCode.create(
+          name: '<a href="%s" target="_blank">%s</a>' % [url, name],
+          start_time: generate_tad_url(start_time),
+          end_time: generate_tad_url(end_time),
+          duration: seconds_to_time(end_time - start_time),
+          in_24_hours: in_24_hours?(start_time),
+          status: start_time < Time.now ? 'CODING' : 'BEFORE'
+        )
+      end
+
+      update_last_update 'leet_code'
+    end
+
+    def a2oj
+      # request a2oj contests page
+      tables = Nokogiri::HTML(open('https://a2oj.com/', 'User-Agent' => USER_AGENT).read).css('.tablesorter')
+      tables.pop
+
+      # delete old contests from database
+      A2oj.delete_all
+
+      tables.each_with_index do |table, i|
+        contests = table.css('tbody tr')
+        # add contests
+        contests.each do |contest|
+          tds = contest.css('td')
+          code_name = tds[1].text.partition('-')
+          code = code_name.first.strip
+          name = code_name.last.strip
+          owner = add_target_attr(tds[2].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
+          start_time = Time.parse(tds[3].css('a').first.text)
+          status = start_time < Time.now ? 'CODING' : 'BEFORE'
+          
+          duration = tds[4].text
+          # special case for running contests
+          duration.remove!(tds[4].css('b').text) if status.eql?('CODING')
+
+          days = nil
+          hours = nil
+          minutes = nil
+
+          if duration.include? 'days'
+            days, hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          elsif duration.include? 'hrs'
+            hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          elsif duration.include? 'mins'
+            minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+          end
+
+          days = 0 if days.nil?
+          hours = 0 if hours.nil?
+          minutes = 0 if minutes.nil?
+
+          seconds = days * 24 * 60 * 60 + hours * 60 * 60 + minutes * 60
+
+          registrants = add_target_attr(tds[5].css('a').first.to_s.insert(9, 'https://a2oj.com'))
+          type = tds[6].text
+          if type.eql?('Public')
+            registration = add_target_attr(tds[7].css('a').first.to_s.insert(9, 'https://a2oj.com'))
+          else
+            registration = 'By invitation only'
+          end
+
+          A2oj.create(
+            code: code.to_i,
+            name: name,
+            start_time: generate_tad_url(start_time),
+            end_time: generate_tad_url(start_time + seconds),
+            duration: seconds_to_time(seconds),
+            owner: owner,
+            registrants: registrants,
+            type_: type,
+            registration: registration,
+            in_24_hours: in_24_hours?(start_time),
+            status: status
+          )
+        end
+      end
+
+      update_last_update 'a2oj'
     end
 
     private

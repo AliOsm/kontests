@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   get 'api/v1/all'
   get 'api/v1/codeforces'
   get 'api/v1/codeforces_gym'
-  get 'api/v1/cs_academy'
   get 'api/v1/at_coder'
   get 'api/v1/code_chef'
+  get 'api/v1/cs_academy'
   get 'api/v1/hacker_earth'
+  get 'api/v1/leet_code'
   get 'api/v1/a2oj'
   get 'api/v1/sites'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
