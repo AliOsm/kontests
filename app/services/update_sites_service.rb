@@ -108,7 +108,7 @@ module UpdateSitesService
     def at_coder
       # request atcoder contests page
       tables = Nokogiri::HTML(open('https://atcoder.jp/contests', 'User-Agent' => USER_AGENT).read).css('.table-default')
-      tables.shift
+      tables.delete(tables[1])
       tables.pop
 
       # delete old contests from database
