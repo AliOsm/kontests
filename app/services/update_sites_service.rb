@@ -9,7 +9,7 @@ module UpdateSitesService
 
   class << self
     include ActionView::Helpers::TextHelper
-  
+
     def all
       # prepare contests
       all_contests = SITES[1..-1].map do |site|
@@ -107,9 +107,19 @@ module UpdateSitesService
 
     def at_coder
       # request atcoder contests page
-      tables = Nokogiri::HTML(open('https://atcoder.jp/contests', 'User-Agent' => USER_AGENT).read).css('.table-default')
-      tables.delete(tables[1])
-      tables.pop
+      html = Nokogiri::HTML(open('https://atcoder.jp/contests', 'User-Agent' => USER_AGENT).read)
+      tables = html.css('.table-default')
+
+      if tables.size == 4
+        tables.delete(tables[1])
+        tables.pop
+      elsif html.text.include? 'Upcoming Contests'
+        tables.shift
+        tables.pop
+      else
+        tables.pop
+        tables.pop
+      end
 
       # delete old contests from database
       AtCoder.delete_all
@@ -326,10 +336,10 @@ module UpdateSitesService
 
       contests.each do |contest|
         a = contest.css('div a').first
+        next if a.nil?
+
         url = 'https://leetcode.com%s' % [a['href']]
         name = a.css('.card-title').first.text
-
-        next if name.eql?('Come Back Later')
 
         date, time = a.css('.time').text.split('@')
         time = time.split('-')
@@ -349,6 +359,8 @@ module UpdateSitesService
           status: start_time < Time.now ? 'CODING' : 'BEFORE'
         )
       end
+
+      browser.close
 
       update_last_update 'leet_code'
     end
@@ -372,7 +384,7 @@ module UpdateSitesService
           owner = add_target_attr(tds[2].css('a').first.to_s.insert(9, 'https://a2oj.com/'))
           start_time = Time.parse(tds[3].css('a').first.text)
           status = start_time < Time.now ? 'CODING' : 'BEFORE'
-          
+
           duration = tds[4].text
           # special case for running contests
           duration.remove!(tds[4].css('b').text) if status.eql?('CODING')
