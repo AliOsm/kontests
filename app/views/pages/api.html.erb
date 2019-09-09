@@ -20,23 +20,33 @@
             <tbody>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>site</td>
-                <td>The website hosting the contest, which is one of the following: <code>CodeForces</code>, <code>CodeForces::Gym</code>, <code>CS Academy</code>, <code>AtCoder</code>, <code>CodeChef</code>, <code>HackerEarth</code>, <code>A2OJ</code></td>
+                <td>
+                  The website hosting the contest, which is one of the following:
+                  <% SITES.each_with_index do |site, i| %>
+                    <% next if i.zero? %>
+                    <code><%= site.first %></code><%= i != SITES.size ? ',' : '.' %>
+                  <% end %>
+                </td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -82,19 +92,23 @@
               </tr>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -140,19 +154,23 @@
               </tr>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>difficulty</td>
@@ -202,19 +220,23 @@
               </tr>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>rated_range</td>
@@ -264,19 +286,23 @@
               </tr>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -318,19 +344,23 @@
             <tbody>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -372,23 +402,27 @@
             <tbody>
               <tr>
                 <td>company</td>
-                <td>The sponsoring company if exists, otherwise <code>-</code>.</td>
+                <td>The sponsoring company if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration if exists, otherwise <code>-</code>.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>type_</td>
@@ -434,19 +468,23 @@
             <tbody>
               <tr>
                 <td>name</td>
-                <td>Anchor tag containing the contest name and its link.</td>
+                <td>Contest name.</td>
+              </tr>
+              <tr>
+                <td>url</td>
+                <td>Contest link.</td>
               </tr>
               <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>in_24_hours</td>
@@ -495,32 +533,32 @@
                 <td>Contest name.</td>
               </tr>
               <tr>
+                <td>url</td>
+                <td>Contest link.</td>
+              </tr>
+              <tr>
                 <td>start_time</td>
-                <td>Anchor tag containing the start time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link.</td>
+                <td>Start time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>end_time</td>
-                <td>Anchor tag containing the end time of the contest and its related <%= link_to 'timeanddate.com', 'https://timeanddate.com', target: :_blank %> link if exists, otherwise <code>-</code>.</td>
+                <td>End time of the contest in UTC (Format: <code>%Y-%m-%dT%H:%M:%S.%LZ</code>) if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
                 <td>duration</td>
-                <td>Contest duration.</td>
+                <td>Contest duration in seconds if exists, <code>-</code> otherwise.</td>
               </tr>
               <tr>
-                <td>owner</td>
-                <td>Anchor tag containing the contest owner name and its <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %> profile link.</td>
+                <td>owner_name</td>
+                <td>Contest owner name.</td>
+              </tr>
+              <tr>
+                <td>owner_url</td>
+                <td>Contest owner profile link in <%= link_to 'A2OJ', 'https://a2oj.com', target: :_blank %>.</td>
               </tr>
               <tr>
                 <td>registrants</td>
                 <td>Anchor tag containing the number of registrants and the link to the webpage containing the list of them.</td>
-              </tr>
-              <tr>
-                <td>type_</td>
-                <td>Contest type, which is one of the following: <code>Public</code>, <code>Semi-Private</code>, <code>Private</code>.</td>
-              </tr>
-              <tr>
-                <td>registration</td>
-                <td>Contest registration webpage link if the contest is not <code>Private</code>, <code>By invitation only</code> otherwise.</td>
               </tr>
               <tr>
                 <td>in_24_hours</td>

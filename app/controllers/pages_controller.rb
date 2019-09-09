@@ -1,6 +1,9 @@
 class PagesController < ApplicationController
   def home
     @site_class = params[:site_class] == nil ? 'all' : params[:site_class]
+    unless SITES.transpose[1].include? @site_class
+      @site_class = SITES[0][1]
+    end
 
     @sites = SITES.map do |site|
       [

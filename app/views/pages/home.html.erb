@@ -1,9 +1,9 @@
 <div class="row justify-content-center">
-  <div class="col-12 col-lg-10">
+  <div class="col-12 col-lg-9">
     <ul class="nav nav-pills center-pills mb-3" id="pills-tab" role="tablist" aria-orientation="vertical">
       <% @sites.each do |site| %>
         <% if site.third.size + site.fourth.size > 0 %>
-          <li class="nav-item" onclick="changeUrl(this)">
+          <li class="nav-item" onclick="redirectUrl(this)">
             <a class="nav-link <%= 'active' if site.second == @site_class %>" id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab" aria-controls="pills-<%= site.second %>" aria-selected="true" data-site="<%= site.second %>">
               <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.size + site.fourth.size %></span>
             </a>
@@ -15,7 +15,7 @@
 </div>
 
 <div class="row justify-content-center">
-  <div class="col-12 col-lg-10">
+  <div class="col-12 col-lg-9">
     <div class="card border-0 bg-transparent">
       <div class="card-body pt-0 pr-0 pb-0 pl-0">
         <div class="tab-content" id="pills-tabContent">

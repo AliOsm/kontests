@@ -1,8 +1,9 @@
 class CreateCodeforces < ActiveRecord::Migration[5.2]
   def change
     create_table :codeforces, id: false do |t|
-      t.integer :code, null: false
+      t.string :code, null: false
       t.string :name
+      t.string :url
       t.string :start_time
       t.string :end_time
       t.string :duration

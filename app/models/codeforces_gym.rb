@@ -3,6 +3,6 @@ class CodeforcesGym < ApplicationRecord
   self.primary_key = :code
 
   def to_param
-    code.parametarize 
+    code.parametarize
   end
 end

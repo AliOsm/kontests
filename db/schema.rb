@@ -18,13 +18,13 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
   create_table "a2oj", id: false, force: :cascade do |t|
     t.integer "code", null: false
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
-    t.string "owner"
-    t.string "registrants"
-    t.string "type_"
-    t.string "registration"
+    t.string "owner_name"
+    t.string "owner_url"
+    t.integer "registrants"
     t.string "in_24_hours"
     t.string "status"
     t.index ["code"], name: "index_a2oj_on_code", unique: true
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
 
   create_table "all", id: false, force: :cascade do |t|
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
   create_table "at_coder", id: false, force: :cascade do |t|
     t.string "code", null: false
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -55,6 +57,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
   create_table "code_chef", id: false, force: :cascade do |t|
     t.string "code", null: false
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -64,8 +67,9 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
   end
 
   create_table "codeforces", id: false, force: :cascade do |t|
-    t.integer "code", null: false
+    t.string "code", null: false
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -75,8 +79,9 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
   end
 
   create_table "codeforces_gym", id: false, force: :cascade do |t|
-    t.integer "code", null: false
+    t.string "code", null: false
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -88,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
 
   create_table "cs_academy", id: false, force: :cascade do |t|
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -98,6 +104,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
   create_table "hacker_earth", id: false, force: :cascade do |t|
     t.string "company"
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
@@ -121,6 +128,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_212854) do
 
   create_table "leet_code", id: false, force: :cascade do |t|
     t.string "name"
+    t.string "url"
     t.string "start_time"
     t.string "end_time"
     t.string "duration"

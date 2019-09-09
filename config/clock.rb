@@ -22,9 +22,9 @@ module Clockwork
     end
   end
 
-  every(2.minute, 'frequent.all')
   every(3.minute, 'frequent.cf_cfg_ac') # codeforces, codeforces_gym, at_coder
   every(5.minute, 'frequent.cc_a2') # code_chef, a2oj
   every(7.minute, 'frequent.lc_csa_he') # leet_code, cs_academy, hacker_earth
+  every(2.minute, 'frequent.all')
   every(29.minute, 'frequent.ping')
 end

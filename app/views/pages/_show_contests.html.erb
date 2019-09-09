@@ -9,7 +9,8 @@
         <thead class="border-top border-bottom">
           <tr>
             <% contests.column_names.each do |column_name| %>
-              <% next if ['in_24_hours', 'status'].include? column_name %>
+              <% next if column_name.eql?('url') %>
+              <% next if ['code', 'url', 'owner_url', 'in_24_hours', 'status'].include? column_name %>
               <% next if site_class.eql?('hacker_earth') && column_name.eql?('duration') %>
 
               <th scope="col">
@@ -23,11 +24,21 @@
           <% contests.each do |contest| %>
             <tr class="<%= 'in-24-hours' if type == 'future' && contest[:in_24_hours] == 'Yes' %>">
               <% contests.column_names.each do |column_name| %>
-                <% next if ['in_24_hours', 'status'].include? column_name %>
+                <% next if ['code', 'url', 'owner_url', 'in_24_hours', 'status'].include? column_name %>
                 <% next if site_class.eql?('hacker_earth') && column_name.eql?('duration') %>
 
                 <td>
-                  <%= raw contest[column_name] %>
+                  <% if column_name.eql? 'name' %>
+                    <%= link_to contest['name'], contest['url'], target: '_blank' %>
+                  <% elsif column_name.include? 'time' %>
+                    <time class="contest-time"><%= contest[column_name] %></time>
+                  <% elsif column_name.eql? 'duration' %>
+                    <time class="contest-duration"><%= contest[column_name] %></time>
+                  <% elsif column_name.eql? 'owner_name' %>
+                    <%= link_to contest['owner_name'], contest['owner_url'], target: '_blank' %>
+                  <% else %>
+                    <%= raw contest[column_name] %>
+                  <% end %>
                 </td>
               <% end %>
             </tr>
