@@ -65,8 +65,11 @@ function durationToText(obj) {
     minutes = Math.floor(seconds / 60);
     minutes = ('0' + minutes).slice(-2);
 
-    if(days > 0)
-        obj.html(`${days} ${days_s} and ${hours}:${minutes}`);
-    else
-        obj.html(`${hours}:${minutes}`);
+    if(days > 0) {
+        duration = days + ' ' + days_s + ' and ' + hours + ':' + minutes
+        obj.html(duration);
+    } else {
+        duration = hours + ':' + minutes
+        obj.html(duration);
+    }
 }
