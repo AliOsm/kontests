@@ -423,6 +423,54 @@ module UpdateSitesService
       update_last_update 'hacker_earth'
     end
 
+    def kick_start
+      opts = {
+        headless: true
+      }
+
+      if chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+        opts.merge!(options: {binary: chrome_bin})
+      end
+
+      browser = Watir::Browser.new :chrome, opts
+
+      # request kick_start contests page
+      browser.goto 'https://codingcompetitions.withgoogle.com/kickstart/schedule'
+      browser.wait_until { browser.element(css: '.schedule-row__upcoming').exists? } rescue false
+      upcomming_contests = Nokogiri::HTML(browser.html).css('.schedule-row__upcoming')
+
+      # delete old contests from database
+      KickStart.delete_all
+
+      # add contests
+      upcomming_contests.each do |contest|
+        name = contest.css('div span').first.text
+        url = 'https://codingcompetitions.withgoogle.com/kickstart/schedule'
+        start_time = Time.zone.parse(contest.css('div')[1].first_element_child.text + ' UTC')
+        end_time = Time.zone.parse(contest.css('div')[2].first_element_child.text + ' UTC')
+        duration = end_time - start_time
+        status = start_time < Time.now ? 'CODING' : 'BEFORE'
+        in_24_hours = in_24_hours?(start_time, status)
+
+        start_time = start_time.strftime('%Y-%m-%dT%H:%M:%S.%LZ')
+        end_time = end_time.strftime('%Y-%m-%dT%H:%M:%S.%LZ')
+
+        KickStart.create(
+          name: name,
+          url: url,
+          start_time: start_time,
+          end_time: end_time,
+          duration: duration,
+          in_24_hours: in_24_hours,
+          status: status
+        )
+      end
+
+      browser.close
+
+      update_last_update 'kick_start'
+    end
+
     def leet_code
       opts = {
         headless: true
@@ -436,8 +484,8 @@ module UpdateSitesService
 
       # request leet_code contests page
       browser.goto 'https://leetcode.com/contest'
-      browser.wait_until { browser.element(css: '.contest-card-base').exists? } rescue false
       sleep 5.seconds
+      browser.wait_until { browser.element(css: '.contest-card-base').exists? } rescue false
       contests = Nokogiri::HTML(browser.html).css('.contest-card-base')
 
       # delete old contests from database

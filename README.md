@@ -25,7 +25,7 @@ Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
   - [x] Codeforces::Gym
   - [x] CS Academy
   - [ ] Dev Skill
-  - [ ] Google Kickstart
+  - [x] Google Kickstart
   - [x] HackerEarth
   - [ ] HackerRank
   - [x] LeetCode
@@ -33,6 +33,7 @@ Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
   - [ ] TopCoder [SRM]
 - [x] Suggestions form
 - [x] Use UTC time
+- [x] Support localtime zones
 
 ## Built with KONTESTS
 KONTESTS Browser Extension: https://github.com/AliOsm/kontests-browser-extension
