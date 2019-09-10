@@ -1,7 +1,6 @@
 class CreateCodeforces < ActiveRecord::Migration[5.2]
   def change
     create_table :codeforces, id: false do |t|
-      t.string :code, null: false
       t.string :name
       t.string :url
       t.string :start_time
@@ -12,7 +11,5 @@ class CreateCodeforces < ActiveRecord::Migration[5.2]
 
       # t.timestamps
     end
-
-    add_index :codeforces, :code, unique: true
   end
 end

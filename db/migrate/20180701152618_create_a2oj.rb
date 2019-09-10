@@ -1,7 +1,6 @@
 class CreateA2oj < ActiveRecord::Migration[5.2]
   def change
     create_table :a2oj, id: false do |t|
-      t.integer :code, null: false
       t.string :name
       t.string :url
       t.string :start_time
@@ -15,7 +14,5 @@ class CreateA2oj < ActiveRecord::Migration[5.2]
 
       # t.timestamps
     end
-
-    add_index :a2oj, :code, unique: true
   end
 end

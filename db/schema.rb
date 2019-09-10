@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
   enable_extension "plpgsql"
 
   create_table "a2oj", id: false, force: :cascade do |t|
-    t.integer "code", null: false
     t.string "name"
     t.string "url"
     t.string "start_time"
@@ -27,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
     t.integer "registrants"
     t.string "in_24_hours"
     t.string "status"
-    t.index ["code"], name: "index_a2oj_on_code", unique: true
   end
 
   create_table "all", id: false, force: :cascade do |t|
@@ -42,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
   end
 
   create_table "at_coder", id: false, force: :cascade do |t|
-    t.string "code", null: false
     t.string "name"
     t.string "url"
     t.string "start_time"
@@ -51,11 +48,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
     t.string "rated_range"
     t.string "in_24_hours"
     t.string "status"
-    t.index ["code"], name: "index_at_coder_on_code", unique: true
   end
 
   create_table "code_chef", id: false, force: :cascade do |t|
-    t.string "code", null: false
     t.string "name"
     t.string "url"
     t.string "start_time"
@@ -63,11 +58,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
     t.string "duration"
     t.string "in_24_hours"
     t.string "status"
-    t.index ["code"], name: "index_code_chef_on_code", unique: true
   end
 
   create_table "codeforces", id: false, force: :cascade do |t|
-    t.string "code", null: false
     t.string "name"
     t.string "url"
     t.string "start_time"
@@ -75,11 +68,9 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
     t.string "duration"
     t.string "in_24_hours"
     t.string "status"
-    t.index ["code"], name: "index_codeforces_on_code", unique: true
   end
 
   create_table "codeforces_gym", id: false, force: :cascade do |t|
-    t.string "code", null: false
     t.string "name"
     t.string "url"
     t.string "start_time"
@@ -88,7 +79,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
     t.integer "difficulty"
     t.string "in_24_hours"
     t.string "status"
-    t.index ["code"], name: "index_codeforces_gym_on_code", unique: true
   end
 
   create_table "cs_academy", id: false, force: :cascade do |t|
@@ -102,7 +92,6 @@ ActiveRecord::Schema.define(version: 2019_09_10_063614) do
   end
 
   create_table "hacker_earth", id: false, force: :cascade do |t|
-    t.string "company"
     t.string "name"
     t.string "url"
     t.string "start_time"

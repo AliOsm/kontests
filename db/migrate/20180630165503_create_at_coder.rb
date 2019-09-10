@@ -1,7 +1,6 @@
 class CreateAtCoder < ActiveRecord::Migration[5.2]
   def change
     create_table :at_coder, id: false do |t|
-      t.string :code, null: false
       t.string :name
       t.string :url
       t.string :start_time
@@ -13,7 +12,5 @@ class CreateAtCoder < ActiveRecord::Migration[5.2]
 
       # t.timestamps
     end
-
-    add_index :at_coder, :code, unique: true
   end
 end

@@ -165,6 +165,8 @@ GEM
     rb-inotify (0.10.0)
       ffi (~> 1.0)
     regexp_parser (1.6.0)
+    ruby-enum (0.7.2)
+      i18n
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
     sass (3.7.4)
@@ -263,6 +265,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.2.0)
   rails-timeago (~> 2.16)
+  ruby-enum (~> 0.7.0)
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form (~> 4.0.0)
