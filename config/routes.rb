@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
 	root 'pages#home'
-	
+
   get '/home', to: 'pages#home'
   get '/browser_extensions', to: 'pages#browser_extensions'
   get '/api', to: 'pages#api'
   get '/about', to: 'pages#about'
-  
+
   resources :suggests, only: [:index, :create]
   resources :joins, only: [:index, :create]
 
@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'api/v1/code_chef'
   get 'api/v1/cs_academy'
   get 'api/v1/hacker_earth'
+  get 'api/v1/kick_start'
   get 'api/v1/leet_code'
   get 'api/v1/a2oj'
   get 'api/v1/sites'

@@ -27,6 +27,10 @@ class Api::V1Controller < ApplicationController
     render json: HackerEarth.all
   end
 
+  def kick_start
+    render json: KickStart.all
+  end
+
   def leet_code
     render json: LeetCode.all
   end
