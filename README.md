@@ -1,13 +1,26 @@
 # KONTESTS
 Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
 
+## Supported Sites
+
+- CodeForces
+- CodeForces::Gym
+- AtCoder
+- CS Academy
+- CodeChef
+- HackerRank
+- HackerEarth
+- Kich Start
+- LeetCode
+- A2OJ
+
 ## TODO
 - [ ] Filters
+- [ ] Time to Start
+- [ ] Time to End
 - [ ] Sites to support:
-  - [ ] Dev Skill
-  - [ ] HackerRank
-  - [ ] TopCoder [Marathon]
-  - [ ] TopCoder [SRM]
+  - [ ] TopCoder
+  - [ ] Kaggle
 
 ## Built with KONTESTS
 KONTESTS Browser Extension: https://github.com/AliOsm/kontests-browser-extension
