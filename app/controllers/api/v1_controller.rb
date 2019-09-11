@@ -11,6 +11,10 @@ class Api::V1Controller < ApplicationController
     render json: CodeforcesGym.all
   end
 
+  def top_coder
+    render json: TopCoder.all
+  end
+
   def at_coder
     render json: AtCoder.all
   end

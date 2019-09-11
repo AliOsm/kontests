@@ -63,11 +63,11 @@ class A2ojService < SiteService
     minutes = nil
 
     if duration.include? 'day' or duration.include? 'days'
-      days, hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+      days, hours, minutes = duration.split(' ').select { |element| element.scan(/\D/).empty? }.map(&:to_i)
     elsif duration.include? 'hr' or duration.include? 'hrs'
-      hours, minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+      hours, minutes = duration.split(' ').select { |element| element.scan(/\D/).empty? }.map(&:to_i)
     elsif duration.include? 'mins'
-      minutes = duration.split(' ').select { |elem| elem.scan(/\D/).empty? }.map(&:to_i)
+      minutes = duration.split(' ').select { |element| element.scan(/\D/).empty? }.map(&:to_i)
     end
 
     days = 0 if days.nil?

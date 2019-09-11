@@ -49,9 +49,9 @@ class HackerRankService < SiteService
 
     contest_info[:name] = contest['name']
     contest_info[:url] = "https://hackerrank.com/contests/#{contest['slug']}"
-    start_time = DateTime.strptime(contest['epoch_starttime'].to_s, '%s')
+    start_time = DateTime.strptime contest['epoch_starttime'].to_s, '%s'
     start_time = Time.parse start_time.to_s
-    end_time = DateTime.strptime(contest['epoch_endtime'].to_s, '%s')
+    end_time = DateTime.strptime contest['epoch_endtime'].to_s, '%s'
     end_time = Time.parse end_time.to_s
 
     return nil if Time.now > end_time

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'api/v1/all'
   get 'api/v1/codeforces'
   get 'api/v1/codeforces_gym'
+  get 'api/v1/top_coder'
   get 'api/v1/at_coder'
   get 'api/v1/cs_academy'
   get 'api/v1/code_chef'

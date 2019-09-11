@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_174850) do
+ActiveRecord::Schema.define(version: 2019_09_11_185740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,6 +152,16 @@ ActiveRecord::Schema.define(version: 2019_09_11_174850) do
     t.text "message", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "top_coder", id: false, force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "start_time"
+    t.string "end_time"
+    t.string "duration"
+    t.string "in_24_hours"
+    t.string "status"
   end
 
 end

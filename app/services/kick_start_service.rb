@@ -33,8 +33,8 @@ class KickStartService < SiteService
 
     contest_info[:name] = contest.css('div span').first.text
     contest_info[:url] = 'https://codingcompetitions.withgoogle.com/kickstart/schedule'
-    start_time = Time.zone.parse(contest.css('div')[1].first_element_child.text + ' UTC')
-    end_time = Time.zone.parse(contest.css('div')[2].first_element_child.text + ' UTC')
+    start_time = Time.zone.parse contest.css('div')[1].first_element_child.text + ' UTC'
+    end_time = Time.zone.parse contest.css('div')[2].first_element_child.text + ' UTC'
     contest_info[:duration] = end_time - start_time
     contest_info[:status] = get_status start_time
     contest_info[:in_24_hours] = in_24_hours? start_time, contest_info[:status]

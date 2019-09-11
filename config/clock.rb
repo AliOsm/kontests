@@ -11,14 +11,15 @@ module Clockwork
     elsif job.eql?('frequent.3_min')
       CodeforcesService.update_contests
       CodeforcesGymService.update_contests
+      TopCoderService.update_contests
       AtCoderService.update_contests
-      CodeChefService.update_contests
     elsif job.eql?('frequent.5_min')
+      CodeChefService.update_contests
       HackerRankService.update_contests
       HackerEarthService.update_contests
       LeetCodeService.update_contests
-      A2ojService.update_contests
     elsif job.eql?('frequent.7_min')
+      A2ojService.update_contests
       CsAcademyService.update_contests
       KickStartService.update_contests
     end

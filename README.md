@@ -5,6 +5,7 @@ Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
 
 - CodeForces
 - CodeForces::Gym
+- TopCoder
 - AtCoder
 - CS Academy
 - CodeChef
@@ -19,7 +20,6 @@ Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
 - [ ] Time to Start
 - [ ] Time to End
 - [ ] Sites to support:
-  - [ ] TopCoder
   - [ ] Kaggle
 
 ## Built with KONTESTS
