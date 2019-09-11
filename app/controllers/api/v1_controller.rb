@@ -15,12 +15,16 @@ class Api::V1Controller < ApplicationController
     render json: AtCoder.all
   end
 
+  def cs_academy
+    render json: CsAcademy.all
+  end
+
   def code_chef
     render json: CodeChef.all
   end
 
-  def cs_academy
-    render json: CsAcademy.all
+  def hacker_rank
+    render json: HackerRank.all
   end
 
   def hacker_earth
