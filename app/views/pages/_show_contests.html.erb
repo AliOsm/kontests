@@ -10,7 +10,7 @@
           <tr>
             <% contests.column_names.each do |column_name| %>
               <% next if column_name.eql?('url') %>
-              <% next if ['code', 'url', 'owner_url', 'in_24_hours', 'status'].include? column_name %>
+              <% next if ['url', 'owner_url', 'in_24_hours', 'status'].include? column_name %>
 
               <th scope="col">
                 <%= column_name.tr('_', ' ').capitalize %>
@@ -23,10 +23,11 @@
           <% contests.each do |contest| %>
             <tr class="<%= 'in-24-hours' if type == 'future' && contest[:in_24_hours] == 'Yes' %>">
               <% contests.column_names.each do |column_name| %>
-                <% next if ['code', 'url', 'owner_url', 'in_24_hours', 'status'].include? column_name %>
+                <% next if ['url', 'owner_url', 'in_24_hours', 'status'].include? column_name %>
 
                 <td>
                   <% if column_name.eql? 'name' %>
+                    <a class="add-to-calendar" data-toggle="tooltip" data-placement="top" title="Add to Calendar" target="_blank" href="http://calendar.google.com/event?action=TEMPLATE&dates=<%= contest['start_time'] %>/<%= contest['end_time'] %>&text=<%= contest['name'] %>&location=<%= contest['url'] %>"><%= icon('far', 'calendar-alt') %></a> &nbsp;
                     <%= link_to contest['name'], contest['url'], target: '_blank' %>
                   <% elsif column_name.include? 'time' %>
                     <time class="contest-time"><%= contest[column_name] %></time>

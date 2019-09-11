@@ -20,12 +20,20 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    });
+
     $('.contest-time').each(function() {
         localTimeFromUtc($(this));
     });
 
     $('.contest-duration').each(function() {
         durationToText($(this));
+    });
+
+    $('.add-to-calendar').each(function() {
+        formatCalendarUrl($(this));
     });
 })
 
@@ -72,4 +80,11 @@ function durationToText(obj) {
         duration = hours + ':' + minutes
         obj.html(duration);
     }
+}
+
+function formatCalendarUrl(obj) {
+    href = obj[0].getAttribute('href');
+    href = href.slice(0, 59) + href.slice(60, 62) + href.slice(63, 68) + href.slice(69, 71) + href.slice(72, 74) + href.slice(78);
+    href = href.slice(0, 76) + href.slice(77, 79) + href.slice(80, 85) + href.slice(86, 88) + href.slice(89, 91) + href.slice(95);
+    obj[0].setAttribute('href', href);
 }

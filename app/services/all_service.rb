@@ -59,12 +59,12 @@ class AllService < SiteService
     contest_info = {}
 
     contest_info[:name] = contest[0]
-    contest_info[:url] = contest[1],
-    contest_info[:start_time] = contest[2],
-    contest_info[:end_time] = contest[3],
-    contest_info[:duration] = contest[4],
-    contest_info[:in_24_hours] = contest[5],
-    contest_info[:status] = contest[6],
+    contest_info[:url] = contest[1]
+    contest_info[:start_time] = contest[2]
+    contest_info[:end_time] = contest[3]
+    contest_info[:duration] = contest[4]
+    contest_info[:in_24_hours] = contest[5]
+    contest_info[:status] = contest[6]
     contest_info[:site] = contest[7]
 
     contest_info
