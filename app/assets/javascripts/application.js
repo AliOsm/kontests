@@ -84,7 +84,7 @@ function durationToText(obj) {
 
 function formatCalendarUrl(obj) {
     href = obj[0].getAttribute('href');
-    href = href.slice(0, 59) + href.slice(60, 62) + href.slice(63, 68) + href.slice(69, 71) + href.slice(72, 74) + href.slice(78);
-    href = href.slice(0, 76) + href.slice(77, 79) + href.slice(80, 85) + href.slice(86, 88) + href.slice(89, 91) + href.slice(95);
+    href = href.slice(0, 60) + href.slice(61, 63) + href.slice(64, 69) + href.slice(70, 72) + href.slice(73, 75) + href.slice(79);
+    href = href.slice(0, 77) + href.slice(78, 80) + href.slice(81, 86) + href.slice(87, 89) + href.slice(90, 92) + href.slice(96);
     obj[0].setAttribute('href', href);
 }

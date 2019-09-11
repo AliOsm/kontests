@@ -27,7 +27,7 @@
 
                 <td>
                   <% if column_name.eql? 'name' %>
-                    <a class="add-to-calendar" data-toggle="tooltip" data-placement="top" title="Add to Calendar" target="_blank" href="http://calendar.google.com/event?action=TEMPLATE&dates=<%= contest['start_time'] %>/<%= contest['end_time'] %>&text=<%= contest['name'] %>&location=<%= contest['url'] %>"><%= icon('far', 'calendar-alt') %></a> &nbsp;
+                    <a class="add-to-calendar" data-toggle="tooltip" data-placement="top" title="Add to Calendar" target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&dates=<%= contest['start_time'] %>/<%= contest['end_time'] %>&text=<%= contest['name'] %>&location=<%= contest['url'] %>"><%= icon('far', 'calendar-alt') %></a> &nbsp;
                     <%= link_to contest['name'], contest['url'], target: '_blank' %>
                   <% elsif column_name.include? 'time' %>
                     <time class="contest-time"><%= contest[column_name] %></time>
