@@ -86,5 +86,9 @@ function formatCalendarUrl(obj) {
     href = obj[0].getAttribute('href');
     href = href.slice(0, 60) + href.slice(61, 63) + href.slice(64, 69) + href.slice(70, 72) + href.slice(73, 75) + href.slice(79);
     href = href.slice(0, 77) + href.slice(78, 80) + href.slice(81, 86) + href.slice(87, 89) + href.slice(90, 92) + href.slice(96);
+    href = href.replace('#', '%23');
+    href = href.replace('&', '%26');
+    href = href.replace('+', '%2B');
+    href = href.replace('?', '%3F');
     obj[0].setAttribute('href', href);
 }
