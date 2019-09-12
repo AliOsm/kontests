@@ -9,8 +9,6 @@ class CreateHackerRank < ActiveRecord::Migration[5.2]
       t.string :type_
       t.string :in_24_hours
       t.string :status
-
-      # t.timestamps
     end
   end
 end

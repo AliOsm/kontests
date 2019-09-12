@@ -11,8 +11,6 @@ class CreateA2oj < ActiveRecord::Migration[5.2]
       t.integer :registrants
       t.string :in_24_hours
       t.string :status
-
-      # t.timestamps
     end
   end
 end

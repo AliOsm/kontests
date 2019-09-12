@@ -9,8 +9,6 @@ class CreateAll < ActiveRecord::Migration[5.2]
       t.string :site
       t.string :in_24_hours
       t.string :status
-
-      # t.timestamps
     end
   end
 end

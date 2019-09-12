@@ -3,8 +3,6 @@ class CreateLastUpdates < ActiveRecord::Migration[5.2]
     create_table :last_updates do |t|
       t.string :site
       t.datetime :date
-
-      # t.timestamps
     end
   end
 end
