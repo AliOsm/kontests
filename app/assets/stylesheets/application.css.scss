@@ -14,9 +14,9 @@
  *= require_self
  */
 
-@import "bootswatch/superhero/variables";
+// @import "bootswatch/superhero/variables";
 @import "bootstrap";
-@import "bootswatch/superhero/bootswatch";
+// @import "bootswatch/superhero/bootswatch";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
@@ -31,7 +31,7 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  padding-top: 78px;
+  padding-top: 75px;
 }
 
 #content {
@@ -40,8 +40,8 @@ body {
 
 #footer {
   flex: 0 0 auto;
-  background-color: #4E5D6C;
-  padding: 10px 0px 10px 0px;
+  background-color: #eeeff1;
+  padding: 15px 0px 10px 0px;
 }
 
 .grey {
@@ -84,3 +84,135 @@ body {
   white-space: -o-pre-wrap;
   word-wrap: break-word;
 }
+
+// Common used classes
+
+.overflow-x-auto{
+  overflow-x: auto;
+}
+
+.width-max-content{
+  width: max-content;
+}
+
+
+.dark-scrollbar::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+  // background-color: #F5F5F5;
+}
+
+.dark-scrollbar::-webkit-scrollbar
+{
+	width: 12px;
+  // background-color: #F5F5F5;
+  height: 10px;
+
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: rgb(170, 170, 170);
+}
+
+.dark-scrollbar:hover::-webkit-scrollbar-thumb
+{
+	background-color: rgb(109, 107, 107);
+}
+
+// *{
+//   transition: 0.5s all;
+// }
+
+// Default Theme
+body.default-theme{
+  background-color: #f8f9fa;
+}
+
+body.default-theme .navbar{
+  background-color: #f8f9fa;
+  box-shadow: -1px 0px 9px 0px #0000008a;
+  font-size: 0.8em;
+  padding: 1rem;
+}
+
+body.default-theme .navbar-brand{
+  font-size: 1.5em;
+}
+
+body.default-theme .navbar a{
+  color: #212529;
+}
+
+body.default-theme #sitesHolder{
+  padding-bottom: 1.6rem;
+  padding-top: 2.5rem;
+}
+
+body.default-theme .primary-dynamic-bg{
+  background-color: #ffffff;
+}
+
+body.default-theme .in-24-hours {
+  background: #007bff !important;
+}
+
+body.default-theme .in-24-hours:hover{
+  background: #105fb5 !important;
+}
+
+body.default-theme .in-24-hours a:not(.add-to-calendar) {
+  color: white;
+}
+
+body.default-theme .navbar .custom-control-label::before {
+  height: 0.8rem;
+}
+
+body.default-theme .navbar .custom-switch .custom-control-label::before {
+  width: 1.8rem;
+}
+
+body.default-theme .navbar  .custom-switch .custom-control-label::after {
+  top: calc(0.25rem + 2px);
+  left: calc(-2.25rem + 4px);
+  width: calc(1rem - 8px);
+  height: calc(1rem - 8px);
+}
+
+body.default-theme .navbar .custom-switch {
+  padding-left: 2.7rem;
+}
+// Dark Theme
+body.dark-theme .primary-dynamic-bg{
+  color: white;
+  background-color: #4b4c4c;
+}
+body.dark-theme a, body.dark-theme .table, body.dark-theme .text-black-50, body.dark-theme .dropdown-item{
+  color: white !important;
+}
+body.dark-theme .dropdown-menu{
+  background-color: #444646;
+}
+
+body.dark-theme, body.dark-theme #topNavbar, body.dark-theme .in-24-hours{
+  background-color: #262727 !important;
+}
+body.dark-theme .in-24-hours:hover, body.dark-theme .btn-light{
+  background-color: #1a1b1b !important;
+}
+body.dark-theme .border, body.dark-theme table.border thead{
+  border: 1px solid #84888c !important;
+}
+body.dark-theme #footer{
+  color: darkgray;
+  background-color: #1a1b1b;
+}
+
+body.dark-theme .dropdown-item:hover, body.dark-theme .dropdown-item:focus{
+  background-color: #686b6b;
+}
+

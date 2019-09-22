@@ -20,8 +20,21 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+    if(Cookies.get("theme")=="dark") switchTheme("dark");
+    else if(Cookies.get("theme")=="default") switchTheme("theme");
+    
+
+    if(Cookies.get("theme")=="dark") $('#darkModeSwitch').prop('checked', true);
+    else if(Cookies.get("theme")=="default") $('#darkModeSwitch').prop('checked', false);
+
     $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
+      $('[data-toggle="tooltip"]').tooltip();
+      $('.myTable').DataTable();
+    });
+
+    $('#darkModeSwitch').on("change", function(){
+        var state = $(this).prop('checked');
+        state?switchTheme('dark'):switchTheme('default');
     });
 
     $('.contest-time').each(function() {
@@ -95,4 +108,15 @@ function formatCalendarUrl(obj) {
     name = name.replace('?', '%3F');
     href = href.slice(0, text_index) + name + href.slice(location_index);
     obj[0].setAttribute('href', href);
+}
+
+function switchTheme(theme){
+    if(theme=="dark"){
+        $('body').addClass("dark-theme");
+        Cookies.set('theme', 'dark');
+
+    } else if(theme=="default") {
+        $('body').removeClass("dark-theme");
+        Cookies.set('theme', 'default');
+    }
 }

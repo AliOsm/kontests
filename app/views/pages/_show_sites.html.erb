@@ -1,8 +1,18 @@
 <div class="tab-pane fade <%= 'show active' if site_class == @site_class %>" id="pills-<%= site_class %>" role="tabpanel" aria-labelledby="pills-<%= site_class %>-tab">
-  <p class="text-center text-muted">
-    <%= t(:last_update) %> <%= timeago_tag last_update, :nojs => true %>
-  </p>
-  <%= render partial: 'show_contests', locals: { contests: future_contests, type: 'future', emoji: ':worried:', site_class: site_class } %>
-  <br>
-  <%= render partial: 'show_contests', locals: { contests: running_contests, type: 'running', emoji: ':grinning:', site_class: site_class } %>
+
+
+  <div class="row">
+
+    <div class="col-12 col-lg-12">
+      <p class="text-center text-muted">
+        <%= t(:last_update) %> <%= timeago_tag last_update, :nojs => true %>
+      </p>
+    </div>
+    <div class="col-12 col-lg-6">
+      <%= render partial: 'show_contests', locals: { contests: future_contests, type: 'future', emoji: ':worried:', site_class: site_class } %>
+    </div>
+    <div class="col-12 col-lg-6">
+      <%= render partial: 'show_contests', locals: { contests: running_contests, type: 'running', emoji: ':grinning:', site_class: site_class } %>
+    </div>    
+  </div>
 </div>

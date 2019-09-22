@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+  <nav id="topNavbar" class="navbar navbar-expand-md fixed-top default-theme">
     <div class="container-fluid">
       <%= link_to(root_path, class: 'navbar-brand') do %>
         <%= image_tag('logo.svg', class: 'img-fluid', width: '36', onerror: "this.onerror=null; this.src='logo.png'") %> <span class="align-middle">KONTESTS</span>
@@ -10,6 +10,11 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+          <li class="nav-item <%= 'active' if action_name == 'about' %>">
+            <%= link_to(about_path, class: 'nav-link') do %>
+              <%= icon('fas', 'info-circle', 'About Kontests') %>
+            <% end %>
+          </li>        
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <%= icon('fas', 'life-ring', 'Supported Sites') %>
@@ -29,22 +34,28 @@
 
           <li class="nav-item <%= 'active' if action_name == 'browser_extensions' %>">
             <%= link_to(browser_extensions_path, class: 'nav-link') do %>
-              <%= icon('fas', 'puzzle-piece', 'Browser Extensions') %>
+              <%= icon('fas', 'puzzle-piece', 'Download Browser Extensions') %>
             <% end %>
           </li>
 
           <li class="nav-item <%= 'active' if action_name == 'api' %>">
             <%= link_to(api_path, class: 'nav-link') do %>
-              <%= icon('fas', 'database', 'API') %>
-            <% end %>
-          </li>
-
-          <li class="nav-item <%= 'active' if action_name == 'about' %>">
-            <%= link_to(about_path, class: 'nav-link') do %>
-              <%= icon('fas', 'info-circle', 'About') %>
+              <%= icon('fas', 'database', 'Free API For Developers!') %>
             <% end %>
           </li>
         </ul>
+        <div class="ml-auto text-muted">
+        <span title="Light mode">
+          <%= icon('fa', 'sun') %> 
+        </span>
+            <div class="custom-control custom-switch d-inline">
+              <input type="checkbox" class="custom-control-input" id="darkModeSwitch">
+              <label class="custom-control-label" for="darkModeSwitch"></label> 
+            </div>
+            <span title="Dark mode">
+              <%= icon('fas', 'moon') %>          
+            </span>
+        </div>
       </div>
     </div>
   </nav>

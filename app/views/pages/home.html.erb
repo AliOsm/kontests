@@ -1,26 +1,32 @@
-<div class="row justify-content-center">
-  <div class="col-12 col-lg-9">
-    <ul class="nav nav-pills center-pills mb-3" id="pills-tab" role="tablist" aria-orientation="vertical">
-      <% @sites.each do |site| %>
-        <% if site.third.size + site.fourth.size > 0 %>
+    <div id="sitesHolder" class="row justify-content-center primary-dynamic-bg rounded shadow-sm px-5">
+      <div class="col-12 col-lg-2">
+        <small class="text-black-50 mb-0 mt-3 d-block">Choose Your Favorite Website:</small>
+      </div>
+      <div class="col-12 col-lg-10 overflow-x-auto dark-scrollbar">
+        <ul class="nav nav-pills center-pills mb-3 width-max-content" id="pills-tab" role="tablist"
+          aria-orientation="vertical">
+          <% @sites.each do |site| %>
+          <% if site.third.size + site.fourth.size > 0 %>
           <li class="nav-item" onclick="redirectUrl(this)">
-            <a class="nav-link <%= 'active' if site.second == @site_class %>" id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab" aria-controls="pills-<%= site.second %>" aria-selected="true" data-site="<%= site.second %>">
-              <%= site.first %> &nbsp;<span class="badge badge-pill badge-secondary"><%= site.third.size + site.fourth.size %></span>
+            <a class="nav-link rounded-0 <%= 'active' if site.second == @site_class %>"
+              id="pills-<%= site.second %>-tab" data-toggle="pill" href="#pills-<%= site.second %>" role="tab"
+              aria-controls="pills-<%= site.second %>" aria-selected="true" data-site="<%= site.second %>">
+              <%= site.first %> &nbsp;<span
+                class="badge badge-pill badge-dark"><%= site.third.size + site.fourth.size %></span>
             </a>
           </li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
-</div>
-
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
 <div class="row justify-content-center">
-  <div class="col-12 col-lg-9">
+  <div class="col-12 col-lg-11">
     <div class="card border-0 bg-transparent">
       <div class="card-body pt-0 pr-0 pb-0 pl-0">
-        <div class="tab-content" id="pills-tabContent">
+        <div class="tab-content pt-3" id="pills-tabContent">
           <% @sites.each do |site| %>
-            <%= render partial: 'show_sites', locals: { site_class: site.second, future_contests: site.third, running_contests: site.fourth, last_update: site.fifth } if site.third.size + site.fourth.size > 0 %>
+          <%= render partial: 'show_sites', locals: { site_class: site.second, future_contests: site.third, running_contests: site.fourth, last_update: site.fifth } if site.third.size + site.fourth.size > 0 %>
           <% end %>
         </div>
       </div>
