@@ -21,7 +21,17 @@
 
 $(document).on('turbolinks:load', function() {
     $(function () {
-      $('[data-toggle="tooltip"]').tooltip()
+      $('[data-toggle="tooltip"]').tooltip();
+      $('.dataTable').DataTable({
+        'ordering': false,
+        'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+        'pagingType': 'simple',
+      });
+    });
+
+    $('#darkModeSwitch').on('change', function(){
+        var state = $(this).prop('checked');
+        state ? switchTheme('dark') : switchTheme('default');
     });
 
     $('.contest-time').each(function() {
@@ -35,7 +45,13 @@ $(document).on('turbolinks:load', function() {
     $('.add-to-calendar').each(function() {
         formatCalendarUrl($(this));
     });
+
+    loader = setTimeout(removeLoader, 1000);
 })
+
+function removeLoader() {
+    $('.lazyLoader').removeClass('lazyLoader');
+}
 
 function redirectUrl(obj) {
 	if (history.pushState) {
@@ -95,4 +111,14 @@ function formatCalendarUrl(obj) {
     name = name.replace('?', '%3F');
     href = href.slice(0, text_index) + name + href.slice(location_index);
     obj[0].setAttribute('href', href);
+}
+
+function switchTheme(theme){
+    if(theme == 'dark'){
+        $('body').addClass('dark-theme');
+        Cookies.set('theme', 'dark');
+    } else if(theme == 'default') {
+        $('body').removeClass('dark-theme');
+        Cookies.set('theme', 'default');
+    }
 }
