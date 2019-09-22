@@ -5,8 +5,6 @@ ruby '2.5.0'
 
 # Use Bootstrap as default CSS framework
 gem 'bootstrap', '>= 4.3.1'
-# Use Bootswatch themes on Bootstrap
-gem 'bootswatch', '~> 4.3.1'
 # Use jQuery as default JS framework
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 # Use FontAwesome as default font icon
