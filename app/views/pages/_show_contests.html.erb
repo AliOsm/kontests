@@ -1,11 +1,13 @@
-<div class="<%= type %> bg-secondary">
+<div class="<%= type %> primary-dynamic-bg px-3 py-4 shadow-sm rounded h-100 lazyLoader">
   <% if contests.blank? %>
-    <p class="lead text-center pt-3 pb-3 mb-0">There are no <%= type %> contests <%= emojify(emoji) %></p>
+    <p class="lead text-center font-weight-bold">0 Running Contests</p>
+    <hr/>
+    <p class="alert alert-warning"><%= icon('fas', 'info-circle') %> There are no <%= type %> contests <%= emojify(emoji) %></p>
   <% else %>
-    <p class="lead text-center pt-3 pb-3 mb-0"><%= [contests.size, type.capitalize, 'Contest'.pluralize(contests.size)].join(' ') %></p>
-
-    <div class="table-responsive">
-      <table class="table table-borderless table-hover mb-0">
+    <p class="lead text-center font-weight-bold"><%= [contests.size, type.capitalize, 'Contest'.pluralize(contests.size)].join(' ') %></p>
+    <hr/>
+    <div class="table-responsive py-2 dark-scrollbar">
+      <table class="table table-borderless table-hover table-striped border dataTable">
         <thead class="border-top border-bottom">
           <tr>
             <% contests.column_names.each do |column_name| %>
@@ -28,7 +30,7 @@
                 <td>
                   <% if column_name.eql? 'name' %>
                     <% unless contest['status'] == 'CODING' %>
-                      <a class="add-to-calendar" data-toggle="tooltip" data-placement="top" title="Add to Calendar" target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&dates=<%= contest['start_time'] %>/<%= contest['end_time'] %>&text=<%= contest['name'] %>&location=<%= contest['url'] %>"><%= icon('far', 'calendar-alt') %></a> &nbsp;
+                      <a class="add-to-calendar btn btn-light btn-sm py-0 px-1" data-toggle="tooltip" data-placement="top" title="Add to Calendar" target="_blank" href="https://calendar.google.com/event?action=TEMPLATE&dates=<%= contest['start_time'] %>/<%= contest['end_time'] %>&text=<%= contest['name'] %>&location=<%= contest['url'] %>"><small><%= icon('far', 'calendar-alt', 'Reminder') %></small></a> &nbsp;
                     <% end %>
                     <%= link_to contest['name'], contest['url'], target: '_blank' %>
                   <% elsif column_name.include? 'time' %>

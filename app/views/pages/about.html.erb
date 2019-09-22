@@ -1,9 +1,9 @@
 <%= render 'join_team_modal' %>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center mt-5">
   <div class="col-12 col-lg-10">
     <div class="card-deck">
-      <div class="card mb-4">
+      <div class="card mb-4 primary-dynamic-bg">
         <div class="card-header">
           <div class="container">
             <div class="row text-center">
@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <div class="card mb-4">
+      <div class="card mb-4 primary-dynamic-bg">
         <div class="card-header">
           <div class="container">
             <div class="row text-center">
@@ -61,7 +61,7 @@
         </div>
       </div>
 
-      <div class="card mb-4">
+      <div class="card mb-4 primary-dynamic-bg">
         <div class="card-header">
           <div class="container">
             <div class="row text-center">
@@ -93,7 +93,7 @@
 
 <div class="row justify-content-center">
   <div class="col-12 col-lg-10">
-    <div class="card">
+    <div class="card mb-4 primary-dynamic-bg">
       <div class="card-header">
         <div class="container">
           <div class="row text-center">
@@ -130,6 +130,23 @@
             <div class="col-12 col-md-4">
               <div class="our-team">
                 <div class="pic">
+                  <%= image_tag('team/ridah_labbar.jpg', class: 'card-img img-fluid') %>
+                </div>
+                <div class="team-content">
+                  <h3>Ridah O. Labbar</h3>
+                  <span class="post"></span>
+                </div>
+                <ul class="social">
+                  <li><%= link_to(icon('fab', 'facebook fa-2x'), 'https://web.facebook.com/r.labbar', target: :_blank) %></li>
+                  <li><%= link_to(icon('fab', 'github-square fa-2x'), 'https://github.com/ridaomar', target: :_blank) %></li>
+                  <li><%= mail_to('ridalabbar@gmail.com', icon('fas', 'envelope-square fa-2x')) %></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-4">
+              <div class="our-team">
+                <div class="pic">
                   <%= image_tag('team/ibraheem_tuffaha.jpeg', class: 'card-img img-fluid') %>
                 </div>
                 <div class="team-content">
@@ -144,7 +161,30 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="row justify-content-center">
+  <div class="col-12 col-lg-10">
+    <div class="card primary-dynamic-bg">
+      <div class="card-header">
+        <div class="container">
+          <div class="row text-center">
+            <div class="col">
+              <div class="sec-title">
+                <h2>Want to help?</h2>
+                <h3>We appreciate it <%= emojify(':heart:') %></h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-body pt-5">
+        <div class="container">
           <div class="row justify-content-center">
             <div class="col-12 col-md-4 mb-4">
               <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#joinTeam">
