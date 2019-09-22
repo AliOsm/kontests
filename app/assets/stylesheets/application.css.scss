@@ -157,6 +157,15 @@ div.dataTables_wrapper div.dataTables_paginate {
 
 body.default-theme {
   background-color: #f8f9fa;
+
+  .navbar-toggler {
+    color: #4b4c4c;
+    border-color: #4b4c4c;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(75, 76, 76, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
 }
 
 body.default-theme .navbar {
@@ -219,6 +228,18 @@ body.default-theme .dataTables_wrapper table .add-to-calendar{
 }
 
 // Dark Theme
+
+body.dark-theme {
+  .navbar-toggler {
+    color: #8a8a8a;
+    border-color: #8a8a8a;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(138, 138, 138, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
 body.dark-theme .primary-dynamic-bg {
   color: white;
   background-color: #4b4c4c;
@@ -275,4 +296,10 @@ body.dark-theme .dataTables_wrapper .add-to-calendar {
 
 body.dark-theme .our-team .social li a:hover {
     background: #262727;
+}
+
+@media only screen and (max-width: 768px) {
+  .dataTables_info, .dataTables_length {
+    display: none;
+  }
 }
