@@ -3,7 +3,7 @@
     <small class="text-black-50 mb-lg-0 mb-4 mt-3 d-block text-center text-lg-left">Choose Your Favorite Website:</small>
   </div> -->
   <div class="col-12 col-lg-10 overflow-x-auto dark-scrollbar">
-    <ul class="nav nav-pills center-pills mb-3 mx-auto" id="pills-tab" role="tablist" aria-orientation="vertical">
+    <ul class="nav nav-pills center-pills mb-3 mx-auto width-max-content" id="pills-tab" role="tablist" aria-orientation="vertical">
       <% @sites.each do |site| %>
         <% if site.third.size + site.fourth.size > 0 %>
           <li class="nav-item" onclick="redirectUrl(this)">
