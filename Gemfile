@@ -12,7 +12,7 @@ gem 'font-awesome-sass', '~> 5.0.13'
 # Use Watir to navigate dynamic sites
 gem 'watir', '~> 6.0'
 # Use simple_form to generate simple forms!
-gem 'simple_form', '~> 4.0.0'
+gem 'simple_form', '~> 5.0.0'
 # Use validates_email_format_of to validate emails!
 gem 'validates_email_format_of', '~> 1.6', '>= 1.6.3'
 # Use validate_url to validate urls!
