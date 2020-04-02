@@ -38,8 +38,8 @@ foreman start
 6. Now you can browse the application from `localhost:5000`
 
 ## Built on top of KONTESTS
-KONTESTS Browser Extension: https://github.com/AliOsm/kontests-browser-extension
-Codeforces WatchR: https://github.com/xorum-io/codeforces_watcher
+- [KONTESTS Browser Extension](https://github.com/AliOsm/kontests-browser-extension)
+- [Codeforces WatchR](https://github.com/xorum-io/codeforces_watcher)
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/AliOsm/kontests.
