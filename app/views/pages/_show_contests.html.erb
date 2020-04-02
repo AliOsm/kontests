@@ -1,6 +1,6 @@
 <div class="<%= type %> primary-dynamic-bg px-3 py-4 shadow-sm rounded h-100 lazyLoader">
   <% if contests.blank? %>
-    <p class="lead text-center font-weight-bold">0 Running Contests</p>
+    <p class="lead text-center font-weight-bold">0 <%= type.capitalize %> Contests</p>
     <hr/>
     <p class="alert alert-warning"><%= icon('fas', 'info-circle') %> There are no <%= type %> contests <%= emojify(emoji) %></p>
   <% else %>
