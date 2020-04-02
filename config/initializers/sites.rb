@@ -9,8 +9,7 @@ SITES = [
   ['HackerRank', 'hacker_rank', 'https://hackerrank.com'],
   ['HackerEarth', 'hacker_earth', 'https://hackerearth.com'],
   ['Kick Start', 'kick_start', 'https://codingcompetitions.withgoogle.com/kickstart'],
-  ['LeetCode', 'leet_code', 'https://leetcode.com'],
-  ['A2OJ', 'a2oj', 'https://a2oj.com'],
+  ['LeetCode', 'leet_code', 'https://leetcode.com']
 ].freeze
 
 # thinking...

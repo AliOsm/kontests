@@ -10,20 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_11_185740) do
-
-  create_table "a2oj", id: false, force: :cascade do |t|
-    t.string "name"
-    t.string "url"
-    t.string "start_time"
-    t.string "end_time"
-    t.string "duration"
-    t.string "owner_name"
-    t.string "owner_url"
-    t.integer "registrants"
-    t.string "in_24_hours"
-    t.string "status"
-  end
+ActiveRecord::Schema.define(version: 2020_04_02_171928) do
 
   create_table "all", id: false, force: :cascade do |t|
     t.string "name"

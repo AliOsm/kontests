@@ -13,7 +13,6 @@ Competitive Programming Contests Schedule, visit it [here](https://kontests.net)
 8. [HackerEarth](https://www.hackerearth.com)
 9. [Kich Start](https://codingcompetitions.withgoogle.com/kickstart)
 10. [LeetCode](https://leetcode.com)
-11. [A2OJ](https://a2oj.com)
 
 ## Run it Locally
 
@@ -40,6 +39,7 @@ foreman start
 
 ## Built on top of KONTESTS
 KONTESTS Browser Extension: https://github.com/AliOsm/kontests-browser-extension
+Codeforces WatchR: https://github.com/xorum-io/codeforces_watcher
 
 ## Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/AliOsm/kontests.
