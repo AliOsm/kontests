@@ -125,7 +125,7 @@ GEM
     pg (1.2.3)
     popper_js (1.16.0)
     public_suffix (4.0.3)
-    puma (3.12.4)
+    puma (3.12.6)
     rack (2.2.3)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
@@ -258,7 +258,7 @@ DEPENDENCIES
   mini_racer
   nokogiri (>= 1.10.4)
   pg
-  puma (~> 3.11)
+  puma (~> 3.12)
   rack-cors
   rails (~> 5.2.0)
   rails-timeago (~> 2.16)
