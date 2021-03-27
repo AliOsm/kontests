@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| 'https://github.com/#{repo}.git' }
 
-ruby '2.5.0'
+ruby '2.6.6'
 
 # Use Bootstrap as default CSS framework
 gem 'bootstrap', '>= 4.3.1'
