@@ -2,7 +2,7 @@ class CodeChefService < SiteService
   CONTESTS_URL = 'https://www.codechef.com/contests'
 
 	def update_contests
-		response = make_request CONTESTS_URL, RequestType::HTTP
+		response = make_request CONTESTS_URL, RequestType::WATIR
 
 		data = create_data_object response, DataObjectType::NOKOGIRI
 
