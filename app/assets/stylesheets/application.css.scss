@@ -132,23 +132,21 @@ div.dataTables_wrapper div.dataTables_paginate {
   animation: fa-spin 2s linear infinite;
 }
 
-.dark-scrollbar::-webkit-scrollbar-track {
+.dataTables_scroll .dataTables_scrollBody::-webkit-scrollbar-track, .dark-scrollbar::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	border-radius: 10px;
 }
 
-.dark-scrollbar::-webkit-scrollbar {
+.dataTables_scroll .dataTables_scrollBody::-webkit-scrollbar, .dark-scrollbar::-webkit-scrollbar {
 	width: 12px;
   height: 8px;
 }
 
-.dark-scrollbar::-webkit-scrollbar-thumb {
-	border-radius: 10px;
+.dataTables_scroll .dataTables_scrollBody::-webkit-scrollbar-thumb, .dark-scrollbar::-webkit-scrollbar-thumb {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
 	background-color: rgb(170, 170, 170);
 }
 
-.dark-scrollbar:hover::-webkit-scrollbar-thumb {
+.dataTables_scroll .dataTables_scrollBody:hover::-webkit-scrollbar-thumb, .dark-scrollbar:hover::-webkit-scrollbar-thumb {
 	background-color: rgb(109, 107, 107);
 }
 

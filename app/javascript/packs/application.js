@@ -35,10 +35,12 @@ import $ from 'jquery';
 $(document).on('turbolinks:load', function() {
     $(function () {
         $('[data-toggle="tooltip"]').tooltip();
-        $('.dataTable').DataTable({
+        var tables = $('.dataTable').DataTable({
             'ordering': false,
             'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
             'pagingType': 'simple',
+            'scrollX': true,
+            'autoWidth': false,
         });
     });
 
