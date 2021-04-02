@@ -33,18 +33,22 @@ import 'popper.js';
 import $ from 'jquery';
 
 $(document).on('turbolinks:load', function() {
-    $(function () {
+    $(function() {
         $('[data-toggle="tooltip"]').tooltip();
-        var tables = $('.dataTable').DataTable({
+        $('.dataTable').DataTable({
             'ordering': false,
             'lengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
             'pagingType': 'simple',
             'scrollX': true,
             'autoWidth': false,
         });
+
+        $('a[data-toggle="pill"]').on('shown.bs.tab', function() {
+            $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
+        })
     });
 
-    $('#darkModeSwitch').on('change', function(){
+    $('#darkModeSwitch').on('change', function() {
         var state = $(this).prop('checked');
         state ? switchTheme('dark') : switchTheme('default');
     });
