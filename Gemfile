@@ -25,8 +25,6 @@ gem 'google-analytics-rails', '1.1.1'
 gem 'rack-cors', :require => 'rack/cors'
 # Use Nokogiri for crawling
 gem 'nokogiri', '>= 1.10.4'
-# Use Ruby::Enum to create Enum-like behavior in Ruby
-gem 'ruby-enum', '~> 0.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0'

@@ -23,7 +23,7 @@ class CodeforcesService < SiteService
 
 	def create_contests contests
 		contests.reverse.each do |contest|
-      next unless ContestStatus.values.include? contest['phase']
+      next unless ContestStatus.values.include? contest['phase'].to_sym
       contest_info = extract_contest_info contest
       create_contest_record Codeforces, contest_info
     end

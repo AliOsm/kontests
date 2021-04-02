@@ -1,30 +1,13 @@
 class SiteService
+  include ContestStatus
+  include RequestType
+  include DataObjectType
+
   require 'json'
   require 'time'
   require 'watir'
   require 'open-uri'
   require 'nokogiri'
-
-  class ContestStatus
-    include Ruby::Enum
-
-    define :BEFORE, 'BEFORE'
-    define :CODING, 'CODING'
-  end
-
-  class RequestType
-    include Ruby::Enum
-
-    define :HTTP, 'HTTP'
-    define :WATIR, 'WATIR'
-  end
-
-  class DataObjectType
-    include Ruby::Enum
-
-    define :JSON, 'JSON'
-    define :NOKOGIRI, 'NOKOGIRI'
-  end
 
   USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'
   UTC_FORMAT = '%Y-%m-%dT%H:%M:%S.%LZ'
@@ -70,7 +53,7 @@ class SiteService
 
   def create_data_object response, object_type
     if object_type.eql? DataObjectType::JSON
-      JSON.load(response)
+      ::JSON.load(response)
     elsif object_type.eql? DataObjectType::NOKOGIRI
       Nokogiri::HTML(response)
     else
