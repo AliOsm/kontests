@@ -1,13 +1,15 @@
 class HackerRankService < SiteService
   CONTESTS_URL1 = 'https://www.hackerrank.com/rest/contests/upcoming?limit=100'
   CONTESTS_URL2 = 'https://www.hackerrank.com/rest/contests/college?limit=100'
+  REQUEST_TYPE = RequestType::HTTP
+  DATA_OBJECT_TYPE = DataObjectType::JSON
 
 	def update_contests
-    response1 = make_request CONTESTS_URL1, RequestType::HTTP
-		response2 = make_request CONTESTS_URL2, RequestType::HTTP
+    response1 = make_request CONTESTS_URL1, REQUEST_TYPE
+		response2 = make_request CONTESTS_URL2, REQUEST_TYPE
 
-    data1 = create_data_object response1, DataObjectType::JSON
-    data2 = create_data_object response2, DataObjectType::JSON
+    data1 = create_data_object response1, DATA_OBJECT_TYPE
+    data2 = create_data_object response2, DATA_OBJECT_TYPE
 
     contests = extract_contests data1, data2
 
@@ -40,7 +42,7 @@ class HackerRankService < SiteService
 		contests.each do |contest|
       contest_info = extract_contest_info contest
       next if contest_info.nil?
-      create_contest_record HackerRank, contest_info
+      create_contest_record contest_info
     end
 	end
 

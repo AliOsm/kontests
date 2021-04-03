@@ -4,23 +4,24 @@ require './config/environment'
 
 module Clockwork
   handler do |job|
-    if job.eql?('frequent.ping')
+    case job
+    when 'frequent.ping'
       PingService.ping
-    elsif job.eql?('frequent.2_min')
-      AllService.update_contests
-    elsif job.eql?('frequent.3_min')
-      CodeforcesService.update_contests
-      CodeforcesGymService.update_contests
-      TopCoderService.update_contests
-      AtCoderService.update_contests
-    elsif job.eql?('frequent.5_min')
-      CodeChefService.update_contests
-      HackerRankService.update_contests
-      HackerEarthService.update_contests
-      LeetCodeService.update_contests
-    elsif job.eql?('frequent.7_min')
-      CsAcademyService.update_contests
-      KickStartService.update_contests
+    when 'frequent.2_min'
+      AllService.new.update_contests
+    when 'frequent.3_min'
+      CodeforcesService.new.update_contests
+      CodeforcesGymService.new.update_contests
+      TopCoderService.new.update_contests
+      AtCoderService.new.update_contests
+    when 'frequent.5_min'
+      CodeChefService.new.update_contests
+      HackerRankService.new.update_contests
+      HackerEarthService.new.update_contests
+      LeetCodeService.new.update_contests
+    when 'frequent.7_min'
+      CsAcademyService.new.update_contests
+      KickStartService.new.update_contests
     end
   end
 

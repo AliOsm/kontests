@@ -1,19 +1,7 @@
 class CodeforcesGymService < SiteService
   CONTESTS_URL = 'https://codeforces.com/api/contest.list?gym=true'
-
-	def update_contests
-		response = make_request CONTESTS_URL, RequestType::HTTP
-
-		data = create_data_object response, DataObjectType::JSON
-
-    contests = extract_contests data
-
-    CodeforcesGym.delete_all
-
-    create_contests contests
-
-    update_last_update 'codeforces_gym'
-	end
+  REQUEST_TYPE = RequestType::HTTP
+  DATA_OBJECT_TYPE = DataObjectType::JSON
 
 	private
 
@@ -25,7 +13,7 @@ class CodeforcesGymService < SiteService
     contests.reverse.each do |contest|
       next unless ContestStatus.values.include? contest['phase'].to_sym
       contest_info = extract_contest_info contest
-      create_contest_record CodeforcesGym, contest_info
+      create_contest_record contest_info
     end
   end
 

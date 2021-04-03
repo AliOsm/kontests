@@ -1,19 +1,11 @@
 class AllService < SiteService
-	def update_contests
-		response = make_request
-
-    contests = extract_contests response
-
-    All.delete_all
-
-    create_contests contests
-
-    update_last_update 'all'
-	end
+  CONTESTS_URL = 'dummy'
+  REQUEST_TYPE = RequestType::DUMMY
+  DATA_OBJECT_TYPE = DataObjectType::DUMMY
 
 	private
 
-  def make_request
+  def make_request url, request_type
     SITES[1..-1].map do |site|
       site.second.camelize.constantize.pluck(
         :name,
@@ -51,7 +43,7 @@ class AllService < SiteService
 	def create_contests contests
 		contests.each do |contest|
       contest_info = extract_contest_info contest
-      create_contest_record All, contest_info
+      create_contest_record contest_info
     end
 	end
 

@@ -1,19 +1,7 @@
 class HackerEarthService < SiteService
   CONTESTS_URL = 'https://www.hackerearth.com/chrome-extension/events'
-
-	def update_contests
-		response = make_request CONTESTS_URL, RequestType::HTTP
-
-		data = create_data_object response, DataObjectType::JSON
-
-    contests = extract_contests data
-
-    HackerEarth.delete_all
-
-    create_contests contests
-
-    update_last_update 'hacker_earth'
-	end
+  REQUEST_TYPE = RequestType::HTTP
+  DATA_OBJECT_TYPE = DataObjectType::JSON
 
 	private
 
@@ -25,7 +13,7 @@ class HackerEarthService < SiteService
 		contests.each do |contest|
       contest_info = extract_contest_info contest
       next if contest_info.nil?
-      create_contest_record HackerEarth, contest_info
+      create_contest_record contest_info
     end
 	end
 

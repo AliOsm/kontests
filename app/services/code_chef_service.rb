@@ -1,19 +1,7 @@
 class CodeChefService < SiteService
   CONTESTS_URL = 'https://www.codechef.com/contests'
-
-	def update_contests
-		response = make_request CONTESTS_URL, RequestType::WATIR
-
-		data = create_data_object response, DataObjectType::NOKOGIRI
-
-    tables = extract_contests data
-
-    CodeChef.delete_all
-
-    create_contests tables
-
-    update_last_update 'code_chef'
-	end
+  REQUEST_TYPE = RequestType::WATIR
+  DATA_OBJECT_TYPE = DataObjectType::NOKOGIRI
 
 	private
 
@@ -29,7 +17,7 @@ class CodeChefService < SiteService
 
       contests.each do |contest|
         contest_info = extract_contest_info contest
-        create_contest_record CodeChef, contest_info
+        create_contest_record contest_info
       end
     end
 	end

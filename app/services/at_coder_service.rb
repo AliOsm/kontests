@@ -1,19 +1,7 @@
 class AtCoderService < SiteService
   CONTESTS_URL = 'https://atcoder.jp/contests'
-
-	def update_contests
-		response = make_request CONTESTS_URL, RequestType::HTTP
-
-		data = create_data_object response, DataObjectType::NOKOGIRI
-
-    tables = extract_contests data
-
-    AtCoder.delete_all
-
-    create_contests tables
-
-    update_last_update 'at_coder'
-	end
+  REQUEST_TYPE = RequestType::HTTP
+  DATA_OBJECT_TYPE = DataObjectType::NOKOGIRI
 
 	private
 
@@ -40,7 +28,7 @@ class AtCoderService < SiteService
 
       contests.each do |contest|
         contest_info = extract_contest_info contest
-        create_contest_record AtCoder, contest_info
+        create_contest_record contest_info
       end
     end
 	end

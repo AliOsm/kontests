@@ -1,19 +1,7 @@
 class TopCoderService < SiteService
   CONTESTS_URL = 'https://clients6.google.com/calendar/v3/calendars/appirio.com_bhga3musitat85mhdrng9035jg@group.calendar.google.com/events?calendarId=appirio.com_bhga3musitat85mhdrng9035jg%40group.calendar.google.com&timeMin=2019-01-01T00%3A00%3A00-04%3A00&key=AIzaSyBNlYH01_9Hc5S1J9vuFmu2nUqBZJNAXxs'
-
-	def update_contests
-		response = make_request CONTESTS_URL, RequestType::HTTP
-
-		data = create_data_object response, DataObjectType::JSON
-
-    contests = extract_contests data
-
-    TopCoder.delete_all
-
-    create_contests contests
-
-    update_last_update 'top_coder'
-	end
+  REQUEST_TYPE = RequestType::HTTP
+  DATA_OBJECT_TYPE = DataObjectType::JSON
 
 	private
 
@@ -28,7 +16,7 @@ class TopCoderService < SiteService
 		contests.each do |contest|
       contest_info = extract_contest_info contest
       next if contest_info.nil?
-      create_contest_record TopCoder, contest_info
+      create_contest_record contest_info
     end
 	end
 
