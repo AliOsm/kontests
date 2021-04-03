@@ -17,6 +17,7 @@ module Kontests
     # in config/environments, which are processed later.
     #
     # config.time_zone = "Central Time (US & Canada)"
+    config.eager_load_paths << Rails.root.join('lib')
     config.eager_load_paths << Rails.root.join('lib/enums')
 
     config.middleware.insert_before 0, Rack::Cors do

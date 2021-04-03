@@ -1,15 +1,13 @@
 class SiteService
+  include Requesters
+  include Parsers
+
   include ContestStatus
   include RequestType
   include DataObjectType
 
-  require 'json'
   require 'time'
-  require 'watir'
-  require 'open-uri'
-  require 'nokogiri'
 
-  USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0'
   UTC_FORMAT = '%Y-%m-%dT%H:%M:%S.%LZ'
 
   SECONDS_IN_MINUTE = 60
@@ -17,20 +15,17 @@ class SiteService
   SECONDS_IN_DAY    = SECONDS_IN_HOUR * 24
 
   def update_contests
-    self_service = self.class
-    self_model = get_service_model
+    response = make_request self.class::CONTESTS_URL, self.class::REQUEST_TYPE
 
-    response = make_request self_service::CONTESTS_URL, self_service::REQUEST_TYPE
-
-    data = create_data_object response, self_service::DATA_OBJECT_TYPE
+    data = create_data_object response, self.class::DATA_OBJECT_TYPE
 
     contests = extract_contests data
 
-    self_model.delete_all
+    service_model.delete_all
 
     create_contests contests
 
-    update_last_update self_model.name.underscore
+    update_last_update service_model.name.underscore
   end
 
   private
@@ -48,45 +43,18 @@ class SiteService
   end
 
   def make_request url, request_type
-    case request_type
-    when RequestType::DUMMY
-      nil
-    when RequestType::HTTP
-      open(url, 'User-Agent' => USER_AGENT).read
-    when RequestType::WATIR
-      opts = {
-        headless: true
-      }
-
-      if chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-        opts.merge!(options: {binary: chrome_bin})
-      end
-
-      browser = Watir::Browser.new :chrome, opts
-
-      browser.goto url
-      sleep 30.seconds
-
-      html = browser.html
-
-      browser.close
-
-      html
+    if RequestType.values.include? request_type
+      Requesters.send("#{request_type}_request", url)
     else
-      raise ArgumentError.new("Expected request_type to has one of #{RequestType.values}, got #{request_type}.")
+      raise ArgumentError.new("Expected request_type to has one of #{RequestType.values} values, got #{request_type}.")
     end
   end
 
   def create_data_object response, object_type
-    case object_type
-    when DataObjectType::DUMMY
-      response
-    when DataObjectType::JSON
-      ::JSON.load(response)
-    when DataObjectType::NOKOGIRI
-      Nokogiri::HTML(response)
+    if DataObjectType.values.include? object_type
+      Parsers.send("#{object_type}_parse", response)
     else
-      raise ArgumentError.new("Expected object_type to has one of #{DataObjectType.values}, got #{object_type}.")
+      raise ArgumentError.new("Expected object_type to has one of #{DataObjectType.values} values, got #{object_type}.")
     end
   end
 
@@ -95,7 +63,7 @@ class SiteService
   end
 
   def create_contest_record params
-    get_service_model.create(params)
+    service_model.create(params)
   end
 
 	def in_24_hours? start_time, status
@@ -110,7 +78,7 @@ class SiteService
     start_time < Time.now.in_time_zone('UTC') ? ContestStatus::CODING : ContestStatus::BEFORE
   end
 
-  def get_service_model
+  def service_model
     self.class.name.sub('Service', '').constantize
   end
 end

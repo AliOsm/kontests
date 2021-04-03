@@ -1,7 +1,7 @@
 module DataObjectType
   extend Enums
 
-  DUMMY    = :DUMMY
-  JSON     = :JSON
-  NOKOGIRI = :NOKOGIRI
+  DUMMY    = :dummy
+  JSON     = :json
+  NOKOGIRI = :nokogiri
 end

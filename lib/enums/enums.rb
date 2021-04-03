@@ -1,5 +1,5 @@
 module Enums
 	def values
-		self.constants
+		self.constants.map { |c| self.const_get(c) }
 	end
 end

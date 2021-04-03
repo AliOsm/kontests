@@ -1,7 +1,7 @@
 module RequestType
   extend Enums
 
-  DUMMY = :DUMMY
-  HTTP  = :HTTP
-  WATIR = :WATIR
+  DUMMY = :dummy
+  HTTP  = :http
+  WATIR = :watir
 end
