@@ -22,6 +22,7 @@ module Clockwork
     when 'frequent.7_min'
       CsAcademyService.new.update_contests
       KickStartService.new.update_contests
+      TophService.new.update_contests
     end
   end
 

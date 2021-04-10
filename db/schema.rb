@@ -182,6 +182,8 @@ ActiveRecord::Schema.define(version: 2021_04_10_170146) do
     t.string "start_time"
     t.string "end_time"
     t.string "duration"
+    t.string "is_rated"
+    t.string "is_official"
     t.string "in_24_hours"
     t.string "status"
   end
