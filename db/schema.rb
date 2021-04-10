@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_151834) do
+ActiveRecord::Schema.define(version: 2021_04_10_170146) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -167,6 +167,16 @@ ActiveRecord::Schema.define(version: 2021_03_28_151834) do
   end
 
   create_table "top_coder", id: false, force: :cascade do |t|
+    t.string "name"
+    t.string "url"
+    t.string "start_time"
+    t.string "end_time"
+    t.string "duration"
+    t.string "in_24_hours"
+    t.string "status"
+  end
+
+  create_table "toph", id: false, force: :cascade do |t|
     t.string "name"
     t.string "url"
     t.string "start_time"
