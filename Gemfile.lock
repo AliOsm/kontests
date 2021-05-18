@@ -130,7 +130,8 @@ GEM
       racc (~> 1.4)
     pg (1.2.3)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-cors (1.1.1)
@@ -262,7 +263,7 @@ DEPENDENCIES
   mini_racer
   nokogiri (>= 1.10.4)
   pg
-  puma (~> 3.12)
+  puma (~> 4.3)
   rack-cors
   rails (~> 6.0)
   rails-timeago (~> 2.16)
