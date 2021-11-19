@@ -15,17 +15,21 @@ class SiteService
   SECONDS_IN_DAY    = SECONDS_IN_HOUR * 24
 
   def update_contests
-    response = make_request self.class::CONTESTS_URL, self.class::REQUEST_TYPE
+    begin
+      response = make_request self.class::CONTESTS_URL, self.class::REQUEST_TYPE
 
-    data = create_data_object response, self.class::DATA_OBJECT_TYPE
+      data = create_data_object response, self.class::DATA_OBJECT_TYPE
 
-    contests = extract_contests data
+      contests = extract_contests data
 
-    service_model.delete_all
+      service_model.delete_all
 
-    create_contests contests
+      create_contests contests
 
-    update_last_update service_model.name.underscore
+      update_last_update service_model.name.underscore
+    rescue Exception => exception
+      puts exception.backtrace
+    end
   end
 
   private
