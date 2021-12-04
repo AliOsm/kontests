@@ -48,6 +48,16 @@ $(document).on('turbolinks:load', function() {
         })
     });
 
+    $('#submit_suggest').on('click', function() {
+        $('#new_suggest').submit();
+        return true;
+    });
+
+    $('#submit_join').on('click', function() {
+        $('#new_join').submit();
+        return true;
+    });
+
     $('#darkModeSwitch').on('change', function() {
         var state = $(this).prop('checked');
         state ? switchTheme('dark') : switchTheme('default');
