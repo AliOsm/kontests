@@ -1,12 +1,12 @@
 class LeetCodeService < SiteService
-  CONTESTS_URL = 'https://leetcode.com/contest/api/list'
+  CONTESTS_URL = 'https://leetcode.com/graphql?query={%20allContests%20{%20title%20titleSlug%20startTime%20duration%20__typename%20}%20}'
   REQUEST_TYPE = RequestType::HTTP
   DATA_OBJECT_TYPE = DataObjectType::JSON
 
 	private
 
 	def extract_contests data
-    data['contests']
+    data['data']['allContests']
 	end
 
 	def create_contests contests
@@ -24,7 +24,7 @@ class LeetCodeService < SiteService
     contest_info[:url] = "https://leetcode.com/contest/#{contest['title_slug']}"
     contest_info[:duration] = contest['duration'].to_i
 
-    start_time = DateTime.strptime contest['start_time'].to_s, '%s'
+    start_time = DateTime.strptime contest['startTime'].to_s, '%s'
     start_time = Time.parse start_time.to_s
     end_time = start_time + contest_info[:duration]
 
