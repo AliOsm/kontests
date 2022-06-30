@@ -21,7 +21,7 @@ class LeetCodeService < SiteService
     contest_info = {}
 
     contest_info[:name] = contest['title']
-    contest_info[:url] = "https://leetcode.com/contest/#{contest['title_slug']}"
+    contest_info[:url] = "https://leetcode.com/contest/#{contest['titleSlug']}"
     contest_info[:duration] = contest['duration'].to_i
 
     start_time = DateTime.strptime contest['startTime'].to_s, '%s'
