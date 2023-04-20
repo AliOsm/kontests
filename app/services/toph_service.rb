@@ -3,33 +3,33 @@ class TophService < SiteService
   REQUEST_TYPE = RequestType::HTTP
   DATA_OBJECT_TYPE = DataObjectType::NOKOGIRI
 
-  CONTESTS_CONTAINER_INDEX = 2
+  CONTESTS_CONTAINER_INDEX = 1
 
-	private
+  private
 
-	def extract_contests data
-		container = data.css('.container')[CONTESTS_CONTAINER_INDEX]
-		row = container.css('.row').first
-		col_md_9 = row.css('.col-md-9').first
-		panels = col_md_9.css '.panel'
-		panels
-	end
+  def extract_contests data
+    container = data.css('.container')[CONTESTS_CONTAINER_INDEX]
+    row = container.css('.row').first
+    col_md_9 = row.css('.col-md-9').first
+    panels = col_md_9.css '.panel'
+    panels
+  end
 
-	def create_contests contests
-		contests.each do |contest|
-			contest_info = extract_contest_info contest
-			next if contest_info.nil?
+  def create_contests contests
+    contests.each do |contest|
+      contest_info = extract_contest_info contest
+      next if contest_info.nil?
       create_contest_record contest_info
     end
-	end
+  end
 
-	def extract_contest_info contest
-		contest_info = {}
+  def extract_contest_info contest
+    contest_info = {}
 
-		contest_info[:name] = contest.css('.caption h2').text
-		contest_info[:url] = "https://toph.co#{contest.css('.caption').first['href']}"
+    contest_info[:name] = contest.css('.caption h2').text
+    contest_info[:url] = "https://toph.co#{contest.css('.caption').first['href']}"
 
-		start_time = DateTime.strptime contest.css('.timestamp').first['data-time'].to_s, '%s'
+    start_time = DateTime.strptime contest.css('.timestamp').first['data-time'].to_s, '%s'
     start_time = Time.parse start_time.to_s
     contest_info[:start_time] = start_time.strftime UTC_FORMAT
     contest_info[:is_rated] = is_rated? contest
@@ -43,16 +43,16 @@ class TophService < SiteService
     contest_info[:end_time] = contest_info[:start_time]
     contest_info[:duration] = start_time - start_time
 
-		contest_info
-	rescue
-		nil
-	end
+    contest_info
+  rescue
+    nil
+  end
 
-	def is_rated? contest
-		contest.text.include?('Rated') ? 'Yes' : 'No'
-	end
+  def is_rated? contest
+    contest.text.include?('Rated') ? 'Yes' : 'No'
+  end
 
-	def is_official? contest
-		contest.text.include?('Official') ? 'Yes' : 'No'
-	end
+  def is_official? contest
+    contest.text.include?('Official') ? 'Yes' : 'No'
+  end
 end

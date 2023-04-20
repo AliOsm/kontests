@@ -18,9 +18,8 @@ Rails.application.routes.draw do
   get 'api/v1/code_chef'
   get 'api/v1/hacker_rank'
   get 'api/v1/hacker_earth'
-  get 'api/v1/kick_start'
+  # get 'api/v1/kick_start'
   get 'api/v1/leet_code'
-  get 'api/v1/a2oj'
   get 'api/v1/sites'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -25,7 +25,13 @@ class CodeChefService < SiteService
     contest_info[:duration] = contest['contest_duration'].to_i * SECONDS_IN_MINUTE
 
     contest_info[:start_time] = Time.parse(contest['contest_start_date_iso']).in_time_zone('UTC')
-    contest_info[:end_time] = Time.parse(contest['contest_end_date_iso']).in_time_zone('UTC')
+
+    if contest.key?('contest_end_date_iso')
+      contest_info[:end_time] = Time.parse(contest['contest_end_date_iso']).in_time_zone('UTC')
+    else
+      contest_info[:end_time] = contest_info[:start_time] + 10.years
+      contest_info[:duration] = contest_info[:end_time] - contest_info[:start_time]
+    end
 
     contest_info[:status] = get_status contest_info[:start_time]
     contest_info[:in_24_hours] = in_24_hours? contest_info[:start_time], contest_info[:status]

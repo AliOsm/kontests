@@ -17,10 +17,6 @@ module Requesters
       headless: true
     }
 
-    if chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-      opts.merge!(options: {binary: chrome_bin})
-    end
-
     browser = Watir::Browser.new :chrome, opts
 
     browser.goto url
