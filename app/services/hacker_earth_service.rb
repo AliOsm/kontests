@@ -22,8 +22,8 @@ class HackerEarthService < SiteService
 
     contest_info[:name] = contest['title']
     contest_info[:url] = contest['url']
-    start_time = Time.zone.parse(contest['start_timestamp']).in_time_zone('UTC')
-    end_time = Time.zone.parse(contest['end_timestamp']).in_time_zone('UTC')
+    start_time = Time.zone.parse(contest['start_utc_tz'])
+    end_time = Time.zone.parse(contest['end_utc_tz'])
     contest_info[:duration] = end_time - start_time
 
     return nil if Time.now > end_time
